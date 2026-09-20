@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Challenges - EcoTrack</title>
+
+    <link
+        rel="stylesheet"
+        href="css/challenges.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+
+        <div class="logo">
+
+            <span>🌱</span>
+
+            <strong>EcoTrack</strong>
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="tracker.html">
+                Tracker
+            </a>
+            <a href="history.html">
+                History
+            </a> 
+
+            <a href="insights.html">
+                Insights
+            </a>
+
+            <a
+                href="challenges.html"
+                class="active"
+            >
+                Challenges
+            </a>
+
+            <a href="achievements.html">
+                Achievements
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+        </div>
+
+
+        <div class="nav-actions">
+
+            <button
+                id="logoutBtn"
+                class="logout-btn"
+            >
+                Logout
+            </button>
+
+        </div>
+
+
+    </nav>
+
+
+
+    <!-- =========================
+         PAGE HEADER
+    ========================== -->
+
+    <header class="page-header">
+
+        <div class="header-content">
+
+
+            <div class="header-badge">
+                🎯 EcoTrack Challenges
+            </div>
+
+
+            <h1>
+                Take on a Challenge
+            </h1>
+
+
+            <p>
+                Keep tracking your activities, explore
+                different categories and build better
+                environmental habits.
+            </p>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="challenges-container">
+
+
+        <!-- =========================
+             SUMMARY
+        ========================== -->
+
+        <section
+            class="summary-section"
+            id="summarySection"
+        >
+
+            <div class="summary-card">
+
+
+                <div class="summary-icon">
+                    🏆
+                </div>
+
+
+                <div class="summary-content">
+
+                    <span class="section-label">
+                        YOUR PROGRESS
+                    </span>
+
+
+                    <h2>
+                        Challenge Progress
+                    </h2>
+
+
+                    <p>
+                        Complete activities and unlock
+                        challenges as you continue
+                        using EcoTrack.
+                    </p>
+
+                </div>
+
+
+                <div class="completed-box">
+
+                    <span
+                        id="completedCount"
+                        class="completed-number"
+                    >
+                        0
+                    </span>
+
+
+                    <span class="completed-text">
+                        Completed
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             EMPTY STATE
+        ========================== -->
+
+        <section
+            class="empty-state"
+            id="emptyState"
+        >
+
+            <div class="empty-icon">
+                🌱
+            </div>
+
+
+            <h2>
+                Start your first challenge
+            </h2>
+
+
+            <p>
+                Add your first activity to begin
+                completing EcoTrack challenges.
+            </p>
+
+
+            <a
+                href="tracker.html"
+                class="track-btn"
+            >
+                + Add Activity
+            </a>
+
+        </section>
+
+
+
+        <!-- =========================
+             CHALLENGES
+        ========================== -->
+
+        <section
+            class="challenges-section"
+            id="challengesSection"
+        >
+
+
+            <div class="section-title">
+
+                <span class="section-label">
+                    YOUR CHALLENGES
+                </span>
+
+
+                <h2>
+                    Keep Going
+                </h2>
+
+
+                <p>
+                    Complete these milestones by
+                    tracking your everyday activities.
+                </p>
+
+            </div>
+
+
+            <div
+                id="challengeList"
+                class="challenge-list"
+            >
+
+                <!-- Challenges generated by challenges.js -->
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <script
+        type="module"
+        src="js/challenges.js"
+    ></script>
+
+
+</body>
+
+</html>

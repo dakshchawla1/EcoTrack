@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Achievements - EcoTrack</title>
+
+    <link
+        rel="stylesheet"
+        href="css/achievements.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+
+        <div class="logo">
+
+            <span>🌱</span>
+
+            <strong>EcoTrack</strong>
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="tracker.html">
+                Tracker
+            </a>
+            <a href="history.html">
+                History
+            </a>
+
+            <a href="insights.html">
+                Insights
+            </a>
+
+            <a href="challenges.html">
+                Challenges
+            </a>
+
+            <a
+                href="achievements.html"
+                class="active"
+            >
+                Achievements
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+        </div>
+
+
+        <div class="nav-actions">
+
+            <button
+                id="logoutBtn"
+                class="logout-btn"
+            >
+                Logout
+            </button>
+
+        </div>
+
+
+    </nav>
+
+
+
+    <!-- =========================
+         PAGE HEADER
+    ========================== -->
+
+    <header class="page-header">
+
+        <div class="header-content">
+
+
+            <div class="header-badge">
+                🏆 EcoTrack Achievements
+            </div>
+
+
+            <h1>
+                Your Achievements
+            </h1>
+
+
+            <p>
+                Keep tracking your activities and
+                unlock achievements as you make
+                progress with EcoTrack.
+            </p>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="container">
+
+
+        <!-- =========================
+             SUMMARY
+        ========================== -->
+
+        <section
+            id="summarySection"
+            class="summary-section hidden"
+        >
+
+            <div class="summary-card">
+
+
+                <div class="summary-icon">
+                    🏆
+                </div>
+
+
+                <div class="summary-content">
+
+                    <span class="section-label">
+                        YOUR PROGRESS
+                    </span>
+
+
+                    <h2>
+                        Achievements Unlocked
+                    </h2>
+
+
+                    <p>
+                        Continue tracking activities
+                        to unlock more milestones.
+                    </p>
+
+                </div>
+
+
+                <div class="achievement-number-box">
+
+                    <span
+                        id="unlockedCount"
+                        class="achievement-number"
+                    >
+                        0
+                    </span>
+
+
+                    <span class="achievement-number-label">
+                        Unlocked
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             EMPTY STATE
+        ========================== -->
+
+        <section
+            id="emptyState"
+            class="empty-state hidden"
+        >
+
+            <div class="empty-icon">
+                🌱
+            </div>
+
+
+            <h2>
+                No achievements yet
+            </h2>
+
+
+            <p>
+                Start adding activities to your
+                EcoTrack account and unlock your
+                first achievement.
+            </p>
+
+
+            <a
+                href="tracker.html"
+                class="track-btn"
+            >
+                + Add Activity
+            </a>
+
+        </section>
+
+
+
+        <!-- =========================
+             ACHIEVEMENTS
+        ========================== -->
+
+        <section
+            id="achievementsSection"
+            class="achievements-section hidden"
+        >
+
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    MILESTONES
+                </span>
+
+
+                <h2>
+                    Your EcoTrack Achievements
+                </h2>
+
+
+                <p>
+                    Complete different activities
+                    and milestones to unlock badges.
+                </p>
+
+            </div>
+
+
+            <div
+                id="achievementList"
+                class="achievement-list"
+            >
+
+                <!-- Achievement cards generated by achievements.js -->
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <script
+        type="module"
+        src="js/achievements.js"
+    ></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard - EcoTrack</title>
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+</head>
+
+<body>
+
+
+    <!-- ==========================================
+         NAVBAR
+    =========================================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <span>🌱</span>
+
+            <strong>
+                EcoTrack
+            </strong>
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a
+                href="dashboard.html"
+                class="active"
+            >
+                Dashboard
+            </a>
+
+            <a href="tracker.html">
+                Tracker
+            </a>
+
+            <a href="history.html">
+                History
+            </a>
+
+            <a href="insights.html">
+                Insights
+            </a>
+
+            <a href="challenges.html">
+                Challenges
+            </a>
+
+            <a href="achievements.html">
+                Achievements
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <button
+                id="logoutBtn"
+                class="logout-btn"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ==========================================
+         PAGE HEADER
+    =========================================== -->
+
+    <header class="page-header">
+
+        <div class="header-content">
+
+            <span class="header-badge">
+                🌍 EcoTrack Dashboard
+            </span>
+
+            <h1 id="welcomeMessage">
+                Welcome to EcoTrack
+            </h1>
+
+            <p>
+                Understand your carbon footprint and
+                track your progress towards a greener lifestyle.
+            </p>
+
+        </div>
+
+    </header>
+
+
+
+    <main class="dashboard-container">
+
+
+        <!-- ==========================================
+             STATS
+        =========================================== -->
+
+        <section
+            id="stats"
+            class="stats-grid"
+        >
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🌍
+                </div>
+
+                <div class="stat-content">
+
+                    <span>
+                        Total Footprint
+                    </span>
+
+                    <strong>
+
+                        <span id="totalEmission">
+                            0.00
+                        </span>
+
+                        <small>
+                            kg CO₂
+                        </small>
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📊
+                </div>
+
+                <div class="stat-content">
+
+                    <span>
+                        Activities
+                    </span>
+
+                    <strong id="totalActivities">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🌱
+                </div>
+
+                <div class="stat-content">
+
+                    <span>
+                        Eco Score
+                    </span>
+
+                    <strong id="ecoScore">
+                        100
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             PERSONAL CARBON GOAL
+        =========================================== -->
+
+        <section class="goal-section">
+
+            <div class="goal-header">
+
+                <div>
+
+                    <span class="section-label">
+                        PERSONAL GOAL
+                    </span>
+
+                    <h2>
+                        Your Carbon Goal
+                    </h2>
+
+                    <p>
+                        Set a target and keep an eye on
+                        your carbon footprint.
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="setGoalBtn"
+                    class="goal-btn"
+                >
+                    🎯 Set Goal
+                </button>
+
+            </div>
+
+
+            <div
+                id="goalContent"
+                class="goal-content"
+            >
+
+                <div class="goal-empty">
+
+                    <div class="goal-empty-icon">
+                        🎯
+                    </div>
+
+                    <h3>
+                        No personal goal set
+                    </h3>
+
+                    <p>
+                        Set a carbon goal to start tracking
+                        your progress.
+                    </p>
+
+                    <button
+                        id="emptySetGoalBtn"
+                        class="goal-btn"
+                    >
+                        Set My Goal
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             WEEKLY COMPARISON
+        =========================================== -->
+
+        <section class="weekly-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        WEEKLY COMPARISON
+                    </span>
+
+                    <h2>
+                        This Week vs Last Week
+                    </h2>
+
+                    <p>
+                        Compare your recent carbon emissions
+                        with the previous week.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="weekly-grid">
+
+
+                <div class="weekly-card">
+
+                    <div class="weekly-card-icon">
+                        🌱
+                    </div>
+
+                    <div class="weekly-card-content">
+
+                        <span class="weekly-label">
+                            This Week
+                        </span>
+
+                        <div class="weekly-number">
+
+                            <strong id="thisWeekEmission">
+                                0.00
+                            </strong>
+
+                            <span class="weekly-unit">
+                                kg CO₂
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="weekly-card">
+
+                    <div class="weekly-card-icon">
+                        📅
+                    </div>
+
+                    <div class="weekly-card-content">
+
+                        <span class="weekly-label">
+                            Last Week
+                        </span>
+
+                        <div class="weekly-number">
+
+                            <strong id="lastWeekEmission">
+                                0.00
+                            </strong>
+
+                            <span class="weekly-unit">
+                                kg CO₂
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="weekly-card">
+
+                    <div class="weekly-card-icon">
+                        📈
+                    </div>
+
+                    <div class="weekly-card-content">
+
+                        <span class="weekly-label">
+                            Difference
+                        </span>
+
+                        <div class="weekly-number">
+
+                            <strong id="weeklyDifference">
+                                0.00
+                            </strong>
+
+                            <span class="weekly-unit">
+                                kg
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="weeklyMessage"
+                class="weekly-message"
+            >
+                Start tracking activities to compare
+                your weekly emissions.
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             PERSONALIZED TIPS
+        =========================================== -->
+
+        <section class="tips-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        PERSONALIZED TIPS
+                    </span>
+
+                    <h2>
+                        Tips Based on Your Activities
+                    </h2>
+
+                    <p>
+                        Simple suggestions based on the
+                        activities you have recorded.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="tipsList"
+                class="tips-list"
+            ></div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             CATEGORY BREAKDOWN
+        =========================================== -->
+
+        <section
+            id="breakdownSection"
+            class="dashboard-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        BREAKDOWN
+                    </span>
+
+                    <h2>
+                        Carbon by Category
+                    </h2>
+
+                    <p>
+                        See which areas contribute most to
+                        your recorded footprint.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="breakdown-grid">
+
+
+                <div class="breakdown-card">
+
+                    <div class="breakdown-icon">
+                        🚗
+                    </div>
+
+                    <div class="breakdown-content">
+
+                        <span>
+                            Transport
+                        </span>
+
+                        <div class="breakdown-number">
+
+                            <strong id="transportEmission">
+                                0.00
+                            </strong>
+
+                            <small>
+                                kg
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="breakdown-card">
+
+                    <div class="breakdown-icon">
+                        ⚡
+                    </div>
+
+                    <div class="breakdown-content">
+
+                        <span>
+                            Electricity
+                        </span>
+
+                        <div class="breakdown-number">
+
+                            <strong id="electricityEmission">
+                                0.00
+                            </strong>
+
+                            <small>
+                                kg
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="breakdown-card">
+
+                    <div class="breakdown-icon">
+                        🍽️
+                    </div>
+
+                    <div class="breakdown-content">
+
+                        <span>
+                            Food
+                        </span>
+
+                        <div class="breakdown-number">
+
+                            <strong id="foodEmission">
+                                0.00
+                            </strong>
+
+                            <small>
+                                kg
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="breakdown-card">
+
+                    <div class="breakdown-icon">
+                        🛍️
+                    </div>
+
+                    <div class="breakdown-content">
+
+                        <span>
+                            Shopping
+                        </span>
+
+                        <div class="breakdown-number">
+
+                            <strong id="shoppingEmission">
+                                0.00
+                            </strong>
+
+                            <small>
+                                kg
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             CHART
+        =========================================== -->
+
+        <section class="chart-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        OVERVIEW
+                    </span>
+
+                    <h2>
+                        Carbon Footprint Overview
+                    </h2>
+
+                    <p>
+                        Visualize your emissions across
+                        different activity categories.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-container">
+
+                <canvas
+                    id="carbonChart"
+                ></canvas>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             DAILY PROGRESS
+        =========================================== -->
+
+        <section
+            id="progressSection"
+            class="dashboard-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        DAILY PROGRESS
+                    </span>
+
+                    <h2>
+                        Your Recent Progress
+                    </h2>
+
+                    <p>
+                        Keep recording activities to understand
+                        your daily footprint.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="progressList"
+                class="progress-list"
+            ></div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             RECENT ACTIVITIES
+        =========================================== -->
+
+        <section
+            id="activitySection"
+            class="dashboard-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        RECENT ACTIVITY
+                    </span>
+
+                    <h2>
+                        Your Recent Activities
+                    </h2>
+
+                    <p>
+                        A quick look at your latest recorded activities.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="history.html"
+                    class="view-history-btn"
+                >
+                    View History →
+                </a>
+
+            </div>
+
+
+            <div
+                id="activityList"
+                class="activity-list"
+            ></div>
+
+
+            <div
+                id="emptyState"
+                class="empty-state"
+            >
+
+                <div class="empty-icon">
+                    🌱
+                </div>
+
+                <h3>
+                    No activities yet
+                </h3>
+
+                <p>
+                    Add your first activity to start
+                    tracking your carbon footprint.
+                </p>
+
+                <a
+                    href="tracker.html"
+                    class="track-btn"
+                >
+                    Add Your First Activity
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==========================================
+         GOAL MODAL
+    =========================================== -->
+
+    <div
+        id="goalModal"
+        class="goal-modal"
+    >
+
+        <div class="goal-modal-content">
+
+            <div class="goal-modal-header">
+
+                <div>
+
+                    <span class="section-label">
+                        CARBON GOAL
+                    </span>
+
+                    <h2>
+                        Set Your Goal
+                    </h2>
+
+                </div>
+
+
+                <button
+                    id="closeGoalModal"
+                    class="close-goal-btn"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="goalForm">
+
+                <div class="goal-form-group">
+
+                    <label for="goalAmount">
+                        Monthly Carbon Goal
+                    </label>
+
+                    <div class="goal-input">
+
+                        <input
+                            type="number"
+                            id="goalAmount"
+                            min="1"
+                            step="0.1"
+                            placeholder="Example: 100"
+                            required
+                        >
+
+                        <span>
+                            kg CO₂
+                        </span>
+
+                    </div>
+
+                    <small>
+                        Enter the maximum amount of carbon
+                        emissions you want to target each month.
+                    </small>
+
+                </div>
+
+
+                <div
+                    id="goalError"
+                    class="goal-error"
+                ></div>
+
+
+                <div class="goal-modal-actions">
+
+                    <button
+                        type="button"
+                        id="cancelGoal"
+                        class="cancel-goal-btn"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="save-goal-btn"
+                    >
+                        Save Goal
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js"
+    ></script>
+
+
+    <script
+        type="module"
+        src="js/dashboard.js"
+    ></script>
+
+</body>
+
+</html>

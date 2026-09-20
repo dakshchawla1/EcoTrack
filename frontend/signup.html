@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up | EcoTrack</title>
+
+    <link rel="stylesheet" href="css/auth.css">
+
+</head>
+
+
+<body>
+
+
+    <div class="auth-page">
+
+
+        <!-- Left Side -->
+
+        <div class="auth-info">
+
+            <a href="index.html" class="brand">
+
+                🌱 EcoTrack
+
+            </a>
+
+
+            <div class="auth-info-content">
+
+                <h1>
+                    Start your eco journey.
+                </h1>
+
+
+                <p>
+                    Create your EcoTrack account and begin understanding
+                    the environmental impact of your everyday activities.
+                </p>
+
+
+                <div class="info-points">
+
+                    <p>✓ Simple activity tracking</p>
+
+                    <p>✓ Personal carbon insights</p>
+
+                    <p>✓ Practical reduction ideas</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Right Side -->
+
+        <div class="auth-form-section">
+
+
+            <div class="auth-form">
+
+
+                <h2>
+                    Create your account
+                </h2>
+
+
+                <p class="form-subtitle">
+                    It only takes a minute.
+                </p>
+
+
+                <!-- Google Signup -->
+
+                <button
+                    type="button"
+                    class="google-btn"
+                    id="googleSignupBtn">
+
+                    <span>G</span>
+
+                    Continue with Google
+
+                </button>
+
+
+                <div class="divider">
+
+                    <span></span>
+
+                    <p>OR</p>
+
+                    <span></span>
+
+                </div>
+
+
+                <!-- Signup Form -->
+
+                <form id="signupForm">
+
+
+                    <label>Full Name</label>
+
+                    <input
+                        type="text"
+                        id="signupName"
+                        placeholder="Enter your name"
+                        required>
+
+
+                    <label>Email</label>
+
+                    <input
+                        type="email"
+                        id="signupEmail"
+                        placeholder="Enter your email"
+                        required>
+
+
+                    <label>Password</label>
+
+                    <input
+                        type="password"
+                        id="signupPassword"
+                        placeholder="Create a password"
+                        minlength="6"
+                        required>
+
+
+                    <label>Confirm Password</label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Confirm your password"
+                        minlength="6"
+                        required>
+
+
+                    <button
+                        type="submit"
+                        class="submit-btn">
+
+                        Create Account
+
+                    </button>
+
+
+                </form>
+
+
+                <p class="switch-page">
+
+                    Already have an account?
+
+                    <a href="login.html">
+
+                        Log in
+
+                    </a>
+
+                </p>
+
+
+                <p
+                    id="message"
+                    class="message">
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <script type="module" src="js/auth.js"></script>
+
+
+</body>
+
+</html>

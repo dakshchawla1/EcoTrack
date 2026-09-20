@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Profile - EcoTrack</title>
+
+    <link
+        rel="stylesheet"
+        href="css/profile.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+
+        <div class="logo">
+
+            <span>🌱</span>
+
+            <strong>EcoTrack</strong>
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="tracker.html">
+                Tracker
+            </a>
+            <a href="history.html">
+                History  
+            </a>
+
+            <a href="insights.html">
+                Insights
+            </a>
+
+            <a href="challenges.html">
+                Challenges
+            </a>
+
+            <a href="achievements.html">
+                Achievements
+            </a>
+
+            <a
+                href="profile.html"
+                class="active"
+            >
+                Profile
+            </a>
+
+        </div>
+
+
+        <div class="nav-actions">
+
+            <button
+                id="logoutBtn"
+                class="logout-btn"
+            >
+                Logout
+            </button>
+
+        </div>
+
+
+    </nav>
+
+
+
+    <!-- =========================
+         PAGE HEADER
+    ========================== -->
+
+    <header class="page-header">
+
+        <div class="header-content">
+
+
+            <div class="header-badge">
+                👤 EcoTrack Profile
+            </div>
+
+
+            <h1>
+                Your Profile
+            </h1>
+
+
+            <p>
+                View your account information and
+                track your EcoTrack progress.
+            </p>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="profile-container">
+
+
+        <!-- =========================
+             PROFILE CARD
+        ========================== -->
+
+        <section class="profile-card">
+
+
+            <div class="profile-top">
+
+
+                <div class="profile-image-wrapper">
+
+                    <img
+                        id="profilePhoto"
+                        class="profile-photo"
+                        src=""
+                        alt="Profile photo"
+                    >
+
+
+                    <div
+                        id="defaultPhoto"
+                        class="default-photo"
+                    >
+                        👤
+                    </div>
+
+                </div>
+
+
+                <div class="profile-heading">
+
+                    <span class="section-label">
+                        ACCOUNT
+                    </span>
+
+
+                    <h2 id="profileName">
+                        EcoTrack User
+                    </h2>
+
+
+                    <p id="profileEmail">
+                        Not available
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =========================
+                 ACCOUNT DETAILS
+            ========================== -->
+
+            <div class="details-section">
+
+
+                <div class="section-title">
+
+                    <span class="section-label">
+                        ACCOUNT INFORMATION
+                    </span>
+
+
+                    <h2>
+                        Personal Details
+                    </h2>
+
+                </div>
+
+
+                <div class="details-grid">
+
+
+                    <div class="detail-card">
+
+                        <span class="detail-label">
+                            Name
+                        </span>
+
+
+                        <strong id="detailName">
+                            Not available
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-card">
+
+                        <span class="detail-label">
+                            Email
+                        </span>
+
+
+                        <strong id="detailEmail">
+                            Not available
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-card">
+
+                        <span class="detail-label">
+                            Account Created
+                        </span>
+
+
+                        <strong id="accountCreated">
+                            Not available
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             ECO TRACKING SUMMARY
+        ========================== -->
+
+        <section class="stats-section">
+
+
+            <div class="section-title">
+
+                <span class="section-label">
+                    YOUR ECOTRACK ACTIVITY
+                </span>
+
+
+                <h2>
+                    Your Progress
+                </h2>
+
+
+                <p>
+                    A quick overview of your activity
+                    and environmental tracking.
+                </p>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📊
+                    </div>
+
+
+                    <div>
+
+                        <span class="stat-label">
+                            ACTIVITIES
+                        </span>
+
+
+                        <strong id="activityCount">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🌍
+                    </div>
+
+
+                    <div>
+
+                        <span class="stat-label">
+                            TOTAL FOOTPRINT
+                        </span>
+
+
+                        <strong>
+                            <span id="totalEmission">
+                                0.00
+                            </span>
+                            kg CO₂
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🏆
+                    </div>
+
+
+                    <div>
+
+                        <span class="stat-label">
+                            ACHIEVEMENTS
+                        </span>
+
+
+                        <strong id="achievementCount">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             QUICK ACTIONS
+        ========================== -->
+
+        <section class="quick-section">
+
+
+            <div class="section-title">
+
+                <span class="section-label">
+                    QUICK ACTIONS
+                </span>
+
+
+                <h2>
+                    Continue Your Journey
+                </h2>
+
+
+                <p>
+                    Keep building your EcoTrack progress.
+                </p>
+
+            </div>
+
+
+            <div class="quick-grid">
+
+
+                <a
+                    href="tracker.html"
+                    class="quick-card"
+                >
+
+                    <div class="quick-icon">
+                        ➕
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Track Activity
+                        </h3>
+
+
+                        <p>
+                            Add a new activity and
+                            calculate its estimated impact.
+                        </p>
+
+                    </div>
+
+
+                    <span class="quick-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+
+                <a
+                    href="insights.html"
+                    class="quick-card"
+                >
+
+                    <div class="quick-icon">
+                        📈
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            View Insights
+                        </h3>
+
+
+                        <p>
+                            Understand your footprint
+                            and see practical suggestions.
+                        </p>
+
+                    </div>
+
+
+                    <span class="quick-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+
+                <a
+                    href="achievements.html"
+                    class="quick-card"
+                >
+
+                    <div class="quick-icon">
+                        🏆
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Achievements
+                        </h3>
+
+
+                        <p>
+                            Check your unlocked
+                            EcoTrack milestones.
+                        </p>
+
+                    </div>
+
+
+                    <span class="quick-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <script
+        type="module"
+        src="js/profile.js"
+    ></script>
+
+
+</body>
+
+</html>

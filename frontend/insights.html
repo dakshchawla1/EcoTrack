@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Insights - EcoTrack</title>
+
+    <link
+        rel="stylesheet"
+        href="css/insights.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <span>🌱</span>
+
+            <strong>EcoTrack</strong>
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="tracker.html">
+                Tracker
+            </a>
+            <a href="history.html">
+                History
+            </a>
+
+            <a
+                href="insights.html"
+                class="active"
+            >
+                Insights
+            </a>
+
+            <a href="challenges.html">
+                Challenges
+            </a>
+
+            <a href="achievements.html">
+                Achievements
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+        </div>
+
+
+        <div class="nav-actions">
+
+            <button
+                id="logoutBtn"
+                class="logout-btn"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         PAGE HEADER
+    ========================== -->
+
+    <header class="page-header">
+
+        <div class="header-content">
+
+            <div class="header-badge">
+                📊 Carbon Insights
+            </div>
+
+            <h1 id="welcomeMessage">
+                Your Carbon Insights
+            </h1>
+
+            <p>
+                Understand where your carbon footprint
+                comes from and discover practical ways
+                to improve it.
+            </p>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="insights-container">
+
+
+        <!-- =========================
+             EMPTY STATE
+        ========================== -->
+
+        <section
+            class="empty-state"
+            id="emptyState"
+        >
+
+            <div class="empty-icon">
+                🌍
+            </div>
+
+            <h2>
+                No insights available yet
+            </h2>
+
+            <p>
+                Add some activities first and EcoTrack
+                will generate insights about your
+                carbon footprint.
+            </p>
+
+            <a
+                href="tracker.html"
+                class="track-btn"
+            >
+                + Add Activity
+            </a>
+
+        </section>
+
+
+
+        <!-- =========================
+             INSIGHTS CONTENT
+        ========================== -->
+
+        <section
+            class="insights-content"
+            id="insightsContent"
+        >
+
+
+            <!-- SUMMARY -->
+
+            <section class="summary-card">
+
+                <div class="summary-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            YOUR OVERVIEW
+                        </span>
+
+                        <h2>
+                            Carbon Footprint Summary
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <p
+                    id="summaryText"
+                    class="summary-text"
+                >
+                    Your carbon footprint insights
+                    will appear here.
+                </p>
+
+            </section>
+
+
+
+            <!-- BIGGEST SOURCE -->
+
+            <section class="biggest-source">
+
+                <div class="source-icon" id="sourceIcon">
+                    🌍
+                </div>
+
+                <div class="source-content">
+
+                    <span class="section-label">
+                        BIGGEST SOURCE
+                    </span>
+
+                    <h2 id="biggestSource">
+                        —
+                    </h2>
+
+                    <p>
+                        Estimated contribution:
+                        <strong>
+                            <span id="biggestSourceEmission">
+                                0
+                            </span>
+                            kg CO₂
+                        </strong>
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- CATEGORY BREAKDOWN -->
+
+            <section class="category-section">
+
+                <div class="section-title">
+
+                    <div>
+
+                        <span class="section-label">
+                            CATEGORY BREAKDOWN
+                        </span>
+
+                        <h2>
+                            Where Your Impact Comes From
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="category-grid">
+
+
+                    <!-- TRANSPORT -->
+
+                    <div class="category-card">
+
+                        <div class="category-icon">
+                            🚗
+                        </div>
+
+                        <div class="category-content">
+
+                            <h3>
+                                Transport
+                            </h3>
+
+                            <p
+                                id="transportEmission"
+                                class="category-emission"
+                            >
+                                0 kg CO₂
+                            </p>
+
+                            <p
+                                id="transportTip"
+                                class="category-tip"
+                            >
+                                —
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ELECTRICITY -->
+
+                    <div class="category-card">
+
+                        <div class="category-icon">
+                            ⚡
+                        </div>
+
+                        <div class="category-content">
+
+                            <h3>
+                                Electricity
+                            </h3>
+
+                            <p
+                                id="electricityEmission"
+                                class="category-emission"
+                            >
+                                0 kg CO₂
+                            </p>
+
+                            <p
+                                id="electricityTip"
+                                class="category-tip"
+                            >
+                                —
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- FOOD -->
+
+                    <div class="category-card">
+
+                        <div class="category-icon">
+                            🍽️
+                        </div>
+
+                        <div class="category-content">
+
+                            <h3>
+                                Food
+                            </h3>
+
+                            <p
+                                id="foodEmission"
+                                class="category-emission"
+                            >
+                                0 kg CO₂
+                            </p>
+
+                            <p
+                                id="foodTip"
+                                class="category-tip"
+                            >
+                                —
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- SHOPPING -->
+
+                    <div class="category-card">
+
+                        <div class="category-icon">
+                            🛍️
+                        </div>
+
+                        <div class="category-content">
+
+                            <h3>
+                                Shopping
+                            </h3>
+
+                            <p
+                                id="shoppingEmission"
+                                class="category-emission"
+                            >
+                                0 kg CO₂
+                            </p>
+
+                            <p
+                                id="shoppingTip"
+                                class="category-tip"
+                            >
+                                —
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- PERSONAL TIPS -->
+
+            <section class="tips-section">
+
+                <div class="section-title">
+
+                    <div>
+
+                        <span class="section-label">
+                            PRACTICAL TIPS
+                        </span>
+
+                        <h2>
+                            Ways You Can Improve
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="tipsContainer"
+                    class="tips-container"
+                >
+
+                    <!-- Tips are generated by insights.js -->
+
+                </div>
+
+            </section>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <script
+        type="module"
+        src="js/insights.js"
+    ></script>
+
+
+</body>
+
+</html>
