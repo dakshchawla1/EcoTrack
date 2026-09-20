@@ -1,27 +1,32 @@
-const { initializeApp, cert } =
-    require("firebase-admin/app");
+const {
+    initializeApp,
+    cert,
+    getApps
+} = require("firebase-admin/app");
 
-const { getAuth } =
-    require("firebase-admin/auth");
+const {
+    getAuth
+} = require("firebase-admin/auth");
 
+let serviceAccount;
 
-// Load Firebase service account
-const serviceAccount =
-    require("./serviceAccountKey.json");
+if (
+    process.env.FIREBASE_SERVICE_ACCOUNT_JSON
+) {
+    serviceAccount = JSON.parse(
+        process.env.FIREBASE_SERVICE_ACCOUNT_JSON
+    );
+} else {
+    serviceAccount =
+        require("./serviceAccountKey.json");
+}
 
+if (getApps().length === 0) {
+    initializeApp({
+        credential: cert(serviceAccount)
+    });
+}
 
-// Initialize Firebase Admin
-initializeApp({
-
-    credential:
-        cert(serviceAccount)
-
-});
-
-
-// Get Firebase Admin Authentication
-const auth =
-    getAuth();
-
+const auth = getAuth();
 
 module.exports = auth;
