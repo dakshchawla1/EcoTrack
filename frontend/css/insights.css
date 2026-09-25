@@ -1,1005 +1,294 @@
-/* =========================================
-   ECOTRACK INSIGHTS
-   SAME DESIGN SYSTEM AS TRACKER
-========================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-body {
-    font-family: "Inter", Arial, sans-serif;
-
-    background: linear-gradient(
-        180deg,
-        #f7faf5 0%,
-        #eef4eb 100%
-    );
-
-    color: #263326;
-
-    min-height: 100vh;
-}
-
-
-/* =========================================
-   NAVBAR
-========================================= */
-
-.navbar {
-    min-height: 72px;
-
-    background: #ffffff;
-
-    border-bottom: 1px solid #dfe7dc;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding: 0 5%;
-
-    position: sticky;
-
-    top: 0;
-
-    z-index: 100;
-
-    box-shadow:
-        0 2px 12px rgba(38, 51, 38, 0.04);
-}
-
-
-/* LOGO */
-
-.logo {
-    display: flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    color: #2f6b3c;
-
-    font-size: 21px;
-
-    white-space: nowrap;
-}
-
-
-.logo span {
-    font-size: 24px;
-}
-
-
-/* NAVIGATION */
-
-.nav-links {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 4px;
-
-    flex-wrap: wrap;
-}
-
-
-.nav-links a {
-    text-decoration: none;
-
-    color: #536254;
-
-    font-size: 14px;
-
-    font-weight: 600;
-
-    padding: 9px 12px;
-
-    border-radius: 8px;
-
-    transition:
-        background-color 0.2s ease,
-        color 0.2s ease;
-}
-
-
-.nav-links a:hover {
-    background-color: #edf5eb;
-
-    color: #2f6b3c;
-}
-
-
-.nav-links a.active {
-    background-color: #2f6b3c;
-
-    color: #ffffff;
-}
-
-
-/* LOGOUT */
-
-.nav-actions {
-    display: flex;
-
-    align-items: center;
-}
-
-
-.logout-btn {
-    min-height: 42px;
-
-    padding: 0 17px;
-
-    border: 1px solid #d5ddd2;
-
-    background: #ffffff;
-
-    color: #596259;
-
-    border-radius: 10px;
-
-    cursor: pointer;
-
-    font-family: inherit;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    transition:
-        background-color 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.2s ease;
-}
-
-
-.logout-btn:hover {
-    background-color: #f4f5f3;
-
-    border-color: #aeb8aa;
-
-    color: #29352b;
-
-    transform: translateY(-1px);
-}
-
-
-/* =========================================
-   PAGE HEADER
-========================================= */
-
+/* ==========================================================================
+   EcoTrack Insights Styles (insights.css)
+   Requires theme.css for variables, base reset, navbar, and footer
+   ========================================================================== */
+
+/* Page Header */
 .page-header {
-    padding: 55px 20px 35px;
-
-    text-align: center;
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 36px 0;
+    margin-bottom: 32px;
 }
-
 
 .header-content {
-    max-width: 760px;
-
-    margin: auto;
-}
-
-
-.header-badge {
-    display: inline-block;
-
-    padding: 8px 15px;
-
-    border-radius: 30px;
-
-    background-color: #e5f0e1;
-
-    color: #2f6b3c;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    margin-bottom: 15px;
-}
-
-
-.page-header h1 {
-    font-size: clamp(
-        32px,
-        5vw,
-        48px
-    );
-
-    line-height: 1.1;
-
-    color: #203224;
-
-    margin-bottom: 15px;
-
-    letter-spacing: -1px;
-}
-
-
-.page-header p {
-    color: #687469;
-
-    font-size: 16px;
-
-    line-height: 1.7;
-
-    max-width: 620px;
-
-    margin: auto;
-}
-
-
-/* =========================================
-   MAIN CONTAINER
-========================================= */
-
-.insights-container {
-    width: min(92%, 1000px);
-
-    margin: 0 auto 70px;
-}
-
-
-/* =========================================
-   EMPTY STATE
-========================================= */
-
-.empty-state {
-    background: #ffffff;
-
-    border: 1px solid #dfe7dc;
-
-    border-radius: 20px;
-
-    padding: 65px 25px;
-
-    text-align: center;
-
-    box-shadow:
-        0 12px 35px rgba(
-            38,
-            51,
-            38,
-            0.05
-        );
-}
-
-
-.empty-icon {
-    width: 78px;
-
-    height: 78px;
-
-    margin: 0 auto 18px;
-
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 4%;
     display: flex;
-
+    justify-content: space-between;
     align-items: center;
-
-    justify-content: center;
-
-    background: #eaf4e7;
-
-    border-radius: 22px;
-
-    font-size: 40px;
+    gap: 20px;
 }
 
+.header-text h1 {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.header-text p {
+    color: var(--text-secondary);
+    font-size: 14.5px;
+    max-width: 580px;
+    line-height: 1.5;
+}
+
+/* Insights Container */
+.insights-container {
+    max-width: 1160px;
+    margin: 0 auto 80px;
+    padding: 0 4%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 56px 24px;
+    background: var(--bg-surface);
+    border: 1px dashed var(--border-default);
+    border-radius: var(--radius-md);
+}
 
 .empty-state h2 {
-    color: #29362b;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
 
-    font-size: 23px;
+.empty-state p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    max-width: 440px;
+    margin: 0 auto 20px;
+    line-height: 1.5;
+}
 
+/* Insights Content Layout */
+.insights-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Summary Card */
+.summary-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 24px 28px;
+    box-shadow: var(--shadow-xs);
+}
+
+.section-label {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--brand-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.summary-card h2 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
     margin-bottom: 10px;
 }
 
-
-.empty-state p {
-    color: #707970;
-
-    max-width: 530px;
-
-    margin: 0 auto 26px;
-
-    line-height: 1.7;
-
-    font-size: 14px;
-}
-
-
-.track-btn {
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    min-height: 46px;
-
-    padding: 0 22px;
-
-    background: #2f6b3c;
-
-    color: #ffffff;
-
-    text-decoration: none;
-
-    border-radius: 11px;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    transition:
-        background-color 0.2s ease,
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-
-.track-btn:hover {
-    background: #255a31;
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 8px 18px rgba(
-            47,
-            107,
-            60,
-            0.18
-        );
-}
-
-
-/* =========================================
-   INSIGHTS CONTENT
-========================================= */
-
-.insights-content {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 28px;
-}
-
-
-/* =========================================
-   COMMON SECTION LABEL
-========================================= */
-
-.section-label {
-    display: block;
-
-    color: #687469;
-
-    font-size: 11px;
-
-    font-weight: 800;
-
-    letter-spacing: 0.8px;
-
-    margin-bottom: 7px;
-}
-
-
-/* =========================================
-   SUMMARY
-========================================= */
-
-.summary-card {
-    width: 100%;
-
-    background: #ffffff;
-
-    border: 1px solid #dfe7dc;
-
-    border-radius: 20px;
-
-    padding: 30px;
-
-    box-shadow:
-        0 10px 30px rgba(
-            38,
-            51,
-            38,
-            0.05
-        );
-}
-
-
-.summary-header h2 {
-    color: #263326;
-
-    font-size: 23px;
-
-    margin-bottom: 14px;
-}
-
-
 .summary-text {
-    color: #667166;
-
-    font-size: 15px;
-
-    line-height: 1.8;
-
-    max-width: 850px;
-
-    overflow-wrap: anywhere;
-}
-
-
-/* =========================================
-   BIGGEST SOURCE
-========================================= */
-
-.biggest-source {
-    width: 100%;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 20px;
-
-    padding: 27px 30px;
-
-    background: #eaf4e7;
-
-    border: 1px solid #cfe0ca;
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 8px 22px rgba(
-            47,
-            107,
-            60,
-            0.05
-        );
-}
-
-
-.source-icon {
-    width: 62px;
-
-    height: 62px;
-
-    min-width: 62px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background: #ffffff;
-
-    border: 1px solid #d4e3d0;
-
-    border-radius: 16px;
-
-    font-size: 30px;
-}
-
-
-.source-content {
-    min-width: 0;
-
-    flex: 1;
-}
-
-
-.source-content h2 {
-    color: #263326;
-
-    font-size: 23px;
-
-    margin-bottom: 6px;
-
-    text-transform: capitalize;
-
-    overflow-wrap: anywhere;
-}
-
-
-.source-content p {
-    color: #687469;
-
-    font-size: 14px;
-
+    font-size: 14.5px;
+    color: var(--text-secondary);
     line-height: 1.6;
 }
 
+/* Biggest Source Card */
+.biggest-source {
+    background: var(--brand-primary);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: var(--text-inverse);
+    box-shadow: var(--shadow-xs);
+}
+
+.biggest-source .section-label {
+    color: #a3e635;
+}
+
+.source-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.source-content h2 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.source-content p {
+    font-size: 14px;
+    color: #d1fae5;
+}
 
 .source-content strong {
-    color: #2f6b3c;
+    color: #ffffff;
+    font-family: var(--font-mono);
 }
 
-
-/* =========================================
-   SECTION TITLES
-========================================= */
+/* Category Grid */
+.category-section {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 24px 28px;
+    box-shadow: var(--shadow-xs);
+}
 
 .section-title {
-    margin-bottom: 22px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border-subtle);
 }
-
 
 .section-title h2 {
-    color: #263326;
-
-    font-size: 23px;
-
-    letter-spacing: -0.3px;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
 }
 
-
-/* =========================================
-   CATEGORY BREAKDOWN
-========================================= */
-
-.category-section {
-    margin-top: 2px;
+.section-title p {
+    font-size: 13.5px;
+    color: var(--text-secondary);
 }
-
 
 .category-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-    gap: 24px;
-
-    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
 }
-
 
 .category-card {
-    width: 100%;
-
-    min-width: 0;
-
+    background: var(--bg-surface-subtle);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    padding: 18px 20px;
     display: flex;
-
-    align-items: flex-start;
-
     gap: 16px;
-
-    padding: 24px;
-
-    background: #ffffff;
-
-    border: 1px solid #dfe7dc;
-
-    border-radius: 16px;
-
-    box-shadow:
-        0 7px 20px rgba(
-            38,
-            51,
-            38,
-            0.045
-        );
-
-    overflow: hidden;
-
-    transition:
-        transform 0.2s ease,
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
+    align-items: flex-start;
+    transition: border-color var(--transition-fast), background-color var(--transition-fast);
 }
-
 
 .category-card:hover {
-    transform: translateY(-2px);
-
-    border-color: #c6d8c0;
-
-    box-shadow:
-        0 11px 25px rgba(
-            38,
-            51,
-            38,
-            0.07
-        );
+    border-color: var(--border-default);
+    background-color: #ffffff;
 }
-
-
-.category-icon {
-    width: 50px;
-
-    height: 50px;
-
-    min-width: 50px;
-
-    flex-shrink: 0;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background: #edf5eb;
-
-    border-radius: 13px;
-
-    font-size: 24px;
-}
-
 
 .category-content {
-    min-width: 0;
-
     flex: 1;
 }
 
-
 .category-content h3 {
-    color: #304032;
-
-    font-size: 17px;
-
-    margin-bottom: 6px;
-
-    overflow-wrap: anywhere;
+    font-size: 15.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
 }
-
 
 .category-emission {
-    color: #2f6b3c;
-
-    font-size: 16px;
-
-    font-weight: 800;
-
-    margin-bottom: 9px;
-
-    white-space: normal;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    color: var(--brand-primary);
+    margin-bottom: 8px;
 }
-
 
 .category-tip {
-    color: #737d73;
-
     font-size: 13px;
-
-    line-height: 1.6;
-
-    overflow-wrap: anywhere;
-
-    word-break: normal;
+    color: var(--text-secondary);
+    line-height: 1.45;
 }
 
-
-/* =========================================
-   PRACTICAL TIPS
-========================================= */
-
-.tips-section {
-    margin-top: 14px;
+/* Recommendations Section */
+.recommendations-section {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 24px 28px;
+    box-shadow: var(--shadow-xs);
 }
 
-
-.tips-section .section-title {
-    margin-bottom: 22px;
-}
-
-
-.tips-container {
+.tips-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-    gap: 24px;
-
-    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
 }
-
 
 .tip-card {
-    width: 100%;
-
-    min-width: 0;
-
-    background: #ffffff;
-
-    border: 1px solid #dfe7dc;
-
-    border-radius: 16px;
-
-    padding: 24px;
-
-    box-shadow:
-        0 7px 20px rgba(
-            38,
-            51,
-            38,
-            0.045
-        );
-
-    transition:
-        transform 0.2s ease,
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
+    background: var(--bg-surface-subtle);
+    border: 1px solid var(--border-subtle);
+    border-left: 3px solid var(--brand-primary);
+    border-radius: var(--radius-sm);
+    padding: 16px 18px;
+    transition: border-color var(--transition-fast), background-color var(--transition-fast);
 }
-
 
 .tip-card:hover {
-    transform: translateY(-2px);
-
-    border-color: #c6d8c0;
-
-    box-shadow:
-        0 11px 25px rgba(
-            38,
-            51,
-            38,
-            0.07
-        );
+    border-color: var(--border-default);
+    border-left-color: var(--brand-primary-hover);
+    background-color: #ffffff;
 }
-
 
 .tip-card h3 {
-    color: #304032;
-
-    font-size: 16px;
-
-    margin-bottom: 9px;
-
-    overflow-wrap: anywhere;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 6px;
 }
-
 
 .tip-card p {
-    color: #707970;
-
     font-size: 13px;
-
-    line-height: 1.7;
-
-    overflow-wrap: anywhere;
+    color: var(--text-secondary);
+    line-height: 1.5;
 }
 
-
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 1050px) {
-
-    .nav-links a {
-        padding: 8px 9px;
-
-        font-size: 13px;
-    }
-
-}
-
-
-/* =========================================
-   NAVBAR MOBILE
-========================================= */
-
-@media (max-width: 800px) {
-
-    .navbar {
-        padding: 12px 5%;
-
-        gap: 12px;
-
-        flex-wrap: wrap;
-    }
-
-
-    .nav-links {
-        width: 100%;
-
-        order: 3;
-
-        padding-bottom: 5px;
-
-        overflow-x: auto;
-
-        justify-content: flex-start;
-
-        flex-wrap: nowrap;
-    }
-
-
-    .nav-actions {
-        margin-left: auto;
-    }
-
-
-    .page-header {
-        padding-top: 40px;
-    }
-
-
+/* Responsive */
+@media (max-width: 768px) {
     .category-grid,
-    .tips-container {
+    .tips-grid {
         grid-template-columns: 1fr;
-
-        gap: 20px;
     }
-
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 600px) {
-
-    .page-header h1 {
-        font-size: 34px;
-    }
-
-
-    .page-header p {
-        font-size: 14px;
-    }
-
-
-    .insights-container {
-        width: 94%;
-    }
-
-
-    .summary-card {
-        padding: 23px;
-    }
-
-
+    
     .biggest-source {
-        padding: 22px;
-
+        flex-direction: column;
         align-items: flex-start;
     }
-
-
-    .source-icon {
-        width: 52px;
-
-        height: 52px;
-
-        min-width: 52px;
-
-        font-size: 25px;
-    }
-
-
-    .source-content h2 {
-        font-size: 20px;
-    }
-
-
-    .category-card {
-        padding: 21px;
-    }
-
-
-    .empty-state {
-        padding: 45px 20px;
-    }
-
-}
-
-
-/* =========================================
-   SMALL MOBILE
-========================================= */
-
-@media (max-width: 430px) {
-
-    .navbar {
-        align-items: flex-start;
-    }
-
-
-    .logo {
-        font-size: 19px;
-    }
-
-
-    .logo span {
-        font-size: 22px;
-    }
-
-
-    .nav-links {
-        gap: 2px;
-    }
-
-
-    .nav-links a {
-        font-size: 12px;
-
-        padding: 7px 9px;
-    }
-
-
-    .logout-btn {
-        min-height: 40px;
-
-        padding: 0 13px;
-
-        font-size: 13px;
-    }
-
-
-    .page-header {
-        padding: 32px 15px 25px;
-    }
-
-
-    .insights-container {
-        width: 94%;
-    }
-
-
-    .summary-card {
-        padding: 20px;
-    }
-
-
-    .biggest-source {
-        gap: 13px;
-
-        padding: 20px;
-    }
-
-
-    .category-card {
-        gap: 13px;
-
-        padding: 19px;
-    }
-
-
-    .category-icon {
-        width: 44px;
-
-        height: 44px;
-
-        min-width: 44px;
-
-        font-size: 21px;
-    }
-
-
-    .category-content h3 {
-        font-size: 16px;
-    }
-
-
-    .category-emission {
-        font-size: 15px;
-    }
-
-
-    .category-tip {
-        font-size: 12px;
-    }
-
 }

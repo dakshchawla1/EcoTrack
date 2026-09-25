@@ -2,286 +2,145 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Challenges - EcoTrack</title>
-
-    <link
-        rel="stylesheet"
-        href="css/challenges.css"
-    >
-
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/challenges.css">
 </head>
-
 
 <body>
 
-
-    <!-- =========================
-         NAVBAR
-    ========================== -->
-
+    <!-- NAVBAR -->
     <nav class="navbar">
+        <a href="index.html" class="logo">
+            <svg class="logo-mark" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+            </svg>
+            EcoTrack
+        </a>
 
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
 
-        <div class="logo">
-
-            <span>🌱</span>
-
-            <strong>EcoTrack</strong>
-
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="tracker.html">Track Activity</a>
+            <a href="history.html">History</a>
+            <a href="insights.html">Insights</a>
+            <a href="challenges.html" class="active">Challenges</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="profile.html">Profile</a>
         </div>
-
-
-        <div class="nav-links">
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="dashboard.html">
-                Dashboard
-            </a>
-
-            <a href="tracker.html">
-                Tracker
-            </a>
-            <a href="history.html">
-                History
-            </a> 
-
-            <a href="insights.html">
-                Insights
-            </a>
-
-            <a
-                href="challenges.html"
-                class="active"
-            >
-                Challenges
-            </a>
-
-            <a href="achievements.html">
-                Achievements
-            </a>
-
-            <a href="profile.html">
-                Profile
-            </a>
-
-        </div>
-
 
         <div class="nav-actions">
-
-            <button
-                id="logoutBtn"
-                class="logout-btn"
-            >
+            <button id="logoutBtn" class="logout-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
                 Logout
             </button>
-
         </div>
-
-
     </nav>
 
 
-
-    <!-- =========================
-         PAGE HEADER
-    ========================== -->
-
+    <!-- PAGE HEADER -->
     <header class="page-header">
-
         <div class="header-content">
-
-
-            <div class="header-badge">
-                🎯 EcoTrack Challenges
+            <div class="header-text">
+                <h1>Habit Challenges</h1>
+                <p>Complete targeted climate milestones to diversify your logged actions and build sustainable habits.</p>
             </div>
-
-
-            <h1>
-                Take on a Challenge
-            </h1>
-
-
-            <p>
-                Keep tracking your activities, explore
-                different categories and build better
-                environmental habits.
-            </p>
-
-
+            <div class="header-actions">
+                <a href="tracker.html" class="btn btn-primary">+ Log Activity</a>
+            </div>
         </div>
-
     </header>
 
 
-
-    <!-- =========================
-         MAIN
-    ========================== -->
-
     <main class="challenges-container">
 
-
-        <!-- =========================
-             SUMMARY
-        ========================== -->
-
-        <section
-            class="summary-section"
-            id="summarySection"
-        >
-
+        <!-- SUMMARY -->
+        <section class="summary-section" id="summarySection">
             <div class="summary-card">
-
-
-                <div class="summary-icon">
-                    🏆
-                </div>
-
-
                 <div class="summary-content">
-
-                    <span class="section-label">
-                        YOUR PROGRESS
-                    </span>
-
-
-                    <h2>
-                        Challenge Progress
-                    </h2>
-
-
-                    <p>
-                        Complete activities and unlock
-                        challenges as you continue
-                        using EcoTrack.
-                    </p>
-
+                    <h2>Challenge Progress</h2>
+                    <p>Track activities to advance through practical sustainability goals.</p>
                 </div>
-
 
                 <div class="completed-box">
-
-                    <span
-                        id="completedCount"
-                        class="completed-number"
-                    >
-                        0
-                    </span>
-
-
-                    <span class="completed-text">
-                        Completed
-                    </span>
-
+                    <span id="completedCount" class="completed-number">0</span>
+                    <span class="completed-text">Completed</span>
                 </div>
-
-
             </div>
-
         </section>
 
 
-
-        <!-- =========================
-             EMPTY STATE
-        ========================== -->
-
-        <section
-            class="empty-state"
-            id="emptyState"
-        >
-
-            <div class="empty-icon">
-                🌱
-            </div>
-
-
-            <h2>
-                Start your first challenge
-            </h2>
-
-
-            <p>
-                Add your first activity to begin
-                completing EcoTrack challenges.
-            </p>
-
-
-            <a
-                href="tracker.html"
-                class="track-btn"
-            >
-                + Add Activity
-            </a>
-
+        <!-- EMPTY STATE -->
+        <section class="empty-state" id="emptyState">
+            <h2>Start your first challenge</h2>
+            <p>Log your first activity to begin making progress toward EcoTrack challenges.</p>
+            <a href="tracker.html" class="btn btn-primary">Add Activity</a>
         </section>
 
 
-
-        <!-- =========================
-             CHALLENGES
-        ========================== -->
-
-        <section
-            class="challenges-section"
-            id="challengesSection"
-        >
-
-
+        <!-- CHALLENGES LIST -->
+        <section class="challenges-section" id="challengesSection">
             <div class="section-title">
-
-                <span class="section-label">
-                    YOUR CHALLENGES
-                </span>
-
-
-                <h2>
-                    Keep Going
-                </h2>
-
-
-                <p>
-                    Complete these milestones by
-                    tracking your everyday activities.
-                </p>
-
+                <span class="section-label">Active Milestones</span>
+                <h2>Current Challenges</h2>
+                <p>Complete these milestones by tracking your everyday actions.</p>
             </div>
 
-
-            <div
-                id="challengeList"
-                class="challenge-list"
-            >
-
-                <!-- Challenges generated by challenges.js -->
-
-            </div>
-
-
+            <div id="challengeList" class="challenge-list"></div>
         </section>
-
 
     </main>
 
 
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <a href="index.html" class="footer-logo">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+                    </svg>
+                    EcoTrack
+                </a>
+                <p>Personal carbon footprint accounting, analytics, and climate habit building.</p>
+            </div>
 
-    <script
-        type="module"
-        src="js/challenges.js"
-    ></script>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="tracker.html">Track Activity</a>
+                <a href="history.html">History</a>
+                <a href="insights.html">Insights</a>
+                <a href="challenges.html">Challenges</a>
+                <a href="achievements.html">Achievements</a>
+                <a href="profile.html">Profile</a>
+            </div>
+        </div>
 
+        <div class="footer-bottom">
+            <span>© 2026 EcoTrack. All rights reserved.</span>
+            <span>Created by Daksh Chawla</span>
+        </div>
+    </footer>
+
+    <script type="module" src="js/challenges.js"></script>
+    <script>
+        const navToggle = document.getElementById("navToggle");
+        const navLinks = document.getElementById("navLinks");
+        if (navToggle && navLinks) {
+            navToggle.addEventListener("click", () => {
+                navLinks.classList.toggle("nav-open");
+            });
+        }
+    </script>
 
 </body>
 

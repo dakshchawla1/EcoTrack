@@ -94,7 +94,7 @@ onAuthStateChanged(
 
 
         welcomeMessage.innerText =
-            `Your Environmental Insights, ${name} 🌱`;
+            `Your Environmental Insights, ${name}`;
 
 
 
@@ -262,25 +262,25 @@ onAuthStateChanged(
                 {
                     name: "Transport",
                     value: transport,
-                    icon: "🚗"
+                    icon: "TR"
                 },
 
                 {
                     name: "Electricity",
                     value: electricity,
-                    icon: "⚡"
+                    icon: "EL"
                 },
 
                 {
                     name: "Food",
                     value: food,
-                    icon: "🍽️"
+                    icon: "FD"
                 },
 
                 {
                     name: "Shopping",
                     value: shopping,
-                    icon: "🛍️"
+                    icon: "SH"
                 }
 
             ];
@@ -425,7 +425,7 @@ function createPersonalizedTips(
     tip2.innerHTML = `
 
         <h3>
-            Keep Tracking 🌱
+            Keep Tracking
         </h3>
 
         <p>

@@ -1,10 +1,11 @@
 import { auth } from "./firebase-config.js";
 
-const API_BASE =
+const isLocal =
+    !window.location.hostname ||
     window.location.hostname === "localhost" ||
-    window.location.hostname === "127.0.0.1"
-        ? "http://localhost:4000"
-        : "";
+    window.location.hostname === "127.0.0.1";
+
+const API_BASE = isLocal ? "http://localhost:4000" : "";
 
 
 // ===============================

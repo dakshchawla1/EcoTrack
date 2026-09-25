@@ -2,671 +2,325 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>EcoTrack - Carbon Footprint Tracker</title>
-
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTrack - Track What You Do. Understand Your Impact. Reduce It.</title>
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 
 <body>
 
-
-    <!-- =========================
-         NAVBAR
-    ========================== -->
-
+    <!-- NAVBAR -->
     <nav class="navbar">
+        <a href="index.html" class="logo">
+            <svg class="logo-mark" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+            </svg>
+            EcoTrack
+        </a>
 
-        <div class="logo">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
 
-            <span>🌱</span>
-
-            <strong>
-                EcoTrack
-            </strong>
-
+        <div class="nav-links" id="navLinks">
+            <a href="#about">What We Do</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#tracking">Categories</a>
+            <a href="#features">Features</a>
+            <a href="dashboard.html">Dashboard</a>
         </div>
 
-
-        <div class="nav-links">
-
-            <a
-                href="index.html"
-                class="active"
-            >
-                Home
-            </a>
-
-            <a href="dashboard.html">
-                Dashboard
-            </a>
-
-            <a href="tracker.html">
-                Tracker
-            </a>
-
-            <a href="history.html">
-                History
-            </a>
-
-            <a href="insights.html">
-                Insights
-            </a>
-
-            <a href="challenges.html">
-                Challenges
-            </a>
-
-            <a href="achievements.html">
-                Achievements
-            </a>
-
-            <a href="profile.html">
-                Profile
-            </a>
-
+        <div class="nav-actions">
+            <a href="login.html" class="nav-login-link">Log In</a>
+            <a href="signup.html" class="btn btn-sm btn-primary">Start Tracking</a>
         </div>
-
-
-        <div class="auth-buttons">
-
-            <a href="login.html">
-                Login
-            </a>
-
-            <a
-                href="signup.html"
-                class="signup"
-            >
-                Sign Up
-            </a>
-
-        </div>
-
     </nav>
 
 
-
-    <!-- =========================
-         HERO
-    ========================== -->
-
-    <section class="hero">
-
-        <div class="hero-content">
-
-            <span class="hero-label">
-                🌍 CARBON FOOTPRINT TRACKER
-            </span>
-
-
-            <h1>
-                Understand your
-                <span>carbon footprint.</span>
-            </h1>
-
-
-            <p>
-
-                EcoTrack helps you record everyday activities
-                like transport, electricity, food and shopping
-                and understand their estimated carbon impact.
-
-            </p>
-
-
-            <div class="hero-buttons">
-
-                <a
-                    href="signup.html"
-                    class="primary-btn"
-                >
-                    Start Tracking
-                </a>
-
-
-                <a
-                    href="#about"
-                    class="secondary-btn"
-                >
-                    Learn More
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="hero-box">
-
-            <div class="hero-box-icon">
-                🌱
-            </div>
-
-
-            <h2>
-                Small actions add up.
-            </h2>
-
-
-            <p>
-                Track the activities that are part
-                of your everyday life.
-            </p>
-
-
-            <div class="category-list">
-
-                <div>
-                    <span>🚗</span>
-                    Transport
-                </div>
-
-                <div>
-                    <span>⚡</span>
-                    Electricity
-                </div>
-
-                <div>
-                    <span>🍽️</span>
-                    Food
-                </div>
-
-                <div>
-                    <span>🛍️</span>
-                    Shopping
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         ABOUT
-    ========================== -->
-
-    <section
-        id="about"
-        class="about-section"
-    >
-
-        <div class="section-heading">
-
-            <span>
-                ABOUT ECOTRACK
-            </span>
-
-            <h2>
-                What is EcoTrack?
-            </h2>
-
-            <p>
-                A simple platform for understanding
-                everyday carbon emissions.
-            </p>
-
-        </div>
-
-
-        <div class="about-content">
-
-            <div class="about-text">
-
-                <p>
-
-                    A <strong>carbon footprint</strong> is an
-                    estimate of the greenhouse gas emissions
-                    connected to an activity.
-
-                </p>
-
-
-                <p>
-
-                    EcoTrack lets you record some common
-                    activities from daily life and calculates
-                    an estimated carbon emission for them.
-
-                </p>
-
-
-                <p>
-
-                    The aim is to make the information easier
-                    to understand and help users keep track
-                    of their activities over time.
-
-                </p>
-
-            </div>
-
-
-            <div class="about-points">
-
-                <div class="about-point">
-
-                    <span>
-                        01
-                    </span>
-
-                    <div>
-
-                        <h3>
-                            Record
-                        </h3>
-
-                        <p>
-                            Add your everyday activities.
-                        </p>
-
+    <main>
+        <!-- HERO -->
+        <section class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>Track what you do.<br>Understand your impact.<br>Reduce it.</h1>
+
+                    <p class="hero-text">
+                        EcoTrack is a practical carbon tracking tool for everyday life. Record activities like daily commutes, home power usage, and meals to calculate your real carbon footprint in kilograms of CO₂ and build lasting sustainable habits.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="signup.html" class="btn btn-primary">Start Tracking</a>
+                        <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
                     </div>
 
+                    <div class="hero-trust">
+                        <span>Standardized CO₂ emission factors</span>
+                        <span>•</span>
+                        <span>100% Free & Open Tracking</span>
+                        <span>•</span>
+                        <span>No complicated setup</span>
+                    </div>
                 </div>
 
+                <!-- Hero Tangible UI Preview -->
+                <div class="hero-preview">
+                    <div class="preview-card">
+                        <div class="preview-header">
+                            <div>
+                                <span class="preview-label">Sample Logged Entry</span>
+                                <h3>Metro Transit Commute</h3>
+                            </div>
+                            <span class="preview-tag">Transport</span>
+                        </div>
 
-                <div class="about-point">
+                        <div class="preview-metrics">
+                            <div class="preview-metric-box">
+                                <span class="metric-caption">Distance</span>
+                                <strong>18.5 km</strong>
+                            </div>
+                            <div class="preview-metric-box">
+                                <span class="metric-caption">Emission</span>
+                                <strong>0.74 <small>kg CO₂</small></strong>
+                            </div>
+                            <div class="preview-metric-box">
+                                <span class="metric-caption">Saved vs Car</span>
+                                <strong class="text-success">-2.78 <small>kg</small></strong>
+                            </div>
+                        </div>
 
-                    <span>
-                        02
-                    </span>
+                        <div class="preview-progress-box">
+                            <div class="preview-progress-label">
+                                <span>Monthly Target Progress</span>
+                                <span>42.5 / 150 kg CO₂</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill" style="width: 28%;"></div>
+                            </div>
+                        </div>
 
-                    <div>
+                        <div class="preview-footer-note">
+                            Based on verified rail transit emission factors (0.04 kg CO₂/km).
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                        <h3>
-                            Calculate
-                        </h3>
 
-                        <p>
-                            Get an estimated carbon impact.
-                        </p>
+        <!-- WHAT ECOTRACK DOES -->
+        <section id="about" class="section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>A practical tool for individual climate awareness</h2>
+                    <p>Most carbon accounting feels disconnected from everyday decisions. EcoTrack connects simple daily actions with measurable environmental data.</p>
+                </div>
 
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-number">01</div>
+                        <h3>Log Everyday Habits</h3>
+                        <p>Keep a quick running record of your transport, home electricity consumption, diet, and purchases without tedious questionnaires.</p>
                     </div>
 
-                </div>
-
-
-                <div class="about-point">
-
-                    <span>
-                        03
-                    </span>
-
-                    <div>
-
-                        <h3>
-                            Track
-                        </h3>
-
-                        <p>
-                            Follow your records and progress.
-                        </p>
-
+                    <div class="pillar-card">
+                        <div class="pillar-number">02</div>
+                        <h3>Understand the Math</h3>
+                        <p>See exactly how each kilometer travelled or kilowatt-hour consumed converts into tangible kilograms of CO₂ equivalent.</p>
                     </div>
 
+                    <div class="pillar-card">
+                        <div class="pillar-number">03</div>
+                        <h3>Measure Real Reductions</h3>
+                        <p>Compare week-over-week figures, benchmark against your personal monthly carbon ceiling, and watch your impact decline over time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- HOW IT WORKS -->
+        <section id="how-it-works" class="section section-tinted">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Three simple steps from action to insight</h2>
+                    <p>Designed to be lightweight enough that you can log an activity in thirty seconds.</p>
                 </div>
 
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <span class="step-num">Step 1</span>
+                        <h3>Choose Category & Quantity</h3>
+                        <p>Select whether you are logging travel, electricity, a meal, or shopping, and enter your basic metric like distance or hours.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <span class="step-num">Step 2</span>
+                        <h3>Instant Emission Calculation</h3>
+                        <p>EcoTrack applies standardized emission factor baselines directly, computing your estimated carbon impact instantly.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <span class="step-num">Step 3</span>
+                        <h3>Review Dashboard & Trends</h3>
+                        <p>Your personal dashboard updates automatically with updated category breakdowns, weekly comparisons, and progress toward goals.</p>
+                    </div>
+                </div>
             </div>
-
-        </div>
-
-    </section>
+        </section>
 
 
-
-    <!-- =========================
-         WHAT ECOTRACK OFFERS
-    ========================== -->
-
-    <section class="features-section">
-
-        <div class="section-heading">
-
-            <span>
-                FEATURES
-            </span>
-
-            <h2>
-                What can you do with EcoTrack?
-            </h2>
-
-            <p>
-                The main tools available on the platform.
-            </p>
-
-        </div>
-
-
-        <div class="feature-grid">
-
-
-            <div class="feature-card">
-
-                <div class="feature-icon">
-                    🚗
+        <!-- TRACK ACTIVITIES (CATEGORIES) -->
+        <section id="tracking" class="section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Four areas that shape your carbon footprint</h2>
+                    <p>Focusing on the everyday lifestyle choices that contribute most significantly to personal emissions.</p>
                 </div>
 
-                <h3>
-                    Track Activities
-                </h3>
+                <div class="categories-grid">
+                    <div class="cat-card">
+                        <span class="cat-tag">Transport</span>
+                        <h3>Travel & Commute</h3>
+                        <p>Record vehicle commutes, motorcycle rides, bus trips, and train journeys. Compare the environmental efficiency of transit choices.</p>
+                        <div class="cat-stat">
+                            <span>Car: ~0.19 kg CO₂/km</span>
+                            <span>Train: ~0.04 kg CO₂/km</span>
+                        </div>
+                    </div>
 
-                <p>
-                    Record transport, electricity,
-                    food and shopping activities.
-                </p>
+                    <div class="cat-card">
+                        <span class="cat-tag">Electricity</span>
+                        <h3>Home Power & Energy</h3>
+                        <p>Track monthly or weekly kilowatt-hours to monitor the carbon intensity of home cooling, heating, appliances, and lighting.</p>
+                        <div class="cat-stat">
+                            <span>Average grid factor: ~0.82 kg CO₂/kWh</span>
+                        </div>
+                    </div>
 
+                    <div class="cat-card">
+                        <span class="cat-tag">Food</span>
+                        <h3>Dietary Choices</h3>
+                        <p>Quantify the environmental differences between plant-based meals and animal products. Small dietary shifts yield noticeable reductions.</p>
+                        <div class="cat-stat">
+                            <span>Plant-based: ~1.5 kg CO₂/meal</span>
+                        </div>
+                    </div>
+
+                    <div class="cat-card">
+                        <span class="cat-tag">Shopping</span>
+                        <h3>Purchases & Goods</h3>
+                        <p>Account for the embodied carbon embedded in clothing, electronics, and manufactured items over their lifecycle.</p>
+                        <div class="cat-stat">
+                            <span>Focus on reuse & longevity</span>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
 
-            <div class="feature-card">
-
-                <div class="feature-icon">
-                    📊
+        <!-- FEATURES -->
+        <section id="features" class="section section-tinted">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Tools that keep you motivated and accountable</h2>
+                    <p>Everything you need to observe your footprint clearly without overwhelming complexity.</p>
                 </div>
 
-                <h3>
-                    Dashboard
-                </h3>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>Personal Carbon Target</h3>
+                        <p>Set a realistic monthly ceiling in kilograms of CO₂. The dashboard visually tracks your cumulative usage so you stay under budget.</p>
+                    </div>
 
-                <p>
-                    View your total emissions,
-                    activities and category breakdown.
-                </p>
+                    <div class="feature-item">
+                        <h3>Weekly Comparison Analytics</h3>
+                        <p>Automatically compares your emissions over the past 7 days against the preceding week to give you immediate, actionable feedback.</p>
+                    </div>
 
-            </div>
+                    <div class="feature-item">
+                        <h3>Habit Challenges</h3>
+                        <p>Practical sustainability milestones designed to encourage low-emission routines like taking public transit or trimming energy use.</p>
+                    </div>
 
+                    <div class="feature-item">
+                        <h3>Milestone Achievements</h3>
+                        <p>Earn grounded recognition badges as you log activities consistently, explore new categories, and reach personal goals.</p>
+                    </div>
 
-            <div class="feature-card">
+                    <div class="feature-item">
+                        <h3>Full Activity History</h3>
+                        <p>Search, filter, and review all previous records. Made a mistake? Edit or update any past log directly with ease.</p>
+                    </div>
 
-                <div class="feature-icon">
-                    📋
+                    <div class="feature-item">
+                        <h3>Tailored Insights</h3>
+                        <p>Diagnose your single largest emission driver and receive concrete, realistic suggestions tailored to your tracking patterns.</p>
+                    </div>
                 </div>
-
-                <h3>
-                    Activity History
-                </h3>
-
-                <p>
-                    View, edit and delete your
-                    recorded activities.
-                </p>
-
             </div>
+        </section>
 
 
-            <div class="feature-card">
-
-                <div class="feature-icon">
-                    💡
+        <!-- FINAL SIMPLE CTA -->
+        <section class="cta-section">
+            <div class="cta-container">
+                <div class="cta-box">
+                    <h2>Start understanding your carbon footprint today</h2>
+                    <p>EcoTrack is completely free to use. Create an account in under a minute and log your first activity.</p>
+                    <div class="cta-actions">
+                        <a href="signup.html" class="btn btn-primary">Create Free Account</a>
+                        <a href="login.html" class="btn btn-secondary">Sign In</a>
+                    </div>
                 </div>
-
-                <h3>
-                    Insights
-                </h3>
-
-                <p>
-                    Understand your footprint through
-                    category information and charts.
-                </p>
-
             </div>
+        </section>
+    </main>
 
 
-            <div class="feature-card">
-
-                <div class="feature-icon">
-                    🎯
-                </div>
-
-                <h3>
-                    Personal Goals
-                </h3>
-
-                <p>
-                    Set a personal carbon target and
-                    follow your progress.
-                </p>
-
-            </div>
-
-
-            <div class="feature-card">
-
-                <div class="feature-icon">
-                    🏆
-                </div>
-
-                <h3>
-                    Challenges & Achievements
-                </h3>
-
-                <p>
-                    Complete challenges and unlock
-                    achievements while tracking.
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         HOW IT WORKS
-    ========================== -->
-
-    <section class="how-section">
-
-        <div class="section-heading">
-
-            <span>
-                HOW IT WORKS
-            </span>
-
-            <h2>
-                Getting started is simple.
-            </h2>
-
-        </div>
-
-
-        <div class="steps">
-
-
-            <div class="step-card">
-
-                <span class="step-number">
-                    01
-                </span>
-
-
-                <div class="step-icon">
-                    📝
-                </div>
-
-
-                <h3>
-                    Add an activity
-                </h3>
-
-
-                <p>
-                    Enter details about one of
-                    your everyday activities.
-                </p>
-
-            </div>
-
-
-            <div class="step-card">
-
-                <span class="step-number">
-                    02
-                </span>
-
-
-                <div class="step-icon">
-                    🌱
-                </div>
-
-
-                <h3>
-                    Get an estimate
-                </h3>
-
-
-                <p>
-                    EcoTrack calculates an estimated
-                    carbon emission.
-                </p>
-
-            </div>
-
-
-            <div class="step-card">
-
-                <span class="step-number">
-                    03
-                </span>
-
-
-                <div class="step-icon">
-                    📈
-                </div>
-
-
-                <h3>
-                    Check your progress
-                </h3>
-
-
-                <p>
-                    View your activities, insights,
-                    goals and achievements.
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         CTA
-    ========================== -->
-
-    <section class="cta-section">
-
-        <div>
-
-            <span>
-                GET STARTED
-            </span>
-
-            <h2>
-                Start with your first activity.
-            </h2>
-
-            <p>
-                Create an account and begin tracking.
-            </p>
-
-        </div>
-
-
-        <a
-            href="signup.html"
-            class="primary-btn"
-        >
-            Start Tracking
-        </a>
-
-    </section>
-
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
+    <!-- FOOTER -->
     <footer>
-
         <div class="footer-content">
-
             <div>
-
-                <div class="footer-logo">
-                    🌱 EcoTrack
-                </div>
-
-                <p>
-                    Carbon Footprint Tracking & Awareness Platform
-                </p>
-
+                <a href="index.html" class="footer-logo">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+                    </svg>
+                    EcoTrack
+                </a>
+                <p>Personal carbon footprint accounting, analytics, and climate habit building for everyday life.</p>
             </div>
-
-
-            <div class="developer">
-
-                <strong>
-                    Designed & Developed by Daksh Chawla
-                </strong>
-
-                <span>
-                    B.Tech Computer Science & Engineering
-                </span>
-
-                <span>
-                    Amity University, Noida
-                </span>
-
-            </div>
-
 
             <div class="footer-links">
-
-                <a href="login.html">
-                    Login
-                </a>
-
-                <a href="signup.html">
-                    Sign Up
-                </a>
-
+                <a href="#about">About</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#tracking">Categories</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="tracker.html">Log Activity</a>
+                <a href="login.html">Login</a>
+                <a href="signup.html">Sign Up</a>
             </div>
-
         </div>
 
-
-        <div class="copyright">
-
-            © 2026 EcoTrack. All rights reserved.
-
+        <div class="footer-bottom">
+            <span>© 2026 EcoTrack. An independent environmental tracking project.</span>
+            <span>Created by Daksh Chawla</span>
         </div>
-
     </footer>
 
+    <script>
+        const navToggle = document.getElementById("navToggle");
+        const navLinks = document.getElementById("navLinks");
+        if (navToggle && navLinks) {
+            navToggle.addEventListener("click", () => {
+                navLinks.classList.toggle("nav-open");
+            });
+        }
+    </script>
 
 </body>
 

@@ -1,975 +1,187 @@
-/* =========================================
-   ECOTRACK ACHIEVEMENTS
-   SAME DESIGN AS TRACKER / INSIGHTS /
-   CHALLENGES
-========================================= */
+/* ==========================================================================
+   EcoTrack Achievements Styles (achievements.css)
+   Clean, rewarding milestones without arcade/gaming visuals
+   ========================================================================== */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-body {
-    font-family: "Inter", Arial, sans-serif;
-
-    background: linear-gradient(
-        180deg,
-        #f7faf5 0%,
-        #eef4eb 100%
-    );
-
-    color: #263326;
-
-    min-height: 100vh;
-}
-
-
-/* =========================================
-   NAVBAR
-========================================= */
-
-.navbar {
-    min-height: 72px;
-
-    background: #ffffff;
-
-    border-bottom: 1px solid #dfe7dc;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
+.achievements-container {
+    max-width: 1160px;
+    margin: 32px auto 0;
     padding: 0 5%;
-
-    position: sticky;
-
-    top: 0;
-
-    z-index: 100;
-
-    box-shadow:
-        0 2px 12px rgba(
-            38,
-            51,
-            38,
-            0.04
-        );
 }
-
-
-/* LOGO */
-
-.logo {
-    display: flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    color: #2f6b3c;
-
-    font-size: 21px;
-
-    white-space: nowrap;
-}
-
-
-.logo span {
-    font-size: 24px;
-}
-
-
-/* NAV LINKS */
-
-.nav-links {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 4px;
-
-    flex-wrap: wrap;
-}
-
-
-.nav-links a {
-    text-decoration: none;
-
-    color: #536254;
-
-    font-size: 14px;
-
-    font-weight: 600;
-
-    padding: 9px 12px;
-
-    border-radius: 8px;
-
-    transition:
-        background-color 0.2s ease,
-        color 0.2s ease;
-}
-
-
-.nav-links a:hover {
-    background-color: #edf5eb;
-
-    color: #2f6b3c;
-}
-
-
-.nav-links a.active {
-    background-color: #2f6b3c;
-
-    color: #ffffff;
-}
-
-
-/* LOGOUT */
-
-.nav-actions {
-    display: flex;
-
-    align-items: center;
-}
-
-
-.logout-btn {
-    min-height: 42px;
-
-    padding: 0 17px;
-
-    border: 1px solid #d5ddd2;
-
-    background: #ffffff;
-
-    color: #596259;
-
-    border-radius: 10px;
-
-    cursor: pointer;
-
-    font-family: inherit;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    transition:
-        background-color 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.2s ease;
-}
-
-
-.logout-btn:hover {
-    background-color: #f4f5f3;
-
-    border-color: #aeb8aa;
-
-    color: #29352b;
-
-    transform: translateY(-1px);
-}
-
-
-/* =========================================
-   PAGE HEADER
-========================================= */
-
-.page-header {
-    padding: 55px 20px 35px;
-
-    text-align: center;
-}
-
-
-.header-content {
-    max-width: 760px;
-
-    margin: auto;
-}
-
-
-.header-badge {
-    display: inline-block;
-
-    padding: 8px 15px;
-
-    border-radius: 30px;
-
-    background-color: #e5f0e1;
-
-    color: #2f6b3c;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    margin-bottom: 15px;
-}
-
-
-.page-header h1 {
-    font-size: clamp(
-        32px,
-        5vw,
-        48px
-    );
-
-    line-height: 1.1;
-
-    color: #203224;
-
-    margin-bottom: 15px;
-
-    letter-spacing: -1px;
-}
-
-
-.page-header p {
-    color: #687469;
-
-    font-size: 16px;
-
-    line-height: 1.7;
-
-    max-width: 650px;
-
-    margin: auto;
-}
-
-
-/* =========================================
-   MAIN CONTAINER
-========================================= */
-
-.container {
-    width: min(92%, 1000px);
-
-    margin: 0 auto 70px;
-}
-
-
-/* =========================================
-   HIDDEN
-========================================= */
 
 .hidden {
     display: none !important;
 }
 
-
-/* =========================================
-   COMMON LABEL
-========================================= */
-
-.section-label {
-    display: block;
-
-    color: #687469;
-
-    font-size: 11px;
-
-    font-weight: 800;
-
-    letter-spacing: 0.8px;
-
-    margin-bottom: 7px;
-}
-
-
-/* =========================================
-   SUMMARY
-========================================= */
-
-.summary-section {
-    margin-bottom: 28px;
-}
-
-
+/* Summary Card */
 .summary-card {
-    width: 100%;
-
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 24px 28px;
     display: flex;
-
     align-items: center;
-
-    gap: 18px;
-
-    padding: 25px 28px;
-
-    background: #ffffff;
-
-    border: 1px solid #dfe7dc;
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 9px 25px rgba(
-            38,
-            51,
-            38,
-            0.05
-        );
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 32px;
+    box-shadow: var(--shadow-xs);
 }
 
-
-.summary-icon {
-    width: 56px;
-
-    height: 56px;
-
-    min-width: 56px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background: #eaf4e7;
-
-    border-radius: 15px;
-
-    font-size: 27px;
+.summary-card h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
 }
 
-
-.summary-content {
-    min-width: 0;
-
-    flex: 1;
+.summary-card p {
+    font-size: 14px;
+    color: var(--text-secondary);
 }
 
-
-.summary-content h2 {
-    color: #263326;
-
-    font-size: 21px;
-
-    margin-bottom: 5px;
+.unlocked-counter-box {
+    text-align: right;
+    flex-shrink: 0;
+    background-color: var(--brand-tint);
+    border: 1px solid var(--brand-border);
+    padding: 12px 20px;
+    border-radius: var(--radius-md);
 }
 
-
-.summary-content p {
-    color: #737d73;
-
-    font-size: 13px;
-
-    line-height: 1.6;
-}
-
-
-.achievement-number-box {
-    min-width: 120px;
-
-    padding: 13px 17px;
-
-    text-align: center;
-
-    background: #edf5eb;
-
-    border: 1px solid #d4e3d0;
-
-    border-radius: 12px;
-}
-
-
-.achievement-number {
-    display: block;
-
-    color: #2f6b3c;
-
-    font-size: 25px;
-
+.unlocked-count {
+    font-size: 28px;
     font-weight: 800;
-
+    color: var(--brand-primary);
+    display: block;
     line-height: 1.1;
 }
 
-
-.achievement-number-label {
-    display: block;
-
-    margin-top: 4px;
-
-    color: #687469;
-
-    font-size: 11px;
-
-    font-weight: 700;
+.unlocked-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--brand-accent);
 }
 
-
-/* =========================================
-   EMPTY STATE
-========================================= */
-
-.empty-state {
-    background: #ffffff;
-
-    border: 1px solid #dfe7dc;
-
-    border-radius: 20px;
-
-    padding: 65px 25px;
-
-    text-align: center;
-
-    box-shadow:
-        0 12px 35px rgba(
-            38,
-            51,
-            38,
-            0.05
-        );
-}
-
-
-.empty-icon {
-    width: 78px;
-
-    height: 78px;
-
-    margin: 0 auto 18px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background: #eaf4e7;
-
-    border-radius: 22px;
-
-    font-size: 40px;
-}
-
-
-.empty-state h2 {
-    color: #29362b;
-
-    font-size: 23px;
-
-    margin-bottom: 10px;
-}
-
-
-.empty-state p {
-    color: #707970;
-
-    max-width: 530px;
-
-    margin: 0 auto 26px;
-
-    line-height: 1.7;
-
-    font-size: 14px;
-}
-
-
-.track-btn {
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    min-height: 46px;
-
-    padding: 0 22px;
-
-    background: #2f6b3c;
-
-    color: #ffffff;
-
-    text-decoration: none;
-
-    border-radius: 11px;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    transition:
-        background-color 0.2s ease,
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-
-.track-btn:hover {
-    background: #255a31;
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 8px 18px rgba(
-            47,
-            107,
-            60,
-            0.18
-        );
-}
-
-
-/* =========================================
-   ACHIEVEMENTS SECTION
-========================================= */
-
-.achievements-section {
-    margin-top: 28px;
-}
-
-
+/* Achievements Section */
 .section-heading {
-    margin-bottom: 22px;
+    margin-bottom: 20px;
 }
-
 
 .section-heading h2 {
-    color: #263326;
-
-    font-size: 24px;
-
-    letter-spacing: -0.3px;
-
-    margin-bottom: 6px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
 }
-
 
 .section-heading p {
-    color: #737d73;
-
     font-size: 14px;
-
-    line-height: 1.6;
+    color: var(--text-secondary);
 }
 
-
-/* =========================================
-   ACHIEVEMENT GRID
-========================================= */
-
+/* Grid */
+.achievement-grid,
 .achievement-list {
     display: grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-    gap: 24px;
-
-    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
 }
 
-
-/* =========================================
-   ACHIEVEMENT CARD
-========================================= */
-
+/* Individual Card */
 .achievement-card {
-    width: 100%;
-
-    min-width: 0;
-
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    padding: 20px 22px;
     display: flex;
-
     align-items: flex-start;
-
-    gap: 17px;
-
-    padding: 24px;
-
-    background: #ffffff;
-
-    border: 1px solid #dfe7dc;
-
-    border-radius: 17px;
-
-    box-shadow:
-        0 7px 20px rgba(
-            38,
-            51,
-            38,
-            0.045
-        );
-
-    transition:
-        transform 0.2s ease,
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
+    gap: 18px;
+    transition: border-color var(--transition-fast);
 }
 
-
-.achievement-card:hover {
-    transform: translateY(-2px);
-
-    border-color: #c6d8c0;
-
-    box-shadow:
-        0 11px 25px rgba(
-            38,
-            51,
-            38,
-            0.07
-        );
+.achievement-card:not(.locked) {
+    border-color: var(--brand-border);
+    background-color: #ffffff;
 }
-
-
-/* =========================================
-   LOCKED ACHIEVEMENT
-========================================= */
 
 .achievement-card.locked {
-    background: #fafbf9;
-
-    border-color: #e1e6df;
-}
-
-
-.achievement-card.locked .badge-icon {
-    background: #f0f2ef;
-
-    filter: grayscale(0.6);
-
+    background-color: var(--bg-surface-subtle);
+    border-color: var(--border-subtle);
     opacity: 0.75;
 }
 
-
-.achievement-card.locked .achievement-info h3 {
-    color: #5d675e;
-}
-
-
-/* =========================================
-   BADGE ICON
-========================================= */
-
 .badge-icon {
-    width: 58px;
-
-    height: 58px;
-
-    min-width: 58px;
-
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background-color: var(--brand-tint);
+    border: 1px solid var(--brand-border);
+    color: var(--brand-primary);
+    font-size: 14px;
+    font-weight: 800;
+    font-family: var(--font-mono);
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
-    background: #eaf4e7;
-
-    border-radius: 15px;
-
-    font-size: 29px;
+    flex-shrink: 0;
 }
 
-
-/* =========================================
-   ACHIEVEMENT INFO
-========================================= */
+.achievement-card.locked .badge-icon {
+    background-color: var(--bg-surface-muted);
+    border-color: var(--border-subtle);
+    color: var(--text-muted);
+}
 
 .achievement-info {
-    min-width: 0;
-
     flex: 1;
 }
 
-
 .achievement-info h3 {
-    color: #304032;
-
-    font-size: 17px;
-
-    margin-bottom: 7px;
-
-    overflow-wrap: anywhere;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
 }
-
 
 .achievement-description {
-    color: #707970;
-
-    font-size: 13px;
-
-    line-height: 1.7;
-
-    margin-bottom: 11px;
-
-    overflow-wrap: anywhere;
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.45;
+    margin-bottom: 12px;
 }
-
-
-/* =========================================
-   STATUS
-========================================= */
 
 .achievement-status {
-    display: inline-flex;
-
-    align-items: center;
-
-    width: fit-content;
-
-    padding: 5px 10px;
-
-    border-radius: 7px;
-
-    background: #f0f2ef;
-
-    color: #687469;
-
-    font-size: 11px;
-
-    font-weight: 800;
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 3px 8px;
+    border-radius: var(--radius-xs);
+    background-color: var(--bg-surface-muted);
+    color: var(--text-muted);
 }
-
 
 .achievement-status.unlocked {
-    background: #eaf4e7;
-
-    color: #2f6b3c;
+    background-color: var(--brand-tint);
+    color: var(--brand-primary);
+    border: 1px solid var(--brand-border);
 }
 
-
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 1050px) {
-
-    .nav-links a {
-        padding: 8px 9px;
-
-        font-size: 13px;
-    }
-
-}
-
-
-/* =========================================
-   MOBILE NAVBAR
-========================================= */
-
-@media (max-width: 800px) {
-
-    .navbar {
-        padding: 12px 5%;
-
-        gap: 12px;
-
-        flex-wrap: wrap;
-    }
-
-
-    .nav-links {
-        width: 100%;
-
-        order: 3;
-
-        padding-bottom: 5px;
-
-        overflow-x: auto;
-
-        justify-content: flex-start;
-
-        flex-wrap: nowrap;
-    }
-
-
-    .nav-actions {
-        margin-left: auto;
-    }
-
-
-    .page-header {
-        padding-top: 40px;
-    }
-
-
+/* Responsive */
+@media (max-width: 768px) {
+    .achievement-grid,
     .achievement-list {
         grid-template-columns: 1fr;
-
-        gap: 20px;
     }
-
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 600px) {
-
-    .page-header h1 {
-        font-size: 34px;
-    }
-
-
-    .page-header p {
-        font-size: 14px;
-    }
-
-
-    .container {
-        width: 94%;
-    }
-
 
     .summary-card {
-        align-items: flex-start;
-
-        padding: 22px;
-    }
-
-
-    .summary-icon {
-        width: 50px;
-
-        height: 50px;
-
-        min-width: 50px;
-
-        font-size: 24px;
-    }
-
-
-    .summary-content h2 {
-        font-size: 19px;
-    }
-
-
-    .achievement-number-box {
-        min-width: 95px;
-
-        padding: 11px;
-    }
-
-
-    .achievement-number {
-        font-size: 22px;
-    }
-
-
-    .empty-state {
-        padding: 45px 20px;
-    }
-
-
-    .achievement-card {
-        padding: 21px;
-    }
-
-}
-
-
-/* =========================================
-   SMALL MOBILE
-========================================= */
-
-@media (max-width: 430px) {
-
-    .navbar {
+        flex-direction: column;
         align-items: flex-start;
     }
 
-
-    .logo {
-        font-size: 19px;
-    }
-
-
-    .logo span {
-        font-size: 22px;
-    }
-
-
-    .nav-links {
-        gap: 2px;
-    }
-
-
-    .nav-links a {
-        font-size: 12px;
-
-        padding: 7px 9px;
-    }
-
-
-    .logout-btn {
-        min-height: 40px;
-
-        padding: 0 13px;
-
-        font-size: 13px;
-    }
-
-
-    .page-header {
-        padding: 32px 15px 25px;
-    }
-
-
-    .summary-card {
-        flex-wrap: wrap;
-
-        padding: 19px;
-    }
-
-
-    .summary-content {
-        width: calc(
-            100% - 70px
-        );
-    }
-
-
-    .achievement-number-box {
+    .unlocked-counter-box {
+        text-align: left;
         width: 100%;
     }
-
-
-    .section-heading h2 {
-        font-size: 22px;
-    }
-
-
-    .achievement-card {
-        gap: 13px;
-
-        padding: 18px;
-    }
-
-
-    .badge-icon {
-        width: 48px;
-
-        height: 48px;
-
-        min-width: 48px;
-
-        font-size: 24px;
-    }
-
-
-    .achievement-info h3 {
-        font-size: 16px;
-    }
-
-
-    .achievement-description {
-        font-size: 12px;
-    }
-
 }

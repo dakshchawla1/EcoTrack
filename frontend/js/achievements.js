@@ -262,7 +262,7 @@ function createAchievements(
         // =========================
 
         {
-            icon: "🌱",
+            icon: "I",
 
             title: "First Step",
 
@@ -279,7 +279,7 @@ function createAchievements(
         // =========================
 
         {
-            icon: "🌿",
+            icon: "II",
 
             title: "Eco Starter",
 
@@ -296,7 +296,7 @@ function createAchievements(
         // =========================
 
         {
-            icon: "🌍",
+            icon: "III",
 
             title: "Eco Explorer",
 
@@ -315,7 +315,7 @@ function createAchievements(
         // =========================
 
         {
-            icon: "📅",
+            icon: "IV",
 
             title: "Consistent Tracker",
 
@@ -332,7 +332,7 @@ function createAchievements(
         // =========================
 
         {
-            icon: "🚗",
+            icon: "V",
 
             title: "Transport Tracker",
 
@@ -351,7 +351,7 @@ function createAchievements(
         // =========================
 
         {
-            icon: "⚡",
+            icon: "VI",
 
             title: "Energy Tracker",
 
@@ -451,7 +451,7 @@ function createAchievementCard(
 
     const status =
         achievement.unlocked
-            ? "Unlocked ✓"
+            ? "Unlocked"
             : "Locked";
 
 

@@ -1,0 +1,16 @@
+{
+  "name": "ecotrack",
+  "version": "1.0.0",
+  "private": true,
+  "description": "EcoTrack Carbon Footprint Tracker",
+  "scripts": {
+    "start": "cd backend && npm start"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "firebase-admin": "^14.4.0",
+    "pg": "^8.16.3"
+  }
+}

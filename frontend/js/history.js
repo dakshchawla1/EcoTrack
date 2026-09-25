@@ -339,14 +339,14 @@ function createActivityCard(activity) {
                 class="edit-btn"
                 data-id="${activity.id}"
             >
-                ✏️ Edit
+                Edit
             </button>
 
             <button
                 class="delete-btn"
                 data-id="${activity.id}"
             >
-                🗑️ Delete
+                Delete
             </button>
 
         </div>
@@ -476,7 +476,7 @@ function getActivityIcon(category) {
         category === "transport"
     ) {
 
-        return "🚗";
+        return "TR";
 
     }
 
@@ -485,7 +485,7 @@ function getActivityIcon(category) {
         category === "electricity"
     ) {
 
-        return "⚡";
+        return "EL";
 
     }
 
@@ -494,7 +494,7 @@ function getActivityIcon(category) {
         category === "food"
     ) {
 
-        return "🍽️";
+        return "FD";
 
     }
 
@@ -503,12 +503,12 @@ function getActivityIcon(category) {
         category === "shopping"
     ) {
 
-        return "🛍️";
+        return "SH";
 
     }
 
 
-    return "🌱";
+    return "•";
 
 }
 

@@ -499,7 +499,7 @@ function createChallengeCard(
 
     const status =
         challenge.completed
-            ? "Completed ✓"
+            ? "Completed"
             : "In Progress";
 
 

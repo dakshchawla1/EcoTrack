@@ -1,0 +1,643 @@
+/* ==========================================================================
+   EcoTrack Theme - Clean, Practical, Earthy Student/Startup Design System
+   Designed to look human-built, simple, professional, and friendly.
+   ========================================================================== */
+
+:root {
+    /* ----------------------------------------------------------------------
+       Earthy & Restrained Palette
+       ---------------------------------------------------------------------- */
+    /* Forest Greens (Authoritative, natural, grounded) */
+    --brand-primary: #1b4332;
+    --brand-primary-hover: #143526;
+    --brand-primary-active: #0d2419;
+
+    /* Sage & Muted Greens (Natural accents) */
+    --brand-accent: #3a6948;
+    --brand-accent-hover: #2f553a;
+    --brand-tint: #edf4ee;
+    --brand-tint-strong: #dbe8dd;
+    --brand-border: #c4d7c7;
+
+    /* Backgrounds & Canvas (Clean, calm, natural surfaces) */
+    --bg-canvas: #f9fafb;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #ffffff;
+    --bg-surface-subtle: #f3f4f6;
+    --bg-surface-muted: #e5e7eb;
+
+    /* Borders (Standard clean borders) */
+    --border-subtle: #e5e7eb;
+    --border-default: #d1d5db;
+    --border-hover: #9ca3af;
+    --border-focus: #1b4332;
+
+    /* Typography Colors (Dark charcoal, easy on eyes) */
+    --text-primary: #1f2421;
+    --text-secondary: #4a544d;
+    --text-muted: #6f7a71;
+    --text-faint: #98a29a;
+    --text-inverse: #ffffff;
+    --text-brand: #1b4332;
+
+    /* Lifestyle Categories (Natural, subdued tones) */
+    --cat-transport: #2b495c;
+    --cat-transport-bg: #edf3f7;
+    --cat-transport-border: #d0e0ec;
+
+    --cat-electricity: #6b5329;
+    --cat-electricity-bg: #f8f5ee;
+    --cat-electricity-border: #ebd9b8;
+
+    --cat-food: #2d5a3c;
+    --cat-food-bg: #edf5ef;
+    --cat-food-border: #cbe3d0;
+
+    --cat-shopping: #523b56;
+    --cat-shopping-bg: #f5eff6;
+    --cat-shopping-border: #e3d2e6;
+
+    /* Functional / Feedback */
+    --status-success: #1b4332;
+    --status-success-bg: #edf5ef;
+    --status-warning: #7a4f15;
+    --status-warning-bg: #fdf6ec;
+    --status-danger: #8a2424;
+    --status-danger-bg: #fbf0f0;
+
+    /* ----------------------------------------------------------------------
+       Typography
+       ---------------------------------------------------------------------- */
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+    /* ----------------------------------------------------------------------
+       Restrained Radii (Clean, human, NOT pill/bubble shaped)
+       ---------------------------------------------------------------------- */
+    --radius-xs: 3px;
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --radius-xl: 12px;
+    --radius-full: 9999px;
+
+    /* ----------------------------------------------------------------------
+       Subtle Natural Elevation (No neon glows)
+       ---------------------------------------------------------------------- */
+    --shadow-xs: 0 1px 2px rgba(27, 36, 30, 0.04);
+    --shadow-sm: 0 1px 3px rgba(27, 36, 30, 0.06);
+    --shadow-md: 0 3px 8px rgba(27, 36, 30, 0.07);
+    --shadow-lg: 0 6px 18px rgba(27, 36, 30, 0.08);
+
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.2s ease;
+}
+
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    font-size: 15px;
+    line-height: 1.55;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+a {
+    color: var(--brand-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--brand-accent);
+}
+
+img, svg {
+    display: block;
+    max-width: 100%;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/* ==========================================================================
+   REUSABLE UI COMPONENTS
+   ========================================================================== */
+
+/* Buttons */
+.btn,
+.dark-button,
+.main-button,
+.primary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--brand-primary);
+    color: var(--text-inverse) !important;
+    font-size: 14.5px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--brand-primary);
+    cursor: pointer;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    text-decoration: none;
+    line-height: 1.3;
+}
+
+.btn:hover,
+.dark-button:hover,
+.main-button:hover,
+.primary-button:hover {
+    background-color: var(--brand-primary-hover);
+    border-color: var(--brand-primary-hover);
+}
+
+.btn:active,
+.dark-button:active,
+.main-button:active,
+.primary-button:active {
+    background-color: var(--brand-primary-active);
+    transform: translateY(1px);
+}
+
+.btn-secondary,
+.outline-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--bg-surface);
+    color: var(--text-primary) !important;
+    font-size: 14.5px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-default);
+    cursor: pointer;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast);
+    text-decoration: none;
+    line-height: 1.3;
+}
+
+.btn-secondary:hover,
+.outline-button:hover {
+    background-color: var(--bg-surface-subtle);
+    border-color: var(--border-hover);
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: var(--radius-sm);
+}
+
+/* Badges / Category Tags */
+.badge,
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 500;
+    background-color: var(--bg-surface-subtle);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-subtle);
+}
+
+.badge-muted {
+    background-color: var(--bg-surface-subtle);
+    color: var(--text-secondary);
+    border-color: var(--border-subtle);
+}
+
+/* Hide decorative AI-template badges in headers to avoid crowding */
+.header-text .badge,
+.header-content .badge,
+.hero-content .badge,
+.section-header .badge {
+    display: none;
+}
+
+/* Hide repetitive micro-labels above headings */
+.section-label {
+    display: none !important;
+}
+
+/* Cards */
+.card,
+.simple-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-xs);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.card:hover {
+    border-color: var(--border-default);
+}
+
+/* Form Elements */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 18px;
+}
+
+.form-group label,
+label {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea,
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 10px 14px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: 14.5px;
+    outline: none;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 3px rgba(27, 67, 50, 0.12);
+}
+
+.form-group small,
+small {
+    font-size: 12.5px;
+    color: var(--text-muted);
+}
+
+/* Progress Track */
+.progress-track {
+    width: 100%;
+    height: 8px;
+    background-color: var(--bg-surface-muted);
+    border-radius: var(--radius-xs);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--brand-primary);
+    border-radius: var(--radius-xs);
+    transition: width var(--transition-normal);
+}
+
+/* Empty States */
+.empty-state {
+    text-align: center;
+    padding: 44px 24px;
+    background-color: var(--bg-surface);
+    border: 1px dashed var(--border-default);
+    border-radius: var(--radius-lg);
+    margin: 16px 0;
+}
+
+.empty-state h3,
+.empty-state h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.empty-state p {
+    font-size: 14.5px;
+    color: var(--text-muted);
+    max-width: 440px;
+    margin: 0 auto 18px;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   NAVIGATION BAR (Consistent across all pages)
+   ========================================================================== */
+
+.navbar {
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0 5%;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--brand-primary);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+}
+
+.logo .logo-mark {
+    color: var(--brand-primary);
+    flex-shrink: 0;
+}
+
+.logo-icon-svg {
+    display: none; /* Replaced by subtle .logo-mark */
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.nav-links a:hover {
+    color: var(--brand-primary);
+    background-color: var(--bg-surface-subtle);
+}
+
+.nav-links a.active {
+    color: var(--brand-primary);
+    background-color: var(--brand-tint);
+    font-weight: 600;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logout-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border-default);
+    padding: 7px 13px;
+    border-radius: var(--radius-sm);
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.logout-btn:hover {
+    color: var(--status-danger);
+    border-color: #e5b0b0;
+    background-color: var(--status-danger-bg);
+}
+
+.nav-login-link {
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 7px 12px;
+}
+
+.nav-login-link:hover {
+    color: var(--brand-primary);
+}
+
+.nav-cta-btn {
+    background-color: var(--brand-primary);
+    color: var(--text-inverse) !important;
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: background-color var(--transition-fast);
+}
+
+.nav-cta-btn:hover {
+    background-color: var(--brand-primary-hover);
+}
+
+/* Mobile Toggle */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-sm);
+    padding: 6px 10px;
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+/* ==========================================================================
+   PAGE HEADER COMPONENT (For authenticated pages)
+   ========================================================================== */
+
+.page-header {
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 28px 5%;
+}
+
+.header-content {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.header-text h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    margin: 4px 0 6px;
+}
+
+.header-text p {
+    font-size: 14.5px;
+    color: var(--text-secondary);
+    max-width: 600px;
+}
+
+/* ==========================================================================
+   FOOTER (Consistent across all pages)
+   ========================================================================== */
+
+footer {
+    background-color: var(--bg-surface);
+    border-top: 1px solid var(--border-subtle);
+    padding: 44px 5% 28px;
+    margin-top: 48px;
+}
+
+.footer-content {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--brand-primary);
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.footer-content p {
+    font-size: 14px;
+    color: var(--text-muted);
+    max-width: 380px;
+    line-height: 1.5;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    font-size: 13.5px;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: var(--brand-primary);
+}
+
+.footer-bottom {
+    max-width: 1160px;
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Utilities */
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================================================
+   RESPONSIVENESS (Global)
+   ========================================================================== */
+
+@media (max-width: 900px) {
+    .navbar {
+        height: auto;
+        min-height: 60px;
+        padding: 10px 4%;
+        flex-wrap: wrap;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 0 6px;
+        gap: 2px;
+        border-top: 1px solid var(--border-subtle);
+        margin-top: 10px;
+    }
+
+    .nav-links.nav-open {
+        display: flex;
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 9px 12px;
+    }
+
+    .nav-actions {
+        margin-left: auto;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

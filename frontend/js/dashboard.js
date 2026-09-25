@@ -480,7 +480,7 @@ function getActivityIcon(
         "transport"
     ) {
 
-        return "🚗";
+        return "TR";
 
     }
 
@@ -490,7 +490,7 @@ function getActivityIcon(
         "electricity"
     ) {
 
-        return "⚡";
+        return "EL";
 
     }
 
@@ -500,7 +500,7 @@ function getActivityIcon(
         "food"
     ) {
 
-        return "🍽️";
+        return "FD";
 
     }
 
@@ -510,12 +510,12 @@ function getActivityIcon(
         "shopping"
     ) {
 
-        return "🛍️";
+        return "SH";
 
     }
 
 
-    return "🌱";
+    return "•";
 
 }
 
@@ -674,10 +674,6 @@ function displayDailyProgress() {
         progressList.innerHTML = `
 
             <div class="empty-state">
-
-                <div class="empty-icon">
-                    📊
-                </div>
 
                 <h3>
                     No progress data yet
@@ -936,56 +932,41 @@ function createCarbonChart() {
                             ],
 
                             backgroundColor: [
-                                "#5b8f63",
-                                "#7aa47d",
-                                "#93b496",
-                                "#aec7ae"
+                                "#2d5a3c",
+                                "#b45309",
+                                "#15803d",
+                                "#4b5563"
                             ],
-
-                            borderRadius: 7
-
+                            borderRadius: 4
                         }
                     ]
-
                 },
-
                 options: {
-
                     responsive: true,
-
-                    maintainAspectRatio:
-                        false,
-
+                    maintainAspectRatio: false,
                     plugins: {
-
                         legend: {
                             display: false
                         }
-
                     },
-
                     scales: {
-
-                        y: {
-
-                            beginAtZero:
-                                true,
-
-                            title: {
-
-                                display: true,
-
-                                text:
-                                    "kg CO₂"
-
+                        x: {
+                            grid: {
+                                display: false
                             }
-
+                        },
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: "#eef2ee"
+                            },
+                            title: {
+                                display: true,
+                                text: "kg CO₂"
+                            }
                         }
-
                     }
-
                 }
-
             }
         );
 
@@ -1100,7 +1081,7 @@ function displayPersonalizedTips() {
         {
             category: "transport",
             emission: transport,
-            icon: "🚗",
+            icon: "TR",
             title: "Reduce Transport Impact",
             text:
                 "For shorter journeys, consider walking, cycling or using public transport when possible."
@@ -1109,7 +1090,7 @@ function displayPersonalizedTips() {
         {
             category: "electricity",
             emission: electricity,
-            icon: "⚡",
+            icon: "EL",
             title: "Save Electricity",
             text:
                 "Switch off lights, fans and devices when they are not needed and avoid unnecessary energy use."
@@ -1118,7 +1099,7 @@ function displayPersonalizedTips() {
         {
             category: "food",
             emission: food,
-            icon: "🍽️",
+            icon: "FD",
             title: "Think About Food Choices",
             text:
                 "Try to reduce food waste and include lower-impact food choices more often."
@@ -1127,7 +1108,7 @@ function displayPersonalizedTips() {
         {
             category: "shopping",
             emission: shopping,
-            icon: "🛍️",
+            icon: "SH",
             title: "Shop More Mindfully",
             text:
                 "Consider reusing items, avoiding unnecessary purchases and choosing products that last longer."
@@ -1344,10 +1325,6 @@ function displayGoal() {
         goalContent.innerHTML = `
 
             <div class="goal-empty">
-
-                <div class="goal-empty-icon">
-                    🎯
-                </div>
 
                 <h3>
                     No personal goal set
@@ -1589,7 +1566,7 @@ function displayWeeklyComparison() {
 
 
         weeklyMessage.textContent =
-            `Your emissions are ${Math.abs(difference).toFixed(2)} kg CO₂ lower than last week. 🌱`;
+            `Your emissions are ${Math.abs(difference).toFixed(2)} kg CO₂ lower than last week.`;
 
     }
 

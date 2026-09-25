@@ -2,352 +2,211 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Track Activity - EcoTrack</title>
-
-    <link
-        rel="stylesheet"
-        href="css/tracker.css"
-    >
-
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/tracker.css">
 </head>
-
 
 <body>
 
-
-    <!-- =========================
-         NAVBAR
-    ========================== -->
-
+    <!-- NAVBAR -->
     <nav class="navbar">
+        <a href="index.html" class="logo">
+            <svg class="logo-mark" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+            </svg>
+            EcoTrack
+        </a>
 
-        <div class="logo">
-
-            <span>🌱</span>
-
-            <strong>EcoTrack</strong>
-
-        </div>
-
-
-        <div class="nav-links">
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="dashboard.html">
-                Dashboard
-            </a>
-
-            <a
-                href="tracker.html"
-                class="active"
-            >
-                Tracker
-            </a>
-            <a href="history.html">
-                History
-            </a>
-
-            <a href="insights.html">
-                Insights
-            </a>
-
-            <a href="challenges.html">
-                Challenges
-            </a>
-
-            <a href="achievements.html">
-                Achievements
-            </a>
-
-            <a href="profile.html">
-                Profile
-            </a>
-
-        </div>
-
-
-        <button
-            id="logoutBtn"
-            class="logout-btn"
-        >
-            Logout
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
 
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="tracker.html" class="active">Track Activity</a>
+            <a href="history.html">History</a>
+            <a href="insights.html">Insights</a>
+            <a href="challenges.html">Challenges</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="profile.html">Profile</a>
+        </div>
+
+        <div class="nav-actions">
+            <button id="logoutBtn" class="logout-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                Logout
+            </button>
+        </div>
     </nav>
 
 
-
-    <!-- =========================
-         PAGE HEADER
-    ========================== -->
-
+    <!-- PAGE HEADER -->
     <header class="page-header">
-
         <div class="header-content">
-
-            <div class="header-badge">
-                🌍 Carbon Footprint Tracker
+            <div class="header-text">
+                <h1>Log Activity</h1>
+                <p>Select an activity category and enter your usage to compute estimated carbon emissions.</p>
             </div>
-
-            <h1>
-                Track Your Activity
-            </h1>
-
-            <p>
-                Record your everyday activities and
-                understand their estimated carbon impact.
-            </p>
-
+            <div class="header-actions">
+                <a href="dashboard.html" class="btn btn-secondary">← Back to Dashboard</a>
+            </div>
         </div>
-
     </header>
 
 
-
-    <!-- =========================
-         MAIN
-    ========================== -->
-
     <main class="tracker-container">
 
+        <div class="tracker-layout">
 
-        <!-- INTRO -->
+            <!-- MAIN FORM COLUMN -->
+            <div class="tracker-main">
 
-        <section class="tracker-intro">
+                <div class="tracker-card">
+                    <form id="activityForm">
+                        <!-- 1. CATEGORY -->
+                        <div class="form-group">
+                            <label for="activityType">Activity Category</label>
+                            <select id="activityType" required>
+                                <option value="">Select an activity category</option>
+                                <option value="transport">Transport (Commute, Travel)</option>
+                                <option value="electricity">Electricity (Home Power, Appliances)</option>
+                                <option value="food">Food & Meals (Dietary Choices)</option>
+                                <option value="shopping">Shopping (Goods & Purchases)</option>
+                            </select>
+                            <small>Choose the lifestyle category that corresponds to your action.</small>
+                        </div>
 
-            <div class="intro-icon">
-                🌱
-            </div>
+                        <!-- 2. DYNAMIC FIELDS (Vehicle type, meal type, etc.) -->
+                        <div id="extraFields" class="extra-fields"></div>
 
-            <div>
+                        <!-- 3. USAGE + UNIT -->
+                        <div class="form-row">
+                            <div class="form-group form-group-half">
+                                <label for="amount">Quantity / Usage</label>
+                                <input type="number" id="amount" placeholder="e.g. 25" min="0" step="0.1" required>
+                            </div>
 
-                <h2>
-                    Add a new activity
-                </h2>
+                            <div class="form-group form-group-half">
+                                <label for="unit">Unit of Measure</label>
+                                <select id="unit" required>
+                                    <option value="">Select unit</option>
+                                </select>
+                            </div>
+                        </div>
 
-                <p>
-                    Choose an activity category and enter
-                    the details below.
-                </p>
+                        <!-- 4. SUBMIT -->
+                        <button type="submit" class="btn btn-primary tracker-submit-btn">
+                            Calculate & Save Activity
+                        </button>
+                    </form>
 
-            </div>
-
-        </section>
-
-
-
-        <!-- TRACKER FORM -->
-
-        <section class="tracker-card">
-
-            <form id="activityForm">
-
-
-                <!-- ACTIVITY TYPE -->
-
-                <div class="form-group">
-
-                    <label for="activityType">
-                        Activity Type
-                    </label>
-
-                    <select
-                        id="activityType"
-                        required
-                    >
-
-                        <option value="">
-                            Select an activity
-                        </option>
-
-                        <option value="transport">
-                            🚗 Transport
-                        </option>
-
-                        <option value="electricity">
-                            ⚡ Electricity
-                        </option>
-
-                        <option value="food">
-                            🍽️ Food
-                        </option>
-
-                        <option value="shopping">
-                            🛍️ Shopping
-                        </option>
-
-                    </select>
-
-                    <small>
-                        Select the category that best describes
-                        your activity.
-                    </small>
-
+                    <!-- RESULT DISPLAY -->
+                    <div id="result" class="result"></div>
                 </div>
 
+            </div>
 
 
-                <!-- DYNAMIC FIELDS -->
+            <!-- SIDEBAR COLUMN: Transparent Methodology -->
+            <div class="tracker-sidebar">
 
-                <div
-                    id="extraFields"
-                    class="extra-fields"
-                ></div>
+                <div class="side-card">
+                    <span class="section-label">Methodology</span>
+                    <h3>Calculation Baselines</h3>
+                    <p>EcoTrack calculates carbon footprints using verified emission factor standards (kg CO₂e per unit):</p>
 
-
-
-                <!-- AMOUNT + UNIT -->
-
-                <div class="form-row">
-
-
-                    <div class="form-group">
-
-                        <label for="amount">
-                            Amount
-                        </label>
-
-                        <input
-                            type="number"
-                            id="amount"
-                            placeholder="Enter amount"
-                            min="0"
-                            step="0.1"
-                            required
-                        >
-
+                    <div class="factors-table">
+                        <div class="factor-row">
+                            <span class="factor-name">Petrol Car</span>
+                            <span class="factor-val">0.19 kg / km</span>
+                        </div>
+                        <div class="factor-row">
+                            <span class="factor-name">Motorcycle</span>
+                            <span class="factor-val">0.10 kg / km</span>
+                        </div>
+                        <div class="factor-row">
+                            <span class="factor-name">City Bus</span>
+                            <span class="factor-val">0.08 kg / km</span>
+                        </div>
+                        <div class="factor-row">
+                            <span class="factor-name">Train / Rail</span>
+                            <span class="factor-val">0.04 kg / km</span>
+                        </div>
+                        <div class="factor-row">
+                            <span class="factor-name">Grid Electricity</span>
+                            <span class="factor-val">0.82 kg / kWh</span>
+                        </div>
+                        <div class="factor-row">
+                            <span class="factor-name">Meat Meal</span>
+                            <span class="factor-val">3.50 kg / meal</span>
+                        </div>
+                        <div class="factor-row">
+                            <span class="factor-name">Vegetarian Meal</span>
+                            <span class="factor-val">1.50 kg / meal</span>
+                        </div>
                     </div>
-
-
-                    <div class="form-group">
-
-                        <label for="unit">
-                            Unit
-                        </label>
-
-                        <select
-                            id="unit"
-                            required
-                        >
-
-                            <option value="">
-                                Select unit
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
                 </div>
 
-
-
-                <!-- SUBMIT -->
-
-                <button
-                    type="submit"
-                    class="calculate-btn"
-                >
-
-                    <span>
-                        Calculate Footprint
-                    </span>
-
-                    <span class="button-arrow">
-                        →
-                    </span>
-
-                </button>
-
-
-            </form>
-
-        </section>
-
-
-
-        <!-- RESULT -->
-
-        <div
-            id="result"
-            class="result"
-        ></div>
-
-
-
-        <!-- INFORMATION -->
-
-        <section class="tracker-info">
-
-
-            <div class="info-card">
-
-                <div class="info-icon">
-                    📊
-                </div>
-
-                <div>
-
-                    <h3>
-                        Estimated Impact
-                    </h3>
-
-                    <p>
-                        Your footprint is calculated from
-                        the activity information you provide.
-                    </p>
-
+                <div class="side-card">
+                    <span class="section-label">Tracking Tip</span>
+                    <h3>Build an Accurate Baseline</h3>
+                    <p>Log actions consistently for 7 days. Even approximate logging reveals your biggest personal reduction opportunities.</p>
                 </div>
 
             </div>
 
-
-            <div class="info-card">
-
-                <div class="info-icon">
-                    💡
-                </div>
-
-                <div>
-
-                    <h3>
-                        Track Regularly
-                    </h3>
-
-                    <p>
-                        Add activities regularly to build a
-                        clearer picture of your footprint.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </section>
-
+        </div>
 
     </main>
 
 
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <a href="index.html" class="footer-logo">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+                    </svg>
+                    EcoTrack
+                </a>
+                <p>Personal carbon footprint accounting, analytics, and climate habit building.</p>
+            </div>
 
-    <script
-        type="module"
-        src="js/tracker.js"
-    ></script>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="tracker.html">Track Activity</a>
+                <a href="history.html">History</a>
+                <a href="insights.html">Insights</a>
+                <a href="challenges.html">Challenges</a>
+                <a href="achievements.html">Achievements</a>
+                <a href="profile.html">Profile</a>
+            </div>
+        </div>
 
+        <div class="footer-bottom">
+            <span>© 2026 EcoTrack. All rights reserved.</span>
+            <span>Created by Daksh Chawla</span>
+        </div>
+    </footer>
+
+    <script type="module" src="js/tracker.js"></script>
+    <script>
+        const navToggle = document.getElementById("navToggle");
+        const navLinks = document.getElementById("navLinks");
+        if (navToggle && navLinks) {
+            navToggle.addEventListener("click", () => {
+                navLinks.classList.toggle("nav-open");
+            });
+        }
+    </script>
 
 </body>
 

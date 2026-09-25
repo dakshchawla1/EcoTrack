@@ -90,19 +90,19 @@ activityType.addEventListener(
                     </option>
 
                     <option value="car">
-                        🚗 Car
+                        Car
                     </option>
 
                     <option value="bike">
-                        🏍️ Motorcycle
+                        Motorcycle
                     </option>
 
                     <option value="bus">
-                        🚌 Bus
+                        Bus
                     </option>
 
                     <option value="train">
-                        🚆 Train
+                        Train
                     </option>
 
                 </select>
@@ -155,11 +155,11 @@ activityType.addEventListener(
                     </option>
 
                     <option value="vegetarian">
-                        🥗 Vegetarian
+                        Vegetarian
                     </option>
 
                     <option value="nonvegetarian">
-                        🍗 Non-vegetarian
+                        Non-vegetarian
                     </option>
 
                 </select>
@@ -196,15 +196,15 @@ activityType.addEventListener(
                     </option>
 
                     <option value="clothing">
-                        👕 Clothing
+                        Clothing
                     </option>
 
                     <option value="electronics">
-                        💻 Electronics
+                        Electronics
                     </option>
 
                     <option value="other">
-                        🛍️ Other
+                        Other
                     </option>
 
                 </select>
@@ -468,7 +468,7 @@ form.addEventListener(
             result.innerHTML = `
 
                 <strong>
-                    Activity Saved! ✅
+                    Activity Saved!
                 </strong>
 
                 <br><br>
