@@ -117,12 +117,15 @@ let activities = [];
 
 let chartInstance = null;
 
-let currentGoal =
-    Number(
-        localStorage.getItem(
-            "ecoTrackGoal"
-        ) || 0
-    );
+function getGoalStorageKey() {
+    const user = auth.currentUser;
+    const userKey = user ? (user.uid || user.id || user.email || "default") : "default";
+    return `ecoTrackGoal_${userKey}`;
+}
+
+let currentGoal = Number(
+    localStorage.getItem("ecoTrackGoal") || 0
+);
 
 
 // ==========================================
@@ -146,6 +149,13 @@ onAuthStateChanged(
         console.log(
             "Dashboard Firebase User:",
             user.email
+        );
+
+        const userKey = user.uid || user.id || user.email || "default";
+        currentGoal = Number(
+            localStorage.getItem(`ecoTrackGoal_${userKey}`) ||
+            localStorage.getItem("ecoTrackGoal") ||
+            0
         );
 
 
@@ -360,6 +370,33 @@ function getTotalEmission() {
         0
     );
 
+}
+
+
+// ==========================================
+// MONTHLY EMISSION (CURRENT CALENDAR MONTH)
+// ==========================================
+
+function getMonthEmission() {
+    if (!activities || activities.length === 0) return 0;
+
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    const currentMonth = now.getMonth();
+
+    const monthActivities = activities.filter(activity => {
+        const rawDate = activity.date || activity.created_at;
+        if (!rawDate) return false;
+        const d = new Date(rawDate);
+        return !isNaN(d.getTime()) && d.getFullYear() === currentYear && d.getMonth() === currentMonth;
+    });
+
+    if (monthActivities.length > 0) {
+        return monthActivities.reduce((sum, a) => sum + Number(a.emission || 0), 0);
+    }
+
+    // Resilient fallback: if no entries exist in current calendar month, use all-time total
+    return getTotalEmission();
 }
 
 
@@ -1275,98 +1312,68 @@ function displayPersonalizedTips() {
 // ==========================================
 
 function openGoalModal() {
+    if (!goalModal) return;
+    if (goalError) goalError.textContent = "";
 
-    goalError.textContent =
-        "";
-
-
-    if (
-        currentGoal > 0
-    ) {
-
-        goalAmount.value =
-            currentGoal;
-
+    const clearBtn = document.getElementById("clearGoalBtn");
+    if (clearBtn) {
+        clearBtn.style.display = currentGoal > 0 ? "inline-block" : "none";
     }
 
-    else {
-
-        goalAmount.value =
-            "";
-
+    if (goalAmount) {
+        goalAmount.value = currentGoal > 0 ? currentGoal : "";
     }
 
+    goalModal.classList.add("active");
+    goalModal.classList.add("show");
+    goalModal.style.display = "flex";
 
-    goalModal.classList.add(
-        "show"
-    );
-
+    if (goalAmount) {
+        setTimeout(() => goalAmount.focus(), 60);
+    }
 }
-
 
 function closeGoalModalFunction() {
+    if (!goalModal) return;
+    goalModal.classList.remove("active");
+    goalModal.classList.remove("show");
+    goalModal.style.display = "none";
 
-    goalModal.classList.remove(
-        "show"
-    );
-
-
-    goalForm.reset();
-
-
-    goalError.textContent =
-        "";
-
+    if (goalForm) goalForm.reset();
+    if (goalError) goalError.textContent = "";
 }
 
-
-goalForm.addEventListener(
-    "submit",
-    event => {
-
+if (goalForm) {
+    goalForm.addEventListener("submit", event => {
         event.preventDefault();
 
-
-        const value =
-            Number(
-                goalAmount.value
-            );
-
-
-        if (
-            !Number.isFinite(
-                value
-            ) ||
-            value <= 0
-        ) {
-
-            goalError.textContent =
-                "Please enter a valid goal.";
-
+        const value = Number(goalAmount.value);
+        if (!Number.isFinite(value) || value <= 0) {
+            if (goalError) {
+                goalError.textContent = "Please enter a valid monthly budget limit (greater than 0 kg CO₂).";
+            }
             return;
-
         }
 
-
-        currentGoal =
-            value;
-
-
-        localStorage.setItem(
-            "ecoTrackGoal",
-            String(
-                currentGoal
-            )
-        );
-
+        currentGoal = value;
+        localStorage.setItem(getGoalStorageKey(), String(currentGoal));
+        localStorage.setItem("ecoTrackGoal", String(currentGoal));
 
         closeGoalModalFunction();
-
-
         displayGoal();
+    });
+}
 
-    }
-);
+const clearGoalBtn = document.getElementById("clearGoalBtn");
+if (clearGoalBtn) {
+    clearGoalBtn.addEventListener("click", () => {
+        currentGoal = 0;
+        localStorage.removeItem(getGoalStorageKey());
+        localStorage.removeItem("ecoTrackGoal");
+        closeGoalModalFunction();
+        displayGoal();
+    });
+}
 
 
 // ==========================================
@@ -1374,207 +1381,76 @@ goalForm.addEventListener(
 // ==========================================
 
 function displayGoal() {
+    if (!goalContent) return;
 
-    if (
-        !goalContent
-    ) {
-
-        return;
-
+    if (setGoalBtn) {
+        setGoalBtn.textContent = currentGoal > 0 ? "Edit Target" : "Set Target";
     }
 
-
-    if (
-        currentGoal <= 0
-    ) {
-
+    if (currentGoal <= 0) {
         goalContent.innerHTML = `
-
             <div class="goal-empty">
-
-                <h3>
-                    No personal goal set
-                </h3>
-
-                <p>
-                    Set a carbon goal to start tracking
-                    your progress.
-                </p>
-
-                <button
-                    id="emptySetGoalBtn"
-                    class="goal-btn"
-                >
-                    Set My Goal
-                </button>
-
+                <h3>No personal target set</h3>
+                <p>Set a monthly emission limit in kg CO₂ to monitor your progress.</p>
+                <button id="emptySetGoalBtn" class="btn btn-sm btn-secondary">Set Monthly Target</button>
             </div>
-
         `;
 
-
-        const newButton =
-            document.getElementById(
-                "emptySetGoalBtn"
-            );
-
-
-        if (
-            newButton
-        ) {
-
-            newButton.addEventListener(
-                "click",
-                openGoalModal
-            );
-
+        const newButton = document.getElementById("emptySetGoalBtn");
+        if (newButton) {
+            newButton.addEventListener("click", openGoalModal);
         }
-
-
         return;
-
     }
 
+    const currentEmission = getMonthEmission();
+    const percentage = Math.min((currentEmission / currentGoal) * 100, 100);
+    const remaining = Math.max(currentGoal - currentEmission, 0);
 
-    const total =
-        getTotalEmission();
+    let statusText = "You're within your monthly carbon budget. Keep it up!";
+    let statusClass = "";
 
-
-    const percentage =
-        Math.min(
-            (
-                total /
-                currentGoal
-            ) *
-            100,
-            100
-        );
-
-
-    const remaining =
-        Math.max(
-            currentGoal -
-            total,
-            0
-        );
-
-
-    let statusText =
-        "You're within your carbon goal. Keep tracking!";
-
-
-    let statusClass =
-        "";
-
-
-    if (
-        percentage >= 100
-    ) {
-
-        statusText =
-            "You've reached your carbon goal. Consider reducing your footprint in your next activities.";
-
-        statusClass =
-            "danger";
-
+    if (currentEmission >= currentGoal) {
+        statusText = "Budget ceiling reached! Consider choosing lower-carbon alternatives for upcoming activities.";
+        statusClass = "danger";
+    } else if (percentage >= 80) {
+        statusText = "Approaching limit: You have used over 80% of your monthly carbon budget.";
+        statusClass = "warning";
     }
-
-
-    else if (
-        percentage >= 80
-    ) {
-
-        statusText =
-            "You're getting close to your goal. Keep an eye on your upcoming activities.";
-
-        statusClass =
-            "warning";
-
-    }
-
 
     goalContent.innerHTML = `
-
         <div class="goal-display">
-
             <div class="goal-progress-box">
-
                 <div class="goal-progress-top">
-
-                    <span>
-                        Monthly progress
-                    </span>
-
-                    <strong>
-                        ${percentage.toFixed(0)}%
-                    </strong>
-
+                    <span>Monthly Progress</span>
+                    <strong>${percentage.toFixed(0)}%</strong>
                 </div>
-
 
                 <div class="goal-progress-bar">
-
-                    <div
-                        class="goal-progress-fill ${statusClass}"
-                        style="width: ${percentage}%"
-                    ></div>
-
+                    <div class="goal-progress-fill ${statusClass}" style="width: ${percentage}%"></div>
                 </div>
-
 
                 <div class="goal-status ${statusClass}">
                     ${statusText}
                 </div>
-
             </div>
-
 
             <div class="goal-stats">
-
                 <div class="goal-stat">
-
-                    <span>
-                        Current
-                    </span>
-
-                    <strong>
-                        ${total.toFixed(2)} kg
-                    </strong>
-
+                    <span>Emitted</span>
+                    <strong>${currentEmission.toFixed(1)} kg</strong>
                 </div>
-
-
                 <div class="goal-stat">
-
-                    <span>
-                        Goal
-                    </span>
-
-                    <strong>
-                        ${currentGoal.toFixed(2)} kg
-                    </strong>
-
+                    <span>Budget</span>
+                    <strong>${currentGoal.toFixed(1)} kg</strong>
                 </div>
-
-
                 <div class="goal-stat">
-
-                    <span>
-                        Remaining
-                    </span>
-
-                    <strong>
-                        ${remaining.toFixed(2)} kg
-                    </strong>
-
+                    <span>Remaining</span>
+                    <strong>${remaining.toFixed(1)} kg</strong>
                 </div>
-
             </div>
-
         </div>
-
     `;
-
 }
 
 
@@ -1852,45 +1728,35 @@ function escapeHTML(
 // GOAL BUTTON EVENTS
 // ==========================================
 
-setGoalBtn.addEventListener(
-    "click",
-    openGoalModal
-);
+if (setGoalBtn) {
+    setGoalBtn.addEventListener("click", openGoalModal);
+}
 
+if (emptySetGoalBtn) {
+    emptySetGoalBtn.addEventListener("click", openGoalModal);
+}
 
-emptySetGoalBtn.addEventListener(
-    "click",
-    openGoalModal
-);
+if (closeGoalModal) {
+    closeGoalModal.addEventListener("click", closeGoalModalFunction);
+}
 
+if (cancelGoal) {
+    cancelGoal.addEventListener("click", closeGoalModalFunction);
+}
 
-closeGoalModal.addEventListener(
-    "click",
-    closeGoalModalFunction
-);
-
-
-cancelGoal.addEventListener(
-    "click",
-    closeGoalModalFunction
-);
-
-
-goalModal.addEventListener(
-    "click",
-    event => {
-
-        if (
-            event.target ===
-            goalModal
-        ) {
-
+if (goalModal) {
+    goalModal.addEventListener("click", event => {
+        if (event.target === goalModal) {
             closeGoalModalFunction();
-
         }
+    });
+}
 
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && goalModal && (goalModal.classList.contains("active") || goalModal.classList.contains("show") || goalModal.style.display === "flex")) {
+        closeGoalModalFunction();
     }
-);
+});
 
 
 // ==========================================
