@@ -218,6 +218,42 @@ button, input, select, textarea {
     border-radius: var(--radius-sm);
 }
 
+.btn-primary {
+    background-color: var(--brand-primary);
+    color: var(--text-inverse) !important;
+    border-color: var(--brand-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--brand-primary-hover);
+    border-color: var(--brand-primary-hover);
+}
+
+.btn-primary:active {
+    background-color: var(--brand-primary-active);
+}
+
+.goal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--brand-primary);
+    color: var(--text-inverse) !important;
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 7px 15px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--brand-primary);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color var(--transition-fast);
+}
+
+.goal-btn:hover {
+    background-color: var(--brand-primary-hover);
+}
+
+
 /* Badges / Category Tags */
 .badge,
 .tag {
@@ -376,21 +412,21 @@ small {
 .logo {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
     color: var(--brand-primary);
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 700;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
     text-decoration: none;
+    transition: color var(--transition-fast);
 }
 
-.logo .logo-mark {
-    color: var(--brand-primary);
-    flex-shrink: 0;
+.logo:hover {
+    color: var(--brand-primary-hover);
 }
 
+.logo-mark,
 .logo-icon-svg {
-    display: none; /* Replaced by subtle .logo-mark */
+    display: none !important;
 }
 
 .nav-links {

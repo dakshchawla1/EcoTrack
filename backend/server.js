@@ -14,9 +14,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Root status check
-app.get("/", (req, res) => {
-    res.send("EcoTrack Backend is Running");
+// Serve frontend static assets and pages
+const frontendPath = path.join(__dirname, "../frontend");
+app.use(express.static(frontendPath));
+
+// API Root Status
+app.get("/api", (req, res) => {
+    res.json({ message: "EcoTrack API is running" });
 });
 
 // Health check endpoint
@@ -73,5 +77,12 @@ app.use((err, req, res, next) => {
         message: err.message || "Internal server error"
     });
 });
+
+if (require.main === module) {
+    const PORT = process.env.PORT || 4000;
+    app.listen(PORT, () => {
+        console.log(`EcoTrack server running on port ${PORT}`);
+    });
+}
 
 module.exports = app;

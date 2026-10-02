@@ -2,7 +2,8 @@ import { auth } from "./firebase-config.js";
 import { apiFetch } from "./api.js";
 
 import {
-    onAuthStateChanged
+    onAuthStateChanged,
+    signOut
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
 
@@ -511,3 +512,18 @@ form.addEventListener(
 
     }
 );
+
+// ==========================================
+// LOGOUT
+// ==========================================
+const logoutBtn = document.getElementById("logoutBtn");
+if (logoutBtn) {
+    logoutBtn.addEventListener("click", async () => {
+        try {
+            await signOut(auth);
+            window.location.href = "login.html";
+        } catch (error) {
+            console.error("Logout error:", error);
+        }
+    });
+}

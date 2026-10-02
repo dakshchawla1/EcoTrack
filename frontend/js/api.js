@@ -5,8 +5,23 @@ const isLocal =
     window.location.hostname === "localhost" ||
     window.location.hostname === "127.0.0.1";
 
-const API_BASE = isLocal ? "http://localhost:4000" : "";
+export const API_BASE = (isLocal && window.location.port !== "4000") ? "http://localhost:4000" : "";
 
+export async function getAuthUser(timeoutMs = 1500) {
+    if (auth.currentUser) return auth.currentUser;
+    return new Promise((resolve) => {
+        let timer = null;
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            if (timer) clearTimeout(timer);
+            unsubscribe();
+            resolve(user);
+        });
+        timer = setTimeout(() => {
+            unsubscribe();
+            resolve(auth.currentUser);
+        }, timeoutMs);
+    });
+}
 
 // ===============================
 // SECURE API REQUEST
@@ -14,7 +29,7 @@ const API_BASE = isLocal ? "http://localhost:4000" : "";
 
 export async function apiFetch(endpoint, options = {}) {
 
-    const user = auth.currentUser;
+    const user = await getAuthUser();
 
     if (!user) {
         throw new Error("User is not logged in");

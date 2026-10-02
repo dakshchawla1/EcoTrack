@@ -21,16 +21,16 @@
 .auth-brand {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 800;
     color: var(--brand-primary);
     text-decoration: none;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
+    transition: color var(--transition-fast);
 }
 
-.auth-brand .logo-mark {
-    color: var(--brand-primary);
+.auth-brand:hover {
+    color: var(--brand-primary-hover);
 }
 
 .auth-container {
