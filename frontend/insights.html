@@ -66,6 +66,57 @@
         <!-- INSIGHTS CONTENT -->
         <div class="insights-content" id="insightsContent">
 
+            <!-- ECOAI ANALYSIS -->
+            <section id="ecoAiAnalysisSection" class="dash-card ecoai-analysis-card" style="margin-bottom: 24px;">
+                <div class="dash-card-header">
+                    <div>
+                        <span class="ecoai-tag">🧠 EcoAI Analysis</span>
+                        <h2 id="ecoAiHeadline" style="margin-top: 4px;">Personal Footprint Breakdown & Trends</h2>
+                    </div>
+                    <button id="refreshEcoAiInsightsBtn" class="ecoai-refresh-btn" title="Refresh analysis" aria-label="Refresh analysis">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg>
+                    </button>
+                </div>
+
+                <!-- LOADING STATE -->
+                <div id="ecoAiAnalysisLoading" class="ecoai-loading">
+                    <div class="ecoai-spinner"></div>
+                    <span>🌱 EcoAI is analyzing your activity...</span>
+                </div>
+
+                <!-- CONTENT STATE -->
+                <div id="ecoAiAnalysisBody" class="ecoai-analysis-body" style="display: none;">
+                    <div class="ecoai-analysis-grid">
+                        <div class="ecoai-analysis-block">
+                            <span class="ecoai-block-label">Primary Driver</span>
+                            <p id="ecoAiPrimaryDriver" class="ecoai-block-text">—</p>
+                        </div>
+                        <div class="ecoai-analysis-block">
+                            <span class="ecoai-block-label">Trend & Trajectory</span>
+                            <p id="ecoAiTrendText" class="ecoai-block-text">—</p>
+                        </div>
+                    </div>
+
+                    <div class="ecoai-action-box">
+                        <div class="ecoai-action-header">
+                            <span class="ecoai-action-badge">💡 Suggested Action</span>
+                        </div>
+                        <p id="ecoAiSuggestedAction" class="ecoai-action-text">—</p>
+                    </div>
+
+                    <div class="ecoai-analysis-meta">
+                        <span id="ecoAiWeeklyComparison" class="ecoai-meta-text">—</span>
+                        <a href="tracker.html" class="btn btn-sm btn-secondary">Log New Activity</a>
+                    </div>
+                </div>
+
+                <!-- EMPTY STATE -->
+                <div id="ecoAiAnalysisEmpty" class="ecoai-empty" style="display: none;">
+                    <p>Add some activities first to receive personalized EcoAI insights.</p>
+                    <a href="tracker.html" class="btn btn-sm btn-primary">Start Tracking</a>
+                </div>
+            </section>
+
             <!-- SUMMARY -->
             <section class="summary-card">
                 <h2>Emission Analysis</h2>

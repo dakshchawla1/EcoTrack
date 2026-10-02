@@ -92,6 +92,45 @@
             <!-- LEFT COLUMN: Primary Records & Trends -->
             <div class="workspace-main">
 
+                <!-- ECOAI RECOMMENDATION -->
+                <section id="ecoAiSection" class="dash-card ecoai-card">
+                    <div class="dash-card-header">
+                        <div class="ecoai-header-left">
+                            <span class="ecoai-tag">🌱 EcoAI Recommendation</span>
+                            <h2 id="ecoAiTitle">Personalized Reduction Target</h2>
+                        </div>
+                        <button id="refreshEcoAiBtn" class="ecoai-refresh-btn" title="Refresh recommendation" aria-label="Refresh recommendation">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg>
+                        </button>
+                    </div>
+
+                    <!-- LOADING STATE -->
+                    <div id="ecoAiLoading" class="ecoai-loading">
+                        <div class="ecoai-spinner"></div>
+                        <span>🌱 EcoAI is analyzing your activity...</span>
+                    </div>
+
+                    <!-- CONTENT STATE -->
+                    <div id="ecoAiBody" class="ecoai-body" style="display: none;">
+                        <p id="ecoAiAnalysis" class="ecoai-analysis">—</p>
+                        <p id="ecoAiRecommendation" class="ecoai-recommendation">—</p>
+
+                        <div class="ecoai-footer">
+                            <div class="ecoai-saving-box">
+                                <span class="ecoai-saving-label">Potential reduction:</span>
+                                <strong id="ecoAiSaving" class="ecoai-saving-val">~0.0 kg CO₂</strong>
+                            </div>
+                            <a href="tracker.html" class="btn btn-sm btn-secondary">Log Action</a>
+                        </div>
+                    </div>
+
+                    <!-- EMPTY / AWAITING DATA STATE -->
+                    <div id="ecoAiEmpty" class="ecoai-empty" style="display: none;">
+                        <p>Add more activities to receive a personalized EcoAI recommendation.</p>
+                        <a href="tracker.html" class="btn btn-sm btn-primary">Start Tracking</a>
+                    </div>
+                </section>
+
                 <!-- RECENT ACTIVITIES -->
                 <section id="activitySection" class="dash-card">
                     <div class="dash-card-header">

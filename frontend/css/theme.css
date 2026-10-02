@@ -677,3 +677,297 @@ footer {
         align-items: flex-start;
     }
 }
+
+/* ==========================================================================
+   ECOAI FEATURES STYLING
+   Restrained, earthy, human-designed — perfectly matches EcoTrack design system
+   ========================================================================== */
+
+.ecoai-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--brand-primary);
+    background-color: var(--brand-tint);
+    border: 1px solid var(--brand-border);
+    border-radius: var(--radius-sm);
+    padding: 3px 8px;
+    width: fit-content;
+}
+
+.ecoai-mini-tag {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--brand-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: inline-block;
+}
+
+.ecoai-card,
+.whatif-card,
+.ecoai-analysis-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-xs);
+    margin-bottom: 24px;
+    transition: border-color var(--transition-fast);
+}
+
+.ecoai-card:hover,
+.whatif-card:hover,
+.ecoai-analysis-card:hover {
+    border-color: var(--border-default);
+}
+
+.ecoai-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ecoai-refresh-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    padding: 6px 9px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.ecoai-refresh-btn:hover {
+    color: var(--brand-primary);
+    border-color: var(--brand-primary);
+    background-color: var(--bg-surface-subtle);
+}
+
+.ecoai-loading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 28px 16px;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.ecoai-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border-default);
+    border-top-color: var(--brand-primary);
+    border-radius: 50%;
+    animation: ecoai-spin 0.8s linear infinite;
+}
+
+@keyframes ecoai-spin {
+    to { transform: rotate(360deg); }
+}
+
+.ecoai-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 14px;
+}
+
+.ecoai-analysis {
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.ecoai-recommendation {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text-secondary);
+}
+
+.ecoai-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-subtle);
+    margin-top: 6px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.ecoai-saving-box {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.ecoai-saving-label {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.ecoai-saving-val {
+    font-size: 15.5px;
+    font-weight: 700;
+    color: var(--brand-primary);
+}
+
+.ecoai-empty {
+    padding: 24px 16px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 13.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+/* What-If Simulator Styling */
+.whatif-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.whatif-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.whatif-metric-card {
+    background-color: var(--bg-surface-subtle);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.whatif-metric-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+}
+
+.whatif-metric-val {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.whatif-saving-card {
+    background-color: var(--brand-tint);
+    border-color: var(--brand-border);
+}
+
+.whatif-saving-val {
+    color: var(--brand-primary);
+    font-size: 18px;
+}
+
+.whatif-pct {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--brand-accent);
+}
+
+.whatif-explanation-box {
+    background-color: var(--bg-surface-subtle);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.whatif-explanation-text {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+/* EcoAI Analysis on Insights */
+.ecoai-analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+    margin-bottom: 16px;
+    padding-top: 14px;
+}
+
+.ecoai-analysis-block {
+    background-color: var(--bg-surface-subtle);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ecoai-block-label {
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+}
+
+.ecoai-block-text {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--text-primary);
+}
+
+.ecoai-action-box {
+    background-color: var(--brand-tint);
+    border: 1px solid var(--brand-border);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ecoai-action-badge {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--brand-primary);
+}
+
+.ecoai-action-text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-primary);
+}
+
+.ecoai-analysis-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.ecoai-meta-text {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+

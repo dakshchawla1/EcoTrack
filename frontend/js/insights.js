@@ -148,6 +148,8 @@ onAuthStateChanged(
             insightsContent.style.display =
                 "block";
 
+            loadEcoAiAnalysis();
+
 
 
             /* =========================
@@ -536,3 +538,66 @@ logoutBtn.addEventListener(
 
     }
 );
+
+// ==========================================
+// ECOAI ANALYSIS
+// ==========================================
+
+async function loadEcoAiAnalysis() {
+    const loadingEl = document.getElementById("ecoAiAnalysisLoading");
+    const bodyEl = document.getElementById("ecoAiAnalysisBody");
+    const emptyEl = document.getElementById("ecoAiAnalysisEmpty");
+    const headlineEl = document.getElementById("ecoAiHeadline");
+    const primaryDriverEl = document.getElementById("ecoAiPrimaryDriver");
+    const trendTextEl = document.getElementById("ecoAiTrendText");
+    const suggestedActionEl = document.getElementById("ecoAiSuggestedAction");
+    const weeklyCompEl = document.getElementById("ecoAiWeeklyComparison");
+
+    if (!loadingEl || !bodyEl) return;
+
+    loadingEl.style.display = "flex";
+    bodyEl.style.display = "none";
+    if (emptyEl) emptyEl.style.display = "none";
+
+    try {
+        const data = await apiFetch("/api/ai/insights");
+        loadingEl.style.display = "none";
+
+        if (!data || data.status === "no_data") {
+            if (emptyEl) {
+                emptyEl.innerHTML = `
+                    <p>Add some activities first to receive personalized EcoAI insights.</p>
+                    <a href="tracker.html" class="btn btn-sm btn-primary">Start Tracking</a>
+                `;
+                emptyEl.style.display = "block";
+            }
+            return;
+        }
+
+        if (headlineEl) headlineEl.textContent = data.headline || "Personal Footprint Breakdown";
+        if (primaryDriverEl) primaryDriverEl.textContent = data.primary_driver || "—";
+        if (trendTextEl) trendTextEl.textContent = data.trend_analysis || "—";
+        if (suggestedActionEl) suggestedActionEl.textContent = data.suggested_action || "—";
+        if (weeklyCompEl) weeklyCompEl.textContent = data.weekly_comparison || "";
+
+        bodyEl.style.display = "block";
+
+    } catch (error) {
+        console.warn("EcoAI analysis notice:", error.message);
+        loadingEl.style.display = "none";
+        if (emptyEl) {
+            emptyEl.innerHTML = `
+                <p>EcoAI is temporarily unavailable. Your EcoTrack data is still available.</p>
+                <a href="tracker.html" class="btn btn-sm btn-secondary">Log Activity</a>
+            `;
+            emptyEl.style.display = "block";
+        }
+    }
+}
+
+const refreshEcoAiInsightsBtn = document.getElementById("refreshEcoAiInsightsBtn");
+if (refreshEcoAiInsightsBtn) {
+    refreshEcoAiInsightsBtn.addEventListener("click", () => {
+        loadEcoAiAnalysis();
+    });
+}

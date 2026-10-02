@@ -189,6 +189,7 @@ async function loadDashboard() {
 
 
         updateDashboard();
+        loadEcoAiRecommendation();
 
     } catch (error) {
 
@@ -197,13 +198,78 @@ async function loadDashboard() {
             error
         );
 
-
         activities = [];
-
         updateDashboard();
+        loadEcoAiRecommendation();
 
     }
 
+}
+
+
+// ==========================================
+// ECOAI RECOMMENDATION
+// ==========================================
+
+async function loadEcoAiRecommendation() {
+    const ecoAiLoading = document.getElementById("ecoAiLoading");
+    const ecoAiBody = document.getElementById("ecoAiBody");
+    const ecoAiEmpty = document.getElementById("ecoAiEmpty");
+    const ecoAiTitle = document.getElementById("ecoAiTitle");
+    const ecoAiAnalysis = document.getElementById("ecoAiAnalysis");
+    const ecoAiRecommendation = document.getElementById("ecoAiRecommendation");
+    const ecoAiSaving = document.getElementById("ecoAiSaving");
+
+    if (!ecoAiLoading || !ecoAiBody) return;
+
+    ecoAiLoading.style.display = "flex";
+    ecoAiBody.style.display = "none";
+    if (ecoAiEmpty) ecoAiEmpty.style.display = "none";
+
+    try {
+        const data = await apiFetch("/api/ai/recommendation");
+
+        ecoAiLoading.style.display = "none";
+
+        if (!data || data.status === "no_data") {
+            if (ecoAiEmpty) {
+                ecoAiEmpty.innerHTML = `
+                    <p>Add more activities to receive a personalized EcoAI recommendation.</p>
+                    <a href="tracker.html" class="btn btn-sm btn-primary">Start Tracking</a>
+                `;
+                ecoAiEmpty.style.display = "block";
+            }
+            return;
+        }
+
+        if (ecoAiTitle) ecoAiTitle.textContent = data.title || "Personalized Reduction Target";
+        if (ecoAiAnalysis) ecoAiAnalysis.textContent = data.analysis || "";
+        if (ecoAiRecommendation) ecoAiRecommendation.textContent = data.recommendation || "";
+        if (ecoAiSaving) {
+            const saving = Number(data.estimated_saving || 0);
+            ecoAiSaving.textContent = `~${saving.toFixed(1)} kg CO₂`;
+        }
+
+        ecoAiBody.style.display = "block";
+
+    } catch (error) {
+        console.warn("EcoAI recommendation notice:", error.message);
+        ecoAiLoading.style.display = "none";
+        if (ecoAiEmpty) {
+            ecoAiEmpty.innerHTML = `
+                <p>EcoAI is temporarily unavailable. Your EcoTrack data is still available.</p>
+                <a href="tracker.html" class="btn btn-sm btn-secondary">Log Activity</a>
+            `;
+            ecoAiEmpty.style.display = "block";
+        }
+    }
+}
+
+const refreshEcoAiBtn = document.getElementById("refreshEcoAiBtn");
+if (refreshEcoAiBtn) {
+    refreshEcoAiBtn.addEventListener("click", () => {
+        loadEcoAiRecommendation();
+    });
 }
 
 

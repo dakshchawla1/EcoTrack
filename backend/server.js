@@ -8,6 +8,7 @@ const pool = require("./database");
 const activitiesRoute = require("./routes/activities");
 const usersRoute = require("./routes/users");
 const challengesRoute = require("./routes/challenges");
+const aiRoute = require("./routes/ai");
 
 const app = express();
 
@@ -67,6 +68,9 @@ app.use("/users", usersRoute);
 
 app.use("/api/challenges", challengesRoute);
 app.use("/challenges", challengesRoute);
+
+app.use("/api/ai", aiRoute);
+app.use("/ai", aiRoute);
 
 // 404 handler for unknown routes
 app.use((req, res) => {

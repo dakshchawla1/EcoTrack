@@ -274,6 +274,111 @@ export async function apiFetch(endpoint, options = {}) {
             };
         }
 
+        // 8. GET /api/ai/recommendation
+        if (endpoint.includes("/api/ai/recommendation")) {
+            const acts = getLocalActivities(user.uid);
+            if (!acts || acts.length === 0) {
+                return {
+                    status: "no_data",
+                    title: "Build Your Carbon Baseline",
+                    analysis: "Add more activities to receive a personalized EcoAI recommendation.",
+                    recommendation: "Log your daily transport, home electricity, or meals to get tailored reduction tips.",
+                    estimated_saving: 0
+                };
+            }
+            const catMap = { transport: 0, electricity: 0, food: 0, shopping: 0 };
+            acts.forEach(a => {
+                const c = (a.activity_type || "").toLowerCase();
+                if (catMap[c] !== undefined) catMap[c] += Number(a.emission || 0);
+            });
+            let topC = "transport", topV = -1;
+            for (const [k, v] of Object.entries(catMap)) {
+                if (v > topV) { topV = v; topC = k; }
+            }
+            const saving = Math.max(1.5, Number((topV * 0.2).toFixed(1)));
+            const titles = {
+                transport: "Optimize Weekly Commuting",
+                electricity: "Reduce Baseload Electricity",
+                food: "Incorporate Plant-Powered Meals",
+                shopping: "Practice Mindful Purchasing"
+            };
+            const recs = {
+                transport: "Consider replacing 2 short solo car or motorbike trips this week with public transit, cycling, or walking.",
+                electricity: "Shift high-power appliances to off-peak hours and adjust thermostat settings by 1-2 degrees.",
+                food: "Try swapping 2 meat-based meals this week for plant-based or vegetarian alternatives.",
+                shopping: "Prioritize second-hand or certified durable goods and repair electronics before replacing."
+            };
+            return {
+                status: "success",
+                title: titles[topC] || "Reduce Carbon Footprint",
+                analysis: `${topC.charAt(0).toUpperCase() + topC.slice(1)} is currently your highest emission category (${topV.toFixed(1)} kg CO₂).`,
+                recommendation: recs[topC] || "Log activities consistently to see personalized reduction targets.",
+                estimated_saving: saving,
+                source: "offline"
+            };
+        }
+
+        // 9. POST /api/ai/simulate
+        if (endpoint.includes("/api/ai/simulate")) {
+            const factors = {
+                transport: { car: 0.192, bike: 0.103, bus: 0.089, metro: 0.041, train: 0.041, bicycle: 0, walk: 0 },
+                electricity: { grid: 0.82, efficient: 0.45, solar: 0.05 },
+                food: { nonvegetarian: 3.5, vegetarian: 1.5, vegan: 0.8 },
+                shopping: { electronics: 10.0, refurbished: 2.5, clothing: 5.0, thrift: 1.0, other: 2.0 }
+            };
+            const p = options.body ? JSON.parse(options.body) : {};
+            const cat = p.category || "transport";
+            const cur = p.currentChoice || "car";
+            const alt = p.alternativeChoice || "metro";
+            const amt = Math.max(0.1, Number(p.amount) || 1);
+            const freq = Math.max(1, Number(p.frequency) || 1);
+            const cf = (factors[cat] && factors[cat][cur] !== undefined) ? factors[cat][cur] : 0.192;
+            const af = (factors[cat] && factors[cat][alt] !== undefined) ? factors[cat][alt] : 0.041;
+            const curE = Number((amt * cf * freq).toFixed(2));
+            const altE = Number((amt * af * freq).toFixed(2));
+            const sav = Number(Math.max(0, curE - altE).toFixed(2));
+            const pct = curE > 0 ? Number(((sav / curE) * 100).toFixed(1)) : 0;
+            return {
+                status: "success",
+                category: cat,
+                currentChoice: cur,
+                alternativeChoice: alt,
+                amount: amt,
+                frequency: freq,
+                currentEmissions: curE,
+                alternativeEmissions: altE,
+                potentialSaving: sav,
+                percentageSaved: pct,
+                explanation: `Switching ${freq} ${cat} action(s) from ${cur} to ${alt} avoids approximately ${sav} kg CO₂ (${pct}% reduction).`,
+                source: "offline"
+            };
+        }
+
+        // 10. GET /api/ai/insights
+        if (endpoint.includes("/api/ai/insights")) {
+            const acts = getLocalActivities(user.uid);
+            if (!acts || acts.length === 0) {
+                return {
+                    status: "no_data",
+                    headline: "Awaiting Your First Records",
+                    trend_analysis: "Add some activities first to receive personalized EcoAI insights.",
+                    primary_driver: "No baseline emissions recorded yet.",
+                    suggested_action: "Start tracking daily transit or home electricity to identify your largest reduction opportunities.",
+                    weekly_comparison: "Baseline will generate after your first week of entries."
+                };
+            }
+            const total = acts.reduce((s, a) => s + Number(a.emission || 0), 0);
+            return {
+                status: "success",
+                headline: "Activity Patterns Established",
+                trend_analysis: `You have recorded ${acts.length} activities totaling ${total.toFixed(1)} kg CO₂.`,
+                primary_driver: "Emissions are distributed across your logged lifestyle categories.",
+                suggested_action: "Review your highest-impact activities to focus reduction efforts where they matter most.",
+                weekly_comparison: `${total.toFixed(1)} kg CO₂ cumulative personal footprint recorded.`,
+                source: "offline"
+            };
+        }
+
         // If not a handled offline route, rethrow original error
         throw networkError;
     }
