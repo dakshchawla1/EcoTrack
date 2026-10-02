@@ -3,11 +3,15 @@
    Requires theme.css for variables and foundational reset
    ========================================================================== */
 
+body {
+    background-color: #f1f8f3;
+}
+
 /* Hero Section */
 .hero-section {
     padding: 44px 5% 52px;
-    background-color: var(--bg-canvas);
-    border-bottom: 1px solid var(--border-subtle);
+    background-color: #f1f8f3;
+    border-bottom: 1px solid #dcebe0;
 }
 
 .hero-container {
@@ -17,12 +21,12 @@
 
 /* Rectangular Hero Card */
 .hero-card {
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-default);
+    background-color: #ffffff;
+    border: 1px solid #d0e4d5;
     border-radius: var(--radius-lg);
     padding: 56px 44px 44px;
     text-align: center;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 4px 16px rgba(27, 67, 50, 0.05);
 }
 
 .hero-card h1 {
