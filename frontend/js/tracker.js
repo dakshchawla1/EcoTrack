@@ -423,91 +423,86 @@ form.addEventListener(
            SAVE TO DATABASE
         ========================= */
 
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn ? submitBtn.innerText : "Calculate & Save Activity";
+
         result.style.display = "block";
+        result.className = "result";
+        result.innerText = "Calculating & saving activity...";
 
-        result.innerText =
-            "Saving activity...";
-
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Saving...";
+        }
 
         try {
 
             /*
-                Secure API request.
-
-                apiFetch automatically gets the
-                Firebase ID token and sends it
-                to the backend.
+                Secure API request with resilient fallback.
+                apiFetch automatically gets the Firebase ID token
+                and handles cloud storage with offline resilience.
             */
 
-            const data =
-                await apiFetch(
-                    "/api/activities",
-                    {
+            const data = await apiFetch(
+                "/api/activities",
+                {
+                    method: "POST",
+                    body: JSON.stringify({
+                        activity_type: type,
+                        amount: value,
+                        unit: selectedUnit,
+                        emission: emission
+                    })
+                }
+            );
 
-                        method: "POST",
-
-                        body: JSON.stringify({
-
-                            activity_type:
-                                type,
-
-                            amount:
-                                value,
-
-                            unit:
-                                selectedUnit,
-
-                            emission:
-                                emission
-
-                        })
-
-                    }
-                );
-
-
+            result.className = "result result-success";
             result.innerHTML = `
-
-                <strong>
-                    Activity Saved!
-                </strong>
-
-                <br><br>
-
-                Estimated Carbon Footprint:
-
-                <strong>
-                    ${emission.toFixed(2)} kg CO₂
-                </strong>
-
+                <div style="font-size: 15px; font-weight: 700; color: var(--brand-primary); margin-bottom: 6px;">
+                    Activity Recorded Successfully
+                </div>
+                <div style="font-size: 14px; color: var(--text-secondary); line-height: 1.5;">
+                    Logged <strong>${value} ${selectedUnit}</strong> of <strong>${type}</strong>.
+                    <br>
+                    Estimated Footprint: <strong style="color: var(--brand-primary); font-size: 16px;">${emission.toFixed(2)} kg CO₂</strong>
+                </div>
+                <div style="margin-top: 12px; display: flex; gap: 10px;">
+                    <a href="dashboard.html" class="btn btn-sm btn-primary" style="font-size: 12.5px; padding: 5px 12px;">View Dashboard</a>
+                    <a href="history.html" class="btn btn-sm btn-secondary" style="font-size: 12.5px; padding: 5px 12px;">View History</a>
+                </div>
             `;
 
-
             form.reset();
-
             extraFields.innerHTML = "";
-
             unit.innerHTML = `
                 <option value="">
                     Select unit
                 </option>
             `;
 
-
         }
 
         catch (error) {
 
-            console.log(
-                "Save error:",
-                error
-            );
+            console.error("Save error:", error);
 
+            result.className = "result result-error";
+            result.innerHTML = `
+                <div style="font-size: 14px; font-weight: 600; color: var(--status-danger); margin-bottom: 2px;">
+                    Could not record activity
+                </div>
+                <div style="font-size: 13px; color: var(--text-secondary);">
+                    ${error.message || "Please check your inputs and try again."}
+                </div>
+            `;
 
-            result.innerText =
-                "Could not save activity: " +
-                error.message;
+        }
 
+        finally {
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerText = originalBtnText;
+            }
         }
 
     }

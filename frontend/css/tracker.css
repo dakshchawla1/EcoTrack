@@ -100,6 +100,17 @@
     line-height: 1.5;
 }
 
+.result-success {
+    background-color: var(--status-success-bg, #edf5ef);
+    border: 1px solid var(--brand-border, #c4d7c7);
+}
+
+.result-error {
+    background-color: var(--status-danger-bg, #fbf0f0);
+    border: 1px solid #f0c2c2;
+    color: var(--status-danger, #8a2424);
+}
+
 .result strong {
     color: var(--brand-primary);
     font-weight: 700;

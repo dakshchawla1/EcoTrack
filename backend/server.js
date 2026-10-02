@@ -58,10 +58,15 @@ app.get("/test-db", async (req, res) => {
     }
 });
 
-// API Routes
+// API Routes (mounted on both /api/... and direct paths for Vercel and local proxy support)
 app.use("/api/activities", activitiesRoute);
+app.use("/activities", activitiesRoute);
+
 app.use("/api/users", usersRoute);
+app.use("/users", usersRoute);
+
 app.use("/api/challenges", challengesRoute);
+app.use("/challenges", challengesRoute);
 
 // 404 handler for unknown routes
 app.use((req, res) => {

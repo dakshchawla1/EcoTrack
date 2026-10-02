@@ -4,7 +4,7 @@
   "private": true,
   "description": "EcoTrack Carbon Footprint Tracker",
   "scripts": {
-    "start": "cd backend && npm start"
+    "start": "node backend/server-local.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
