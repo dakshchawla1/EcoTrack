@@ -255,114 +255,42 @@ function createAchievements(
     */
 
     return [
-
-        // =========================
-        // FIRST STEP
-        // =========================
-
         {
-            icon: "🌱",
-
+            icon: "01",
             title: "First Step",
-
-            description:
-                "You recorded your first environmental activity.",
-
-            unlocked:
-                activityCount >= 1
+            description: "You recorded your first environmental activity.",
+            unlocked: activityCount >= 1
         },
-
-
-        // =========================
-        // ECO STARTER
-        // =========================
-
         {
-            icon: "🌿",
-
+            icon: "02",
             title: "Eco Starter",
-
-            description:
-                "You tracked at least three environmental activities.",
-
-            unlocked:
-                activityCount >= 3
+            description: "You tracked at least three environmental activities.",
+            unlocked: activityCount >= 3
         },
-
-
-        // =========================
-        // ECO EXPLORER
-        // =========================
-
         {
-            icon: "🧭",
-
+            icon: "03",
             title: "Eco Explorer",
-
-            description:
-                "You explored all four EcoTrack activity categories.",
-
-            unlocked:
-                hasAllCategories(
-                    categories
-                )
+            description: "You explored all four EcoTrack activity categories.",
+            unlocked: hasAllCategories(categories)
         },
-
-
-        // =========================
-        // CONSISTENT TRACKER
-        // =========================
-
         {
-            icon: "📅",
-
+            icon: "04",
             title: "Consistent Tracker",
-
-            description:
-                "You tracked activities on at least two different days.",
-
-            unlocked:
-                dates.size >= 2
+            description: "You tracked activities on at least two different days.",
+            unlocked: dates.size >= 2
         },
-
-
-        // =========================
-        // TRANSPORT TRACKER
-        // =========================
-
         {
-            icon: "🚗",
-
+            icon: "05",
             title: "Transport Tracker",
-
-            description:
-                "You recorded your first transport activity.",
-
-            unlocked:
-                categories.has(
-                    "transport"
-                )
+            description: "You recorded your first transport activity.",
+            unlocked: categories.has("transport")
         },
-
-
-        // =========================
-        // ENERGY TRACKER
-        // =========================
-
         {
-            icon: "⚡",
-
+            icon: "06",
             title: "Energy Tracker",
-
-            description:
-                "You recorded your first electricity activity.",
-
-            unlocked:
-                categories.has(
-                    "electricity"
-                )
+            description: "You recorded your first electricity activity.",
+            unlocked: categories.has("electricity")
         }
-
     ];
 
 }

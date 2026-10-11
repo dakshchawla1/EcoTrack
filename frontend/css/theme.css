@@ -971,3 +971,50 @@ footer {
     color: var(--text-muted);
 }
 
+
+/* ================================================================
+   SIMPLIFICATION OVERRIDES — Clean up all emoji/AI styling
+   ================================================================ */
+
+/* Activity icon area — use SVG not emoji */
+.activity-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-surface-subtle);
+    border: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--brand-primary);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.activity-icon svg {
+    display: block;
+}
+
+/* Clean tag label — remove uppercase/tracking override from ecoai-block-label */
+.ecoai-block-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: none;
+    letter-spacing: 0;
+    margin-bottom: 4px;
+    display: block;
+}
+
+/* Ensure hero pills look simple, not rounded/bubbly */
+.hero-pill {
+    display: inline-block;
+    padding: 5px 14px;
+    background-color: var(--bg-surface-subtle);
+    border: 1px solid var(--border-default);
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}

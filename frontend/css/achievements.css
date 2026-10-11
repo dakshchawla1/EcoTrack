@@ -111,18 +111,20 @@
 }
 
 .badge-icon {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     border-radius: var(--radius-md);
     background-color: var(--brand-tint);
     border: 1px solid var(--brand-border);
     color: var(--brand-primary);
-    font-size: 20px;
+    font-size: 13px;
+    font-weight: 800;
     line-height: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    font-family: var(--font-family);
 }
 
 .achievement-card.locked .badge-icon {
