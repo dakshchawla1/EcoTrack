@@ -1,70 +1,113 @@
 /* ==========================================================================
-   EcoTrack Theme - Clean, Simple, Beginner Human-Made Stylesheet
-   Designed to look like a clean, well-crafted, honest human project.
-   Simple layout, clear high-contrast text, friendly colors, zero AI clutter.
+   EcoTrack Theme - 100% PURE BLACK AND WHITE ONLY (No extra colors)
+   Beginner human-made web project design with Dark Mode toggle support.
    ========================================================================== */
 
+/* --------------------------------------------------------------------------
+   THEME VARIABLES (MONOCHROME ONLY)
+   -------------------------------------------------------------------------- */
 :root {
-    /* Main Green Palette */
-    --brand-primary: #2e7d32;
-    --brand-primary-hover: #256628;
-    --brand-primary-active: #1b5e20;
-    --brand-accent: #388e3c;
-    --brand-tint: #e8f5e9;
-    --brand-tint-strong: #c8e6c9;
-    --brand-border: #a5d6a7;
-
-    /* Backgrounds */
-    --bg-canvas: #f5f7fa;
+    /* Light Mode (White canvas, Black text & borders) */
+    --bg-canvas: #ffffff;
     --bg-surface: #ffffff;
-    --bg-surface-elevated: #ffffff;
-    --bg-surface-subtle: #f0f4f8;
-    --bg-surface-muted: #e4e7eb;
+    --bg-surface-subtle: #f7f7f7;
+    --bg-surface-muted: #eeeeee;
 
-    /* Borders */
-    --border-subtle: #e0e4e8;
-    --border-default: #d0d7de;
-    --border-hover: #9aa5b1;
-    --border-focus: #2e7d32;
+    --border-color: #000000;
+    --border-subtle: #cccccc;
+    --border-default: #000000;
+    --border-hover: #000000;
 
-    /* Text Colors */
-    --text-primary: #1f2937;
-    --text-secondary: #4b5563;
-    --text-muted: #6b7280;
-    --text-faint: #9ca3af;
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --text-muted: #666666;
+    --text-faint: #888888;
     --text-inverse: #ffffff;
-    --text-brand: #2e7d32;
 
-    /* Status Colors */
-    --status-success: #2e7d32;
-    --status-success-bg: #e8f5e9;
-    --status-warning: #b45309;
-    --status-warning-bg: #fef3c7;
-    --status-danger: #c62828;
-    --status-danger-bg: #ffebee;
+    --btn-bg: #000000;
+    --btn-text: #ffffff;
+    --btn-border: #000000;
 
-    /* Standard Beginner-Friendly Typography */
-    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --btn-sec-bg: #ffffff;
+    --btn-sec-text: #000000;
+    --btn-sec-border: #000000;
+
+    --brand-primary: #000000;
+    --brand-primary-hover: #333333;
+    --brand-tint: #f2f2f2;
+    --brand-tint-strong: #e5e5e5;
+    --brand-border: #000000;
+    --brand-accent: #000000;
+
+    --status-success: #000000;
+    --status-success-bg: #f5f5f5;
+    --status-warning: #000000;
+    --status-warning-bg: #f5f5f5;
+    --status-danger: #000000;
+    --status-danger-bg: #f5f5f5;
+
+    --font-family: Arial, Helvetica, sans-serif;
     --font-mono: Consolas, "Courier New", Courier, monospace;
 
-    /* Simple, Clean Radii (not bubbly) */
-    --radius-xs: 4px;
-    --radius-sm: 6px;
-    --radius-md: 8px;
-    --radius-lg: 10px;
-    --radius-xl: 12px;
+    --radius-xs: 2px;
+    --radius-sm: 3px;
+    --radius-md: 4px;
+    --radius-lg: 4px;
+    --radius-xl: 4px;
 
-    /* Simple subtle shadows */
-    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xs: none;
+    --shadow-sm: none;
+    --shadow-md: none;
+    --shadow-lg: none;
 
-    --transition-fast: 0.15s ease;
+    --transition-fast: 0.1s ease;
+}
+
+/* --------------------------------------------------------------------------
+   DARK MODE OVERRIDES (Black canvas, White text & borders)
+   -------------------------------------------------------------------------- */
+html.dark-mode {
+    --bg-canvas: #000000;
+    --bg-surface: #0c0c0c;
+    --bg-surface-subtle: #161616;
+    --bg-surface-muted: #242424;
+
+    --border-color: #ffffff;
+    --border-subtle: #444444;
+    --border-default: #ffffff;
+    --border-hover: #ffffff;
+
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --text-muted: #999999;
+    --text-faint: #777777;
+    --text-inverse: #000000;
+
+    --btn-bg: #ffffff;
+    --btn-text: #000000;
+    --btn-border: #ffffff;
+
+    --btn-sec-bg: #000000;
+    --btn-sec-text: #ffffff;
+    --btn-sec-border: #ffffff;
+
+    --brand-primary: #ffffff;
+    --brand-primary-hover: #dddddd;
+    --brand-tint: #1c1c1c;
+    --brand-tint-strong: #2a2a2a;
+    --brand-border: #ffffff;
+    --brand-accent: #ffffff;
+
+    --status-success: #ffffff;
+    --status-success-bg: #1c1c1c;
+    --status-warning: #ffffff;
+    --status-warning-bg: #1c1c1c;
+    --status-danger: #ffffff;
+    --status-danger-bg: #1c1c1c;
 }
 
 /* ==========================================================================
-   RESET & BASE
+   RESET & BASIC STYLING
    ========================================================================== */
 
 * {
@@ -77,8 +120,8 @@
 body {
     background-color: var(--bg-canvas);
     color: var(--text-primary);
-    font-size: 15px;
-    line-height: 1.6;
+    font-size: 14.5px;
+    line-height: 1.5;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -89,114 +132,207 @@ main {
 }
 
 a {
-    color: var(--brand-primary);
-    text-decoration: none;
-    transition: color var(--transition-fast);
+    color: var(--text-primary);
+    text-decoration: underline;
 }
 
 a:hover {
-    color: var(--brand-primary-hover);
-    text-decoration: underline;
+    color: var(--text-secondary);
 }
 
 button, input, select, textarea {
     font-family: inherit;
     font-size: inherit;
+    color: inherit;
 }
 
 /* ==========================================================================
-   BUTTONS (Simple, solid, clear)
+   NAVIGATION BAR (Simple top border line, monochrome)
+   ========================================================================== */
+
+.navbar {
+    background-color: var(--bg-surface);
+    border-bottom: 2px solid var(--border-color);
+    padding: 10px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    text-decoration: none !important;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: var(--text-primary);
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 5px 10px;
+    text-decoration: none !important;
+    border: 1px solid transparent;
+}
+
+.nav-links a:hover {
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-surface-subtle);
+}
+
+.nav-links a.active {
+    font-weight: 900;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-surface-subtle);
+    text-decoration: underline !important;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Theme Toggle Button (Basic, crisp, top-right) */
+.theme-toggle-btn {
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    padding: 5px 12px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: var(--radius-xs);
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--bg-surface-muted);
+}
+
+.logout-btn {
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 5px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: var(--radius-xs);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.logout-btn:hover {
+    background-color: var(--bg-surface-muted);
+}
+
+.nav-login-link {
+    color: var(--text-primary);
+    font-size: 13.5px;
+    font-weight: bold;
+    padding: 5px 10px;
+    text-decoration: none !important;
+}
+
+.nav-login-link:hover {
+    text-decoration: underline !important;
+}
+
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    padding: 5px 8px;
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+/* ==========================================================================
+   BUTTONS (Monochrome rectangular beginner buttons)
    ========================================================================== */
 
 .btn,
 .primary-button,
 .main-button,
-.dark-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background-color: var(--brand-primary);
-    color: #ffffff !important;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 9px 18px;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--brand-primary);
+.dark-button,
+.btn-primary {
+    display: inline-block;
+    background-color: var(--btn-bg);
+    color: var(--btn-text) !important;
+    font-size: 13.5px;
+    font-weight: 700;
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xs);
     cursor: pointer;
     text-decoration: none !important;
-    transition: background-color var(--transition-fast);
+    text-align: center;
 }
 
 .btn:hover,
 .primary-button:hover,
 .main-button:hover,
-.dark-button:hover {
-    background-color: var(--brand-primary-hover);
-    border-color: var(--brand-primary-hover);
+.dark-button:hover,
+.btn-primary:hover {
+    opacity: 0.85;
 }
 
 .btn-secondary,
 .outline-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background-color: #ffffff;
-    color: var(--text-primary) !important;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 9px 18px;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border-default);
+    display: inline-block;
+    background-color: var(--btn-sec-bg);
+    color: var(--btn-sec-text) !important;
+    font-size: 13.5px;
+    font-weight: 700;
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xs);
     cursor: pointer;
     text-decoration: none !important;
-    transition: background-color var(--transition-fast), border-color var(--transition-fast);
+    text-align: center;
 }
 
 .btn-secondary:hover,
 .outline-button:hover {
-    background-color: var(--bg-surface-subtle);
-    border-color: var(--border-hover);
-}
-
-.btn-primary {
-    background-color: var(--brand-primary);
-    color: #ffffff !important;
-    border-color: var(--brand-primary);
-}
-
-.btn-primary:hover {
-    background-color: var(--brand-primary-hover);
+    background-color: var(--bg-surface-muted);
 }
 
 .btn-sm {
-    padding: 6px 12px;
-    font-size: 13px;
-    border-radius: var(--radius-xs);
+    padding: 4px 10px;
+    font-size: 12.5px;
 }
 
 .goal-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--brand-primary);
-    color: #ffffff !important;
-    font-size: 13px;
-    font-weight: 600;
-    padding: 7px 14px;
+    display: inline-block;
+    background-color: var(--btn-bg);
+    color: var(--btn-text) !important;
+    font-size: 12.5px;
+    font-weight: bold;
+    padding: 6px 12px;
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-xs);
-    border: 1px solid var(--brand-primary);
     cursor: pointer;
     text-decoration: none !important;
 }
 
 .goal-btn:hover {
-    background-color: var(--brand-primary-hover);
+    opacity: 0.85;
 }
 
 /* ==========================================================================
-   CARDS & CONTAINERS (Clean, simple white boxes with clear borders)
+   CARDS & CONTAINERS (Boxy, simple borders, no shadows)
    ========================================================================== */
 
 .card,
@@ -205,47 +341,46 @@ button, input, select, textarea {
 .summary-card,
 .side-card {
     background-color: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
-    padding: 22px;
-    box-shadow: var(--shadow-xs);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xs);
+    padding: 18px 20px;
 }
 
 .dash-card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border-subtle);
-    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 14px;
 }
 
 .dash-card-header h2 {
-    font-size: 17px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: bold;
     color: var(--text-primary);
 }
 
 .header-link {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--brand-primary);
+    font-size: 12.5px;
+    font-weight: bold;
+    color: var(--text-primary);
 }
 
 /* ==========================================================================
-   FORM CONTROLS (Standard, clean, honest form inputs)
+   FORMS (Clean, rectangular, boxy inputs)
    ========================================================================== */
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    margin-bottom: 16px;
+    gap: 4px;
+    margin-bottom: 14px;
 }
 
 label {
-    font-size: 13.5px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: bold;
     color: var(--text-primary);
 }
 
@@ -257,21 +392,19 @@ input[type="date"],
 select,
 textarea {
     width: 100%;
-    padding: 9px 12px;
-    background-color: #ffffff;
-    border: 1px solid var(--border-default);
-    border-radius: var(--radius-sm);
+    padding: 8px 10px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xs);
     color: var(--text-primary);
-    font-size: 14px;
+    font-size: 13.5px;
     outline: none;
-    transition: border-color var(--transition-fast);
 }
 
 input:focus,
 select:focus,
 textarea:focus {
-    border-color: var(--brand-primary);
-    box-shadow: 0 0 0 2px var(--brand-tint-strong);
+    outline: 2px solid var(--text-primary);
 }
 
 small {
@@ -280,275 +413,165 @@ small {
 }
 
 /* ==========================================================================
-   NAVIGATION BAR (Classic clean human-built header)
-   ========================================================================== */
-
-.navbar {
-    background-color: #ffffff;
-    border-bottom: 2px solid var(--brand-tint-strong);
-    padding: 0 5%;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
-.logo {
-    font-size: 20px;
-    font-weight: 800;
-    color: var(--brand-primary);
-    letter-spacing: -0.02em;
-    text-decoration: none !important;
-}
-
-.logo:hover {
-    color: var(--brand-primary-hover);
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.nav-links a {
-    color: var(--text-secondary);
-    font-size: 13.5px;
-    font-weight: 600;
-    padding: 6px 12px;
-    border-radius: var(--radius-xs);
-    text-decoration: none !important;
-    transition: background-color var(--transition-fast), color var(--transition-fast);
-}
-
-.nav-links a:hover {
-    color: var(--brand-primary);
-    background-color: var(--bg-surface-subtle);
-}
-
-.nav-links a.active {
-    color: var(--brand-primary);
-    background-color: var(--brand-tint);
-    border: 1px solid var(--brand-border);
-}
-
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logout-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background-color: transparent;
-    color: var(--text-muted);
-    border: 1px solid var(--border-default);
-    padding: 6px 12px;
-    border-radius: var(--radius-xs);
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.logout-btn:hover {
-    color: var(--status-danger);
-    border-color: #fca5a5;
-    background-color: var(--status-danger-bg);
-}
-
-.nav-login-link {
-    color: var(--text-secondary);
-    font-size: 14px;
-    font-weight: 600;
-    padding: 6px 12px;
-}
-
-.nav-login-link:hover {
-    color: var(--brand-primary);
-}
-
-.nav-toggle {
-    display: none;
-    background: transparent;
-    border: 1px solid var(--border-default);
-    border-radius: var(--radius-xs);
-    padding: 5px 8px;
-    cursor: pointer;
-    color: var(--text-primary);
-}
-
-/* ==========================================================================
-   PAGE HEADER (Simple, welcoming, human greeting)
+   PAGE HEADER
    ========================================================================== */
 
 .page-header {
-    background-color: #ffffff;
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 24px 5%;
-    margin-bottom: 24px;
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-color);
+    padding: 20px 5%;
+    margin-bottom: 20px;
 }
 
 .header-content {
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 16px;
 }
 
 .header-text h1 {
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: bold;
     color: var(--text-primary);
     margin-bottom: 4px;
 }
 
 .header-text p {
-    font-size: 14px;
+    font-size: 13.5px;
     color: var(--text-secondary);
-    max-width: 600px;
 }
 
 /* ==========================================================================
-   EMPTY STATE (Clean box with simple icon/message)
+   EMPTY STATE
    ========================================================================== */
 
 .empty-state {
     text-align: center;
-    padding: 36px 20px;
-    background-color: #ffffff;
-    border: 1px dashed var(--border-default);
-    border-radius: var(--radius-md);
-    margin: 16px 0;
+    padding: 30px 16px;
+    background-color: var(--bg-surface);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-xs);
+    margin: 14px 0;
 }
 
 .empty-state h3,
 .empty-state h2 {
-    font-size: 17px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: bold;
     color: var(--text-primary);
     margin-bottom: 6px;
 }
 
 .empty-state p {
-    font-size: 14px;
+    font-size: 13.5px;
     color: var(--text-muted);
-    max-width: 420px;
-    margin: 0 auto 16px;
-    line-height: 1.5;
+    max-width: 400px;
+    margin: 0 auto 14px;
 }
 
 /* ==========================================================================
-   RECOMMENDATIONS / IMPACT SECTION (Clean human styling)
+   ADVICE / RECOMMENDATIONS SECTION (Monochrome)
    ========================================================================== */
 
 .ecoai-tag {
     display: inline-block;
     font-size: 11px;
-    font-weight: 700;
-    color: var(--brand-primary);
-    background-color: var(--brand-tint);
-    border: 1px solid var(--brand-border);
+    font-weight: bold;
+    color: var(--text-primary);
+    background-color: var(--bg-surface-subtle);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-xs);
-    padding: 2px 7px;
+    padding: 2px 6px;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
     margin-bottom: 4px;
 }
 
 .ecoai-card,
 .ecoai-analysis-card {
-    background-color: #ffffff;
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
-    padding: 22px;
-    margin-bottom: 20px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xs);
+    padding: 18px 20px;
+    margin-bottom: 18px;
 }
 
 .ecoai-header-left {
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 2px;
 }
 
 .ecoai-header-left h2 {
-    font-size: 17px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: bold;
     color: var(--text-primary);
 }
 
 .ecoai-refresh-btn {
     background: transparent;
-    border: 1px solid var(--border-default);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-xs);
-    color: var(--text-muted);
-    padding: 5px 8px;
+    color: var(--text-primary);
+    padding: 4px 8px;
     cursor: pointer;
 }
 
 .ecoai-refresh-btn:hover {
-    color: var(--brand-primary);
-    border-color: var(--brand-primary);
+    background-color: var(--bg-surface-muted);
 }
 
 .ecoai-loading {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 20px 0;
+    gap: 8px;
+    padding: 16px 0;
     color: var(--text-muted);
-    font-size: 13.5px;
+    font-size: 13px;
 }
 
 .ecoai-spinner {
     width: 14px;
     height: 14px;
-    border: 2px solid var(--border-default);
-    border-top-color: var(--brand-primary);
+    border: 2px solid var(--border-subtle);
+    border-top-color: var(--text-primary);
     border-radius: 50%;
-    animation: simple-spin 0.8s linear infinite;
+    animation: mono-spin 0.8s linear infinite;
 }
 
-@keyframes simple-spin {
+@keyframes mono-spin {
     to { transform: rotate(360deg); }
 }
 
 .ecoai-body {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding-top: 10px;
+    gap: 8px;
+    padding-top: 8px;
 }
 
 .ecoai-analysis {
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 13.5px;
+    font-weight: bold;
     color: var(--text-primary);
-    line-height: 1.5;
 }
 
 .ecoai-recommendation {
-    font-size: 13.5px;
+    font-size: 13px;
     color: var(--text-secondary);
-    line-height: 1.5;
 }
 
 .ecoai-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 12px;
-    border-top: 1px solid var(--border-subtle);
+    padding-top: 10px;
+    border-top: 1px solid var(--border-color);
     margin-top: 4px;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
 }
 
 .ecoai-saving-box {
@@ -558,219 +581,229 @@ small {
 }
 
 .ecoai-saving-label {
-    font-size: 12.5px;
+    font-size: 12px;
     color: var(--text-muted);
 }
 
 .ecoai-saving-val {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--brand-primary);
+    font-size: 13.5px;
+    font-weight: bold;
+    color: var(--text-primary);
 }
 
 .ecoai-empty {
-    padding: 20px 10px;
+    padding: 16px 8px;
     text-align: center;
     color: var(--text-muted);
-    font-size: 13.5px;
+    font-size: 13px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 /* ==========================================================================
-   ACTIVITY ICONS & LIST (Clean SVG layout)
+   ACTIVITY ICONS (Monochrome)
    ========================================================================== */
 
 .activity-icon {
-    width: 34px;
-    height: 34px;
+    width: 30px;
+    height: 30px;
     border-radius: var(--radius-xs);
-    background-color: var(--brand-tint);
-    border: 1px solid var(--brand-border);
+    background-color: var(--bg-surface-subtle);
+    border: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    color: var(--brand-primary);
+    color: var(--text-primary);
 }
 
 .activity-icon svg {
     display: block;
+    stroke: currentColor;
 }
 
 /* ==========================================================================
-   PROGRESS BAR & TARGET MODAL
+   PROGRESS BARS (Monochrome)
    ========================================================================== */
 
-.progress-track {
+.progress-track,
+.goal-progress-bar,
+.mini-bar {
     width: 100%;
     height: 8px;
     background-color: var(--bg-surface-muted);
-    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xs);
     overflow: hidden;
 }
 
-.progress-fill {
+.progress-fill,
+.goal-progress-fill,
+.mini-fill {
     height: 100%;
-    background-color: var(--brand-primary);
-    border-radius: 4px;
-    transition: width 0.3s ease;
+    background-color: var(--text-primary);
+    border-radius: 0;
+    transition: width 0.2s ease;
 }
 
-.goal-modal {
+/* ==========================================================================
+   MODAL
+   ========================================================================== */
+
+.goal-modal,
+.edit-modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.65);
     display: none;
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    padding: 20px;
+    padding: 16px;
 }
 
 .goal-modal.active,
 .goal-modal.show,
-.goal-modal[style*="display: flex"] {
+.goal-modal[style*="display: flex"],
+.edit-modal.active,
+.edit-modal[style*="display: flex"] {
     display: flex !important;
 }
 
-.goal-modal-content {
-    background-color: #ffffff;
-    border: 1px solid var(--border-default);
-    border-radius: var(--radius-md);
+.goal-modal-content,
+.edit-modal-content {
+    background-color: var(--bg-surface);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-xs);
     width: 100%;
-    max-width: 420px;
-    padding: 24px;
-    box-shadow: var(--shadow-lg);
+    max-width: 400px;
+    padding: 20px;
 }
 
-.goal-modal-header {
+.goal-modal-header,
+.edit-modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
 }
 
-.goal-modal-header h2 {
-    font-size: 17px;
-    font-weight: 700;
+.goal-modal-header h2,
+.edit-modal-header h2 {
+    font-size: 16px;
+    font-weight: bold;
     color: var(--text-primary);
 }
 
-.close-goal-btn {
+.close-goal-btn,
+.close-edit-btn {
     background: transparent;
     border: none;
     font-size: 20px;
+    font-weight: bold;
     cursor: pointer;
-    color: var(--text-muted);
-}
-
-.close-goal-btn:hover {
     color: var(--text-primary);
 }
 
 .goal-error {
-    color: var(--status-danger);
-    font-size: 12.5px;
-    margin-bottom: 10px;
-    min-height: 18px;
+    color: var(--text-primary);
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 8px;
+    min-height: 16px;
 }
 
 .modal-actions {
     display: flex;
     justify-content: flex-end;
     gap: 8px;
-    margin-top: 14px;
+    margin-top: 12px;
 }
 
 /* ==========================================================================
-   FOOTER (Simple, neat, human footer)
+   FOOTER (Simple border, monochrome)
    ========================================================================== */
 
 footer {
-    background-color: #ffffff;
-    border-top: 1px solid var(--border-subtle);
-    padding: 36px 5% 20px;
-    margin-top: 48px;
+    background-color: var(--bg-surface);
+    border-top: 2px solid var(--border-color);
+    padding: 30px 5% 16px;
+    margin-top: 40px;
 }
 
 .footer-content {
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 30px;
-    padding-bottom: 24px;
+    gap: 24px;
+    padding-bottom: 20px;
     border-bottom: 1px solid var(--border-subtle);
 }
 
 .footer-logo {
-    font-size: 17px;
-    font-weight: 800;
-    color: var(--brand-primary);
+    font-size: 16px;
+    font-weight: 900;
+    color: var(--text-primary);
     text-decoration: none !important;
     display: inline-block;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .footer-content p {
-    font-size: 13.5px;
+    font-size: 13px;
     color: var(--text-muted);
-    max-width: 360px;
-    line-height: 1.5;
+    max-width: 320px;
 }
 
 .footer-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px 20px;
+    gap: 10px 16px;
 }
 
 .footer-links a {
-    color: var(--text-secondary);
+    color: var(--text-primary);
     font-size: 13px;
-    font-weight: 500;
+    text-decoration: none;
 }
 
 .footer-links a:hover {
-    color: var(--brand-primary);
+    text-decoration: underline;
 }
 
 .footer-bottom {
-    max-width: 1100px;
-    margin: 16px auto 0;
+    max-width: 1000px;
+    margin: 12px auto 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 12.5px;
+    font-size: 12px;
     color: var(--text-muted);
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 6px;
 }
 
-/* Utilities */
 .hidden {
     display: none !important;
 }
 
 /* ==========================================================================
-   RESPONSIVENESS (Simple, reliable mobile support)
+   MOBILE TOGGLE
    ========================================================================== */
 
-@media (max-width: 850px) {
+@media (max-width: 800px) {
     .navbar {
-        height: auto;
-        min-height: 56px;
-        padding: 8px 4%;
         flex-wrap: wrap;
+        padding: 8px 4%;
     }
 
     .nav-toggle {
@@ -782,10 +815,10 @@ footer {
         width: 100%;
         flex-direction: column;
         align-items: flex-start;
-        padding: 10px 0 6px;
+        padding: 8px 0 4px;
         gap: 2px;
-        border-top: 1px solid var(--border-subtle);
-        margin-top: 8px;
+        border-top: 1px solid var(--border-color);
+        margin-top: 6px;
     }
 
     .nav-links.nav-open {
@@ -794,7 +827,7 @@ footer {
 
     .nav-links a {
         width: 100%;
-        padding: 8px 10px;
+        padding: 6px 8px;
     }
 
     .nav-actions {
@@ -808,6 +841,6 @@ footer {
 
     .footer-content {
         flex-direction: column;
-        gap: 20px;
+        gap: 16px;
     }
 }

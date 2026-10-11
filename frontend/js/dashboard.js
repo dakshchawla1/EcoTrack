@@ -996,13 +996,10 @@ function createCarbonChart() {
                                 shopping
                             ],
 
-                            backgroundColor: [
-                                "#2d5a3c",
-                                "#b45309",
-                                "#15803d",
-                                "#4b5563"
-                            ],
-                            borderRadius: 4
+                            backgroundColor: document.documentElement.classList.contains("dark-mode")
+                                ? ["#ffffff", "#cccccc", "#999999", "#666666"]
+                                : ["#000000", "#333333", "#666666", "#999999"],
+                            borderRadius: 2
                         }
                     ]
                 },
@@ -1023,7 +1020,7 @@ function createCarbonChart() {
                         y: {
                             beginAtZero: true,
                             grid: {
-                                color: "#eef2ee"
+                                color: document.documentElement.classList.contains("dark-mode") ? "#333333" : "#e0e0e0"
                             },
                             title: {
                                 display: true,
@@ -1034,6 +1031,19 @@ function createCarbonChart() {
                 }
             }
         );
+
+    window.addEventListener("themechanged", () => {
+        if (chartInstance) {
+            const isDark = document.documentElement.classList.contains("dark-mode");
+            chartInstance.data.datasets[0].backgroundColor = isDark
+                ? ["#ffffff", "#cccccc", "#999999", "#666666"]
+                : ["#000000", "#333333", "#666666", "#999999"];
+            if (chartInstance.options.scales && chartInstance.options.scales.y && chartInstance.options.scales.y.grid) {
+                chartInstance.options.scales.y.grid.color = isDark ? "#333333" : "#e0e0e0";
+            }
+            chartInstance.update();
+        }
+    });
 
 }
 

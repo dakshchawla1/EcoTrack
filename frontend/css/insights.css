@@ -1,82 +1,80 @@
 /* ==========================================================================
    EcoTrack Insights Styles (insights.css)
-   Clean, simple, beginner-friendly environmental analytics.
+   100% Monochrome Black & White - Beginner Student Project Look
    ========================================================================== */
 
 .insights-container {
-    max-width: 1040px;
-    margin: 0 auto 60px;
+    max-width: 950px;
+    margin: 0 auto 50px;
     padding: 0 4%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
 }
 
 .insights-content {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
 }
 
 /* Summary Card */
 .summary-card {
-    background-color: #ffffff;
-    border: 1px solid var(--border-default);
-    border-radius: var(--radius-md);
-    padding: 22px;
-    box-shadow: var(--shadow-xs);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xs);
+    padding: 18px;
 }
 
 .summary-card h2 {
-    font-size: 17px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: bold;
     color: var(--text-primary);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .summary-text {
-    font-size: 14px;
+    font-size: 13.5px;
     color: var(--text-secondary);
-    line-height: 1.55;
+    line-height: 1.5;
 }
 
-/* Biggest Source Card (Clean, friendly highlight box) */
+/* Biggest Source Card */
 .biggest-source {
-    background-color: var(--brand-tint);
-    border: 1px solid var(--brand-border);
-    border-radius: var(--radius-md);
-    padding: 20px 22px;
+    background-color: var(--bg-surface);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-xs);
+    padding: 16px 18px;
     display: flex;
     align-items: center;
-    gap: 16px;
-    box-shadow: var(--shadow-xs);
+    gap: 14px;
 }
 
 .source-icon {
-    width: 44px;
-    height: 44px;
-    background: #ffffff;
-    border: 1px solid var(--brand-border);
+    width: 38px;
+    height: 38px;
+    background: var(--bg-surface-subtle);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-xs);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--brand-primary);
+    font-size: 12.5px;
+    font-weight: bold;
+    color: var(--text-primary);
     flex-shrink: 0;
     text-transform: capitalize;
 }
 
 .source-content h2 {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--brand-primary);
+    font-size: 17px;
+    font-weight: 900;
+    color: var(--text-primary);
     margin-bottom: 2px;
 }
 
 .source-content p {
-    font-size: 13.5px;
+    font-size: 13px;
     color: var(--text-secondary);
 }
 
@@ -86,113 +84,109 @@
 
 /* Category Grid */
 .category-section {
-    background: #ffffff;
-    border: 1px solid var(--border-default);
-    border-radius: var(--radius-md);
-    padding: 22px;
-    box-shadow: var(--shadow-xs);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xs);
+    padding: 18px;
 }
 
 .section-title {
-    margin-bottom: 16px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .section-title h2 {
-    font-size: 17px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: bold;
     color: var(--text-primary);
     margin-bottom: 2px;
 }
 
 .section-title p {
-    font-size: 13px;
+    font-size: 12.5px;
     color: var(--text-muted);
 }
 
 .category-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+    gap: 12px;
 }
 
 .category-card {
     background: var(--bg-surface-subtle);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-xs);
-    padding: 16px 18px;
-    transition: border-color var(--transition-fast);
+    padding: 14px 16px;
 }
 
 .category-card:hover {
-    border-color: var(--border-default);
-    background-color: #ffffff;
+    border-color: var(--border-color);
+    background-color: var(--bg-surface);
 }
 
 .category-content h3 {
-    font-size: 15px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: bold;
     color: var(--text-primary);
     margin-bottom: 2px;
 }
 
 .category-emission {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--brand-primary);
-    margin-bottom: 6px;
+    font-size: 13.5px;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 4px;
 }
 
 .category-tip {
-    font-size: 12.5px;
+    font-size: 12px;
     color: var(--text-secondary);
-    line-height: 1.45;
+    line-height: 1.4;
 }
 
 /* Recommendations Section */
 .recommendations-section {
-    background: #ffffff;
-    border: 1px solid var(--border-default);
-    border-radius: var(--radius-md);
-    padding: 22px;
-    box-shadow: var(--shadow-xs);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xs);
+    padding: 18px;
 }
 
 .tips-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+    gap: 12px;
 }
 
 .tip-card {
     background: var(--bg-surface-subtle);
-    border: 1px solid var(--border-subtle);
-    border-left: 3px solid var(--brand-primary);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-xs);
-    padding: 14px 16px;
+    padding: 12px 14px;
 }
 
 .tip-card h3 {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--brand-primary);
-    margin-bottom: 4px;
+    font-size: 13.5px;
+    font-weight: bold;
+    color: var(--text-primary);
+    margin-bottom: 3px;
 }
 
 .tip-card p {
-    font-size: 12.5px;
+    font-size: 12px;
     color: var(--text-secondary);
-    line-height: 1.45;
+    line-height: 1.4;
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 750px) {
     .category-grid,
     .tips-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .biggest-source {
         flex-direction: column;
         align-items: flex-start;

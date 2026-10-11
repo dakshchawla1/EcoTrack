@@ -1,198 +1,194 @@
 /* ==========================================================================
    EcoTrack Profile Styles (profile.css)
-   Clean, simple, beginner-friendly user profile page.
+   100% Monochrome Black & White - Beginner Student Project Look
    ========================================================================== */
 
 .profile-container {
-    max-width: 960px;
-    margin: 0 auto 60px;
+    max-width: 900px;
+    margin: 0 auto 50px;
     padding: 0 4%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
 }
 
 /* Profile Card */
 .profile-card {
-    background: #ffffff;
-    border: 1px solid var(--border-default);
-    border-radius: var(--radius-md);
-    padding: 24px;
-    box-shadow: var(--shadow-xs);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xs);
+    padding: 20px;
 }
 
 .profile-top {
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border-subtle);
+    gap: 14px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .profile-image-wrapper {
     position: relative;
-    width: 56px;
-    height: 56px;
+    width: 48px;
+    height: 48px;
     flex-shrink: 0;
 }
 
 .profile-photo {
     width: 100%;
     height: 100%;
-    border-radius: 50%;
+    border-radius: var(--radius-xs);
     object-fit: cover;
-    border: 2px solid var(--border-default);
+    border: 1px solid var(--border-color);
     display: none;
 }
 
 .default-photo {
     width: 100%;
     height: 100%;
-    border-radius: 50%;
-    background: var(--brand-tint);
-    border: 1px solid var(--brand-border);
+    border-radius: var(--radius-xs);
+    background: var(--bg-surface-subtle);
+    border: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--brand-primary);
+    color: var(--text-primary);
+    font-weight: bold;
 }
 
 .profile-heading h2 {
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: bold;
     color: var(--text-primary);
     margin-bottom: 2px;
 }
 
 .profile-heading p {
-    font-size: 13.5px;
+    font-size: 13px;
     color: var(--text-muted);
 }
 
 /* Account Details */
 .details-section {
-    padding-top: 18px;
+    padding-top: 14px;
 }
 
 .section-title h2 {
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: bold;
     color: var(--text-primary);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .details-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    gap: 10px;
 }
 
 .detail-card {
     background: var(--bg-surface-subtle);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-xs);
-    padding: 12px 14px;
+    padding: 10px 12px;
 }
 
 .detail-label {
-    font-size: 11px;
-    font-weight: 600;
+    font-size: 10.5px;
+    font-weight: bold;
     text-transform: uppercase;
     color: var(--text-muted);
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
 .detail-card strong {
-    font-size: 13.5px;
+    font-size: 13px;
     color: var(--text-primary);
     word-break: break-all;
 }
 
 /* Stats Section */
 .stats-section {
-    background: #ffffff;
-    border: 1px solid var(--border-default);
-    border-radius: var(--radius-md);
-    padding: 22px;
-    box-shadow: var(--shadow-xs);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xs);
+    padding: 18px;
 }
 
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    gap: 10px;
 }
 
 .stat-card {
     background: var(--bg-surface-subtle);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-xs);
-    padding: 14px;
+    padding: 12px;
     text-align: center;
 }
 
 .stat-card strong {
-    font-size: 18px;
-    font-weight: 800;
-    color: var(--brand-primary);
+    font-size: 16px;
+    font-weight: 900;
+    color: var(--text-primary);
     display: block;
-    margin-top: 4px;
+    margin-top: 2px;
 }
 
 /* Quick Actions */
 .quick-section {
-    background: #ffffff;
-    border: 1px solid var(--border-default);
-    border-radius: var(--radius-md);
-    padding: 22px;
-    box-shadow: var(--shadow-xs);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xs);
+    padding: 18px;
 }
 
 .quick-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    gap: 10px;
 }
 
 .quick-card {
     background: var(--bg-surface-subtle);
-    border: 1px solid var(--border-subtle);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-xs);
-    padding: 14px 16px;
+    padding: 12px 14px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: var(--text-primary);
     text-decoration: none !important;
-    transition: border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
 .quick-card:hover {
-    border-color: var(--brand-primary);
-    background: #ffffff;
+    background: var(--bg-surface);
 }
 
 .quick-card h3 {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--brand-primary);
+    font-size: 13.5px;
+    font-weight: bold;
+    color: var(--text-primary);
     margin-bottom: 2px;
 }
 
 .quick-card p {
-    font-size: 12px;
+    font-size: 11.5px;
     color: var(--text-muted);
 }
 
 .quick-arrow {
-    font-size: 16px;
-    color: var(--brand-primary);
-    font-weight: 700;
+    font-size: 15px;
+    color: var(--text-primary);
+    font-weight: bold;
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 750px) {
     .details-grid,
     .stats-grid,
     .quick-grid {
