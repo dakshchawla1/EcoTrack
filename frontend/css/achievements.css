@@ -1,90 +1,91 @@
 /* ==========================================================================
    EcoTrack Achievements Styles (achievements.css)
-   100% Monochrome Black & White - Beginner Student Project Look
+   Seamless Merged Background - Zero Card Boxes, Pure Clean Flow
    ========================================================================== */
 
 .achievements-container {
-    max-width: 900px;
-    margin: 0 auto 50px;
+    max-width: 1040px;
+    margin: 0 auto 60px;
     padding: 0 4%;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 36px;
 }
 
 /* Summary Card */
 .summary-card {
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-xs);
-    padding: 16px 20px;
+    background-color: var(--bg-surface-subtle);
+    border: none !important;
+    border-radius: var(--radius-lg);
+    padding: 24px 28px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
+    gap: 20px;
 }
 
 .summary-card h2 {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: 750;
     color: var(--text-primary);
-    margin-bottom: 2px;
+    margin-bottom: 4px;
 }
 
 .summary-card p {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--text-secondary);
 }
 
 .unlocked-counter-box {
     text-align: center;
     flex-shrink: 0;
-    background-color: var(--bg-surface-subtle);
-    border: 1px solid var(--border-color);
-    padding: 8px 14px;
-    border-radius: var(--radius-xs);
+    background-color: var(--bg-canvas);
+    border: none !important;
+    padding: 12px 22px;
+    border-radius: var(--radius-md);
 }
 
 .unlocked-count {
-    font-size: 22px;
-    font-weight: 900;
+    font-size: 26px;
+    font-weight: 850;
     color: var(--text-primary);
     display: block;
     line-height: 1;
 }
 
 .unlocked-label {
-    font-size: 10.5px;
-    font-weight: bold;
+    font-size: 11px;
+    font-weight: 700;
     color: var(--text-muted);
     text-transform: uppercase;
-    margin-top: 2px;
+    letter-spacing: 0.04em;
+    margin-top: 4px;
     display: block;
 }
 
 /* Section */
 .achievements-section {
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-xs);
-    padding: 18px;
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
 }
 
 .section-heading {
-    margin-bottom: 12px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-subtle);
 }
 
 .section-heading h2 {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: 750;
     color: var(--text-primary);
     margin-bottom: 2px;
 }
 
 .section-heading p {
-    font-size: 12.5px;
+    font-size: 13.5px;
     color: var(--text-muted);
 }
 
@@ -93,35 +94,38 @@
 .achievement-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 16px;
 }
 
 /* Individual Card */
 .achievement-card {
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-xs);
-    padding: 12px 14px;
+    background-color: var(--bg-surface-subtle);
+    border: none !important;
+    border-radius: var(--radius-md);
+    padding: 20px 22px;
     display: flex;
     align-items: flex-start;
-    gap: 12px;
+    gap: 16px;
+    transition: var(--transition);
+}
+
+.achievement-card:hover {
+    background-color: var(--bg-surface-muted);
 }
 
 .achievement-card.locked {
-    background-color: var(--bg-surface-subtle);
-    border-color: var(--border-subtle);
-    opacity: 0.6;
+    opacity: 0.55;
 }
 
 .badge-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: var(--radius-xs);
-    background-color: var(--bg-surface-subtle);
-    border: 1px solid var(--border-color);
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-pill);
+    background-color: var(--bg-canvas);
+    border: none !important;
     color: var(--text-primary);
-    font-size: 12px;
-    font-weight: 900;
+    font-size: 13px;
+    font-weight: 850;
     line-height: 1;
     display: flex;
     align-items: center;
@@ -129,49 +133,42 @@
     flex-shrink: 0;
 }
 
-.achievement-card.locked .badge-icon {
-    border-color: var(--border-subtle);
-    color: var(--text-muted);
-}
-
 .achievement-info {
     flex: 1;
 }
 
 .achievement-info h3 {
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 15px;
+    font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 2px;
+    margin-bottom: 4px;
 }
 
 .achievement-description {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-secondary);
-    line-height: 1.4;
-    margin-bottom: 6px;
+    line-height: 1.45;
+    margin-bottom: 10px;
 }
 
 .achievement-status {
     display: inline-block;
-    font-size: 10.5px;
-    font-weight: bold;
+    font-size: 11px;
+    font-weight: 700;
     text-transform: uppercase;
-    padding: 2px 6px;
-    border-radius: var(--radius-xs);
-    border: 1px solid var(--border-subtle);
-    background-color: var(--bg-surface-muted);
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    background-color: var(--bg-canvas);
     color: var(--text-muted);
 }
 
 .achievement-status.unlocked {
-    border-color: var(--border-color);
     background-color: var(--btn-bg);
     color: var(--btn-text);
 }
 
 /* Responsive */
-@media (max-width: 750px) {
+@media (max-width: 800px) {
     .achievement-grid,
     .achievement-list {
         grid-template-columns: 1fr;

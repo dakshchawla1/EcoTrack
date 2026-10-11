@@ -1,37 +1,38 @@
 /* ==========================================================================
    EcoTrack Activity Tracker Styles (tracker.css)
-   100% Monochrome Black & White - Beginner Student Project Look
+   Seamless Merged Background - Zero Card Boxes, Pure Clean Flow
    ========================================================================== */
 
 .tracker-container {
-    max-width: 900px;
-    margin: 0 auto 50px;
+    max-width: 1040px;
+    margin: 0 auto 60px;
     padding: 0 4%;
 }
 
 .tracker-layout {
     display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 18px;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
     align-items: start;
 }
 
-/* Main Form Card */
+/* Main Form Column — Seamless, No Box */
 .tracker-card {
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-xs);
-    padding: 22px;
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0;
+    padding: 0 !important;
+    box-shadow: none !important;
 }
 
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 16px;
 }
 
 .form-group-half {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
 .extra-fields {
@@ -40,17 +41,18 @@
 
 .extra-label {
     display: block;
-    font-size: 13px;
-    font-weight: bold;
+    font-size: 13.5px;
+    font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .tracker-submit-btn {
     width: 100%;
-    padding: 10px 16px;
-    font-size: 14px;
-    margin-top: 6px;
+    padding: 13px 22px;
+    font-size: 15px;
+    margin-top: 10px;
+    border-radius: var(--radius-pill);
 }
 
 /* Result Box */
@@ -59,77 +61,79 @@
 }
 
 .result {
-    margin-top: 16px;
-    padding: 12px 14px;
+    margin-top: 24px;
+    padding: 18px 20px;
     background-color: var(--bg-surface-subtle);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-xs);
+    border: none !important;
+    border-radius: var(--radius-md);
     color: var(--text-primary);
-    font-size: 13.5px;
+    font-size: 14.5px;
     line-height: 1.5;
 }
 
 .result strong {
     color: var(--text-primary);
-    font-weight: bold;
+    font-weight: 800;
 }
 
 /* Sidebar Column */
 .tracker-sidebar {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 24px;
 }
 
 .side-card {
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-xs);
-    padding: 18px;
+    background-color: var(--bg-surface-subtle);
+    border: none !important;
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    box-shadow: none !important;
 }
 
 .side-card h3 {
-    font-size: 15px;
-    font-weight: bold;
+    font-size: 17px;
+    font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .side-card p {
-    font-size: 12.5px;
+    font-size: 13.5px;
     color: var(--text-secondary);
-    line-height: 1.45;
-    margin-bottom: 12px;
+    line-height: 1.5;
+    margin-bottom: 18px;
 }
 
 .factors-table {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 8px;
 }
 
 .factor-row {
     display: flex;
     justify-content: space-between;
-    padding: 6px 8px;
-    background-color: var(--bg-surface-subtle);
-    border: 1px solid var(--border-subtle);
+    padding: 10px 14px;
+    background-color: var(--bg-canvas);
+    border: none !important;
     border-radius: var(--radius-xs);
-    font-size: 12px;
+    font-size: 13px;
 }
 
 .factor-name {
     color: var(--text-primary);
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .factor-val {
     color: var(--text-muted);
     font-family: var(--font-mono);
+    font-weight: 600;
 }
 
 /* Responsive */
-@media (max-width: 750px) {
+@media (max-width: 850px) {
     .tracker-layout {
         grid-template-columns: 1fr;
     }

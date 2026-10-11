@@ -1,113 +1,102 @@
 /* ==========================================================================
-   EcoTrack Theme - 100% PURE BLACK AND WHITE ONLY (No extra colors)
-   Beginner human-made web project design with Dark Mode toggle support.
+   EcoTrack Theme - Seamless, Merged Background & Boxes Design
+   100% same color for boxes and background. No boxes, no shadows, no underlines.
+   Clear, open, easy-to-understand layout with Light & Dark mode.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   THEME VARIABLES (MONOCHROME ONLY)
+   THEME VARIABLES (Boxes & Background merged into 100% identical color)
    -------------------------------------------------------------------------- */
 :root {
-    /* Light Mode (White canvas, Black text & borders) */
+    /* Light Mode - Pure White Seamless Canvas */
     --bg-canvas: #ffffff;
     --bg-surface: #ffffff;
-    --bg-surface-subtle: #f7f7f7;
-    --bg-surface-muted: #eeeeee;
+    --bg-surface-subtle: #f5f5f7;
+    --bg-surface-muted: #e8e8ed;
 
-    --border-color: #000000;
-    --border-subtle: #cccccc;
-    --border-default: #000000;
-    --border-hover: #000000;
+    --border-color: transparent;
+    --border-subtle: #f0f0f2;
+    --border-default: transparent;
+    --border-hover: transparent;
 
-    --text-primary: #000000;
-    --text-secondary: #333333;
-    --text-muted: #666666;
-    --text-faint: #888888;
+    --text-primary: #111111;
+    --text-secondary: #444444;
+    --text-muted: #777777;
+    --text-faint: #999999;
     --text-inverse: #ffffff;
 
-    --btn-bg: #000000;
+    --btn-bg: #111111;
     --btn-text: #ffffff;
-    --btn-border: #000000;
+    --btn-border: transparent;
 
-    --btn-sec-bg: #ffffff;
-    --btn-sec-text: #000000;
-    --btn-sec-border: #000000;
+    --btn-sec-bg: #f5f5f7;
+    --btn-sec-text: #111111;
+    --btn-sec-border: transparent;
 
-    --brand-primary: #000000;
+    --brand-primary: #111111;
     --brand-primary-hover: #333333;
-    --brand-tint: #f2f2f2;
-    --brand-tint-strong: #e5e5e5;
-    --brand-border: #000000;
-    --brand-accent: #000000;
+    --brand-tint: #f5f5f7;
+    --brand-tint-strong: #e8e8ed;
+    --brand-border: transparent;
+    --brand-accent: #111111;
 
-    --status-success: #000000;
-    --status-success-bg: #f5f5f5;
-    --status-warning: #000000;
-    --status-warning-bg: #f5f5f5;
-    --status-danger: #000000;
-    --status-danger-bg: #f5f5f5;
+    --card-shadow: none;
+    --card-shadow-hover: none;
 
-    --font-family: Arial, Helvetica, sans-serif;
-    --font-mono: Consolas, "Courier New", Courier, monospace;
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-    --radius-xs: 2px;
-    --radius-sm: 3px;
-    --radius-md: 4px;
-    --radius-lg: 4px;
-    --radius-xl: 4px;
+    --radius-xs: 6px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --radius-pill: 9999px;
 
-    --shadow-xs: none;
-    --shadow-sm: none;
-    --shadow-md: none;
-    --shadow-lg: none;
-
-    --transition-fast: 0.1s ease;
+    --transition: all 0.2s ease;
 }
 
 /* --------------------------------------------------------------------------
-   DARK MODE OVERRIDES (Black canvas, White text & borders)
+   DARK MODE - Pure Black Seamless Canvas
    -------------------------------------------------------------------------- */
 html.dark-mode {
     --bg-canvas: #000000;
-    --bg-surface: #0c0c0c;
-    --bg-surface-subtle: #161616;
-    --bg-surface-muted: #242424;
+    --bg-surface: #000000;
+    --bg-surface-subtle: #141414;
+    --bg-surface-muted: #222222;
 
-    --border-color: #ffffff;
-    --border-subtle: #444444;
-    --border-default: #ffffff;
-    --border-hover: #ffffff;
+    --border-color: transparent;
+    --border-subtle: #1e1e1e;
+    --border-default: transparent;
+    --border-hover: transparent;
 
     --text-primary: #ffffff;
     --text-secondary: #cccccc;
-    --text-muted: #999999;
-    --text-faint: #777777;
+    --text-muted: #888888;
+    --text-faint: #666666;
     --text-inverse: #000000;
 
     --btn-bg: #ffffff;
     --btn-text: #000000;
-    --btn-border: #ffffff;
+    --btn-border: transparent;
 
-    --btn-sec-bg: #000000;
+    --btn-sec-bg: #181818;
     --btn-sec-text: #ffffff;
-    --btn-sec-border: #ffffff;
+    --btn-sec-border: transparent;
 
     --brand-primary: #ffffff;
     --brand-primary-hover: #dddddd;
-    --brand-tint: #1c1c1c;
-    --brand-tint-strong: #2a2a2a;
-    --brand-border: #ffffff;
+    --brand-tint: #141414;
+    --brand-tint-strong: #222222;
+    --brand-border: transparent;
     --brand-accent: #ffffff;
 
-    --status-success: #ffffff;
-    --status-success-bg: #1c1c1c;
-    --status-warning: #ffffff;
-    --status-warning-bg: #1c1c1c;
-    --status-danger: #ffffff;
-    --status-danger-bg: #1c1c1c;
+    --card-shadow: none;
+    --card-shadow-hover: none;
 }
 
 /* ==========================================================================
-   RESET & BASIC STYLING
+   RESET & BASE STYLING
    ========================================================================== */
 
 * {
@@ -115,16 +104,18 @@ html.dark-mode {
     padding: 0;
     box-sizing: border-box;
     font-family: var(--font-family);
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
     background-color: var(--bg-canvas);
     color: var(--text-primary);
-    font-size: 14.5px;
-    line-height: 1.5;
+    font-size: 15px;
+    line-height: 1.6;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 main {
@@ -133,87 +124,96 @@ main {
 
 a {
     color: var(--text-primary);
-    text-decoration: underline;
+    text-decoration: none !important;
+    transition: var(--transition);
 }
 
 a:hover {
-    color: var(--text-secondary);
+    opacity: 0.7;
+    text-decoration: none !important;
 }
 
 button, input, select, textarea {
     font-family: inherit;
     font-size: inherit;
     color: inherit;
+    border: none;
+    outline: none;
 }
 
 /* ==========================================================================
-   NAVIGATION BAR (Simple top border line, monochrome)
+   NAVIGATION BAR (Seamless with background, no boxes)
    ========================================================================== */
 
 .navbar {
-    background-color: var(--bg-surface);
-    border-bottom: 2px solid var(--border-color);
-    padding: 10px 5%;
+    background-color: var(--bg-canvas);
+    border: none;
+    padding: 0 5%;
+    height: 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: sticky;
     top: 0;
     z-index: 100;
+    border-bottom: 1px solid var(--border-subtle);
+    transition: background-color 0.2s ease;
 }
 
 .logo {
-    font-size: 20px;
-    font-weight: 900;
+    font-size: 21px;
+    font-weight: 800;
     color: var(--text-primary);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     text-decoration: none !important;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
+    gap: 6px;
 }
 
 .nav-links a {
-    color: var(--text-primary);
-    font-size: 13.5px;
-    font-weight: 600;
-    padding: 5px 10px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: var(--radius-pill);
     text-decoration: none !important;
-    border: 1px solid transparent;
+    transition: var(--transition);
 }
 
 .nav-links a:hover {
-    border: 1px solid var(--border-color);
+    color: var(--text-primary);
     background-color: var(--bg-surface-subtle);
+    text-decoration: none !important;
 }
 
 .nav-links a.active {
-    font-weight: 900;
-    border: 1px solid var(--border-color);
+    color: var(--text-primary);
     background-color: var(--bg-surface-subtle);
-    text-decoration: underline !important;
+    font-weight: 700;
+    text-decoration: none !important;
 }
 
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
-/* Theme Toggle Button (Basic, crisp, top-right) */
+/* Theme Toggle Button */
 .theme-toggle-btn {
-    background-color: var(--bg-surface);
+    background-color: var(--bg-surface-subtle);
     color: var(--text-primary);
-    border: 2px solid var(--border-color);
-    padding: 5px 12px;
+    border: none;
+    padding: 8px 16px;
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 600;
     cursor: pointer;
-    border-radius: var(--radius-xs);
+    border-radius: var(--radius-pill);
+    transition: var(--transition);
 }
 
 .theme-toggle-btn:hover {
@@ -221,17 +221,18 @@ button, input, select, textarea {
 }
 
 .logout-btn {
-    background-color: var(--bg-surface);
+    background-color: var(--bg-surface-subtle);
     color: var(--text-primary);
-    border: 1px solid var(--border-color);
-    padding: 5px 12px;
+    border: none;
+    padding: 8px 16px;
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
-    border-radius: var(--radius-xs);
+    border-radius: var(--radius-pill);
     display: inline-flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
+    transition: var(--transition);
 }
 
 .logout-btn:hover {
@@ -240,27 +241,23 @@ button, input, select, textarea {
 
 .nav-login-link {
     color: var(--text-primary);
-    font-size: 13.5px;
-    font-weight: bold;
-    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 14px;
     text-decoration: none !important;
-}
-
-.nav-login-link:hover {
-    text-decoration: underline !important;
 }
 
 .nav-toggle {
     display: none;
     background: transparent;
-    border: 1px solid var(--border-color);
-    padding: 5px 8px;
+    border: none;
+    padding: 6px;
     cursor: pointer;
     color: var(--text-primary);
 }
 
 /* ==========================================================================
-   BUTTONS (Monochrome rectangular beginner buttons)
+   BUTTONS (Clear, friendly, rounded)
    ========================================================================== */
 
 .btn,
@@ -268,17 +265,20 @@ button, input, select, textarea {
 .main-button,
 .dark-button,
 .btn-primary {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     background-color: var(--btn-bg);
     color: var(--btn-text) !important;
-    font-size: 13.5px;
-    font-weight: 700;
-    padding: 8px 16px;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-xs);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 11px 22px;
+    border: none;
+    border-radius: var(--radius-pill);
     cursor: pointer;
     text-decoration: none !important;
-    text-align: center;
+    transition: var(--transition);
 }
 
 .btn:hover,
@@ -287,21 +287,25 @@ button, input, select, textarea {
 .dark-button:hover,
 .btn-primary:hover {
     opacity: 0.85;
+    transform: translateY(-1px);
 }
 
 .btn-secondary,
 .outline-button {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     background-color: var(--btn-sec-bg);
     color: var(--btn-sec-text) !important;
-    font-size: 13.5px;
-    font-weight: 700;
-    padding: 8px 16px;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-xs);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 11px 22px;
+    border: none;
+    border-radius: var(--radius-pill);
     cursor: pointer;
     text-decoration: none !important;
-    text-align: center;
+    transition: var(--transition);
 }
 
 .btn-secondary:hover,
@@ -310,19 +314,21 @@ button, input, select, textarea {
 }
 
 .btn-sm {
-    padding: 4px 10px;
-    font-size: 12.5px;
+    padding: 7px 16px;
+    font-size: 13px;
 }
 
 .goal-btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background-color: var(--btn-bg);
     color: var(--btn-text) !important;
-    font-size: 12.5px;
-    font-weight: bold;
-    padding: 6px 12px;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-xs);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 18px;
+    border: none;
+    border-radius: var(--radius-pill);
     cursor: pointer;
     text-decoration: none !important;
 }
@@ -332,7 +338,7 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   CARDS & CONTAINERS (Boxy, simple borders, no shadows)
+   CARDS & CONTAINERS — ZERO BOXES (100% merged with background)
    ========================================================================== */
 
 .card,
@@ -340,47 +346,54 @@ button, input, select, textarea {
 .dash-card,
 .summary-card,
 .side-card {
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-xs);
-    padding: 18px 20px;
+    background-color: var(--bg-canvas);
+    border: none !important;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none !important;
 }
 
 .dash-card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border-color);
-    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 18px;
 }
 
 .dash-card-header h2 {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: 750;
     color: var(--text-primary);
+    letter-spacing: -0.01em;
 }
 
 .header-link {
-    font-size: 12.5px;
-    font-weight: bold;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: none !important;
+}
+
+.header-link:hover {
     color: var(--text-primary);
 }
 
 /* ==========================================================================
-   FORMS (Clean, rectangular, boxy inputs)
+   FORMS (Clean, soft input fields, no surrounding box)
    ========================================================================== */
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    margin-bottom: 14px;
+    gap: 6px;
+    margin-bottom: 18px;
 }
 
 label {
-    font-size: 13px;
-    font-weight: bold;
+    font-size: 13.5px;
+    font-weight: 600;
     color: var(--text-primary);
 }
 
@@ -392,19 +405,20 @@ input[type="date"],
 select,
 textarea {
     width: 100%;
-    padding: 8px 10px;
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-xs);
+    padding: 12px 16px;
+    background-color: var(--bg-surface-subtle);
+    border: none;
+    border-radius: var(--radius-sm);
     color: var(--text-primary);
-    font-size: 13.5px;
+    font-size: 14.5px;
     outline: none;
+    transition: var(--transition);
 }
 
 input:focus,
 select:focus,
 textarea:focus {
-    outline: 2px solid var(--text-primary);
+    background-color: var(--bg-surface-muted);
 }
 
 small {
@@ -413,110 +427,111 @@ small {
 }
 
 /* ==========================================================================
-   PAGE HEADER
+   PAGE HEADER (Seamless with background)
    ========================================================================== */
 
 .page-header {
-    background-color: var(--bg-surface);
-    border-bottom: 1px solid var(--border-color);
-    padding: 20px 5%;
-    margin-bottom: 20px;
+    background-color: var(--bg-canvas);
+    border: none;
+    padding: 32px 5% 20px;
+    margin-bottom: 24px;
 }
 
 .header-content {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
+    gap: 20px;
 }
 
 .header-text h1 {
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 26px;
+    font-weight: 800;
     color: var(--text-primary);
+    letter-spacing: -0.02em;
     margin-bottom: 4px;
 }
 
 .header-text p {
-    font-size: 13.5px;
+    font-size: 14.5px;
     color: var(--text-secondary);
 }
 
 /* ==========================================================================
-   EMPTY STATE
+   EMPTY STATE (Clean inline message, no box)
    ========================================================================== */
 
 .empty-state {
     text-align: center;
-    padding: 30px 16px;
-    background-color: var(--bg-surface);
-    border: 1px dashed var(--border-color);
-    border-radius: var(--radius-xs);
-    margin: 14px 0;
+    padding: 48px 20px;
+    background-color: transparent;
+    border: none;
+    margin: 16px 0;
 }
 
 .empty-state h3,
 .empty-state h2 {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 6px;
 }
 
 .empty-state p {
-    font-size: 13.5px;
+    font-size: 14px;
     color: var(--text-muted);
-    max-width: 400px;
-    margin: 0 auto 14px;
+    max-width: 440px;
+    margin: 0 auto 18px;
+    line-height: 1.5;
 }
 
 /* ==========================================================================
-   ADVICE / RECOMMENDATIONS SECTION (Monochrome)
+   RECOMMENDATIONS / ADVICE
    ========================================================================== */
 
 .ecoai-tag {
     display: inline-block;
     font-size: 11px;
-    font-weight: bold;
+    font-weight: 700;
     color: var(--text-primary);
     background-color: var(--bg-surface-subtle);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-xs);
-    padding: 2px 6px;
+    border-radius: var(--radius-pill);
+    padding: 3px 10px;
     text-transform: uppercase;
-    margin-bottom: 4px;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
 }
 
 .ecoai-card,
 .ecoai-analysis-card {
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-xs);
-    padding: 18px 20px;
-    margin-bottom: 18px;
+    background-color: var(--bg-canvas);
+    border: none;
+    padding: 0;
+    margin-bottom: 24px;
 }
 
 .ecoai-header-left {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 3px;
 }
 
 .ecoai-header-left h2 {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: 700;
     color: var(--text-primary);
 }
 
 .ecoai-refresh-btn {
-    background: transparent;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-xs);
+    background: var(--bg-surface-subtle);
+    border: none;
+    border-radius: var(--radius-pill);
     color: var(--text-primary);
-    padding: 4px 8px;
+    padding: 7px 12px;
     cursor: pointer;
+    transition: var(--transition);
 }
 
 .ecoai-refresh-btn:hover {
@@ -526,19 +541,19 @@ small {
 .ecoai-loading {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 16px 0;
+    gap: 10px;
+    padding: 20px 0;
     color: var(--text-muted);
-    font-size: 13px;
+    font-size: 13.5px;
 }
 
 .ecoai-spinner {
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     border: 2px solid var(--border-subtle);
     border-top-color: var(--text-primary);
     border-radius: 50%;
-    animation: mono-spin 0.8s linear infinite;
+    animation: mono-spin 0.7s linear infinite;
 }
 
 @keyframes mono-spin {
@@ -548,30 +563,32 @@ small {
 .ecoai-body {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    padding-top: 8px;
+    gap: 10px;
+    padding-top: 10px;
 }
 
 .ecoai-analysis {
-    font-size: 13.5px;
-    font-weight: bold;
+    font-size: 15px;
+    font-weight: 600;
     color: var(--text-primary);
+    line-height: 1.5;
 }
 
 .ecoai-recommendation {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--text-secondary);
+    line-height: 1.55;
 }
 
 .ecoai-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 10px;
-    border-top: 1px solid var(--border-color);
-    margin-top: 4px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-subtle);
+    margin-top: 6px;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
 }
 
 .ecoai-saving-box {
@@ -581,37 +598,37 @@ small {
 }
 
 .ecoai-saving-label {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-muted);
 }
 
 .ecoai-saving-val {
-    font-size: 13.5px;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: 800;
     color: var(--text-primary);
 }
 
 .ecoai-empty {
-    padding: 16px 8px;
+    padding: 20px 0;
     text-align: center;
     color: var(--text-muted);
-    font-size: 13px;
+    font-size: 13.5px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 /* ==========================================================================
-   ACTIVITY ICONS (Monochrome)
+   ACTIVITY ICONS
    ========================================================================== */
 
 .activity-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: var(--radius-xs);
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-sm);
     background-color: var(--bg-surface-subtle);
-    border: 1px solid var(--border-color);
+    border: none;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -625,7 +642,7 @@ small {
 }
 
 /* ==========================================================================
-   PROGRESS BARS (Monochrome)
+   PROGRESS BARS
    ========================================================================== */
 
 .progress-track,
@@ -633,9 +650,9 @@ small {
 .mini-bar {
     width: 100%;
     height: 8px;
-    background-color: var(--bg-surface-muted);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-xs);
+    background-color: var(--bg-surface-subtle);
+    border: none;
+    border-radius: var(--radius-pill);
     overflow: hidden;
 }
 
@@ -644,8 +661,8 @@ small {
 .mini-fill {
     height: 100%;
     background-color: var(--text-primary);
-    border-radius: 0;
-    transition: width 0.2s ease;
+    border-radius: var(--radius-pill);
+    transition: width 0.3s ease;
 }
 
 /* ==========================================================================
@@ -659,12 +676,13 @@ small {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.65);
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
     display: none;
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    padding: 16px;
+    padding: 20px;
 }
 
 .goal-modal.active,
@@ -677,12 +695,12 @@ small {
 
 .goal-modal-content,
 .edit-modal-content {
-    background-color: var(--bg-surface);
-    border: 2px solid var(--border-color);
-    border-radius: var(--radius-xs);
+    background-color: var(--bg-canvas);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
     width: 100%;
-    max-width: 400px;
-    padding: 20px;
+    max-width: 440px;
+    padding: 28px;
 }
 
 .goal-modal-header,
@@ -690,15 +708,15 @@ small {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 14px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-subtle);
 }
 
 .goal-modal-header h2,
 .edit-modal-header h2 {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: 700;
     color: var(--text-primary);
 }
 
@@ -706,90 +724,96 @@ small {
 .close-edit-btn {
     background: transparent;
     border: none;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
     cursor: pointer;
+    color: var(--text-muted);
+}
+
+.close-goal-btn:hover,
+.close-edit-btn:hover {
     color: var(--text-primary);
 }
 
 .goal-error {
     color: var(--text-primary);
-    font-weight: bold;
-    font-size: 12px;
-    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 12.5px;
+    margin-bottom: 10px;
     min-height: 16px;
 }
 
 .modal-actions {
     display: flex;
     justify-content: flex-end;
-    gap: 8px;
-    margin-top: 12px;
+    gap: 10px;
+    margin-top: 16px;
 }
 
 /* ==========================================================================
-   FOOTER (Simple border, monochrome)
+   FOOTER (Seamless with background)
    ========================================================================== */
 
 footer {
-    background-color: var(--bg-surface);
-    border-top: 2px solid var(--border-color);
-    padding: 30px 5% 16px;
-    margin-top: 40px;
+    background-color: var(--bg-canvas);
+    border-top: 1px solid var(--border-subtle);
+    padding: 44px 5% 24px;
+    margin-top: 48px;
 }
 
 .footer-content {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 24px;
-    padding-bottom: 20px;
+    gap: 30px;
+    padding-bottom: 24px;
     border-bottom: 1px solid var(--border-subtle);
 }
 
 .footer-logo {
-    font-size: 16px;
-    font-weight: 900;
+    font-size: 18px;
+    font-weight: 800;
     color: var(--text-primary);
     text-decoration: none !important;
     display: inline-block;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .footer-content p {
-    font-size: 13px;
+    font-size: 13.5px;
     color: var(--text-muted);
-    max-width: 320px;
+    max-width: 360px;
+    line-height: 1.5;
 }
 
 .footer-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px 16px;
+    gap: 14px 22px;
 }
 
 .footer-links a {
-    color: var(--text-primary);
-    font-size: 13px;
-    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 13.5px;
+    text-decoration: none !important;
 }
 
 .footer-links a:hover {
-    text-decoration: underline;
+    color: var(--text-primary);
 }
 
 .footer-bottom {
-    max-width: 1000px;
-    margin: 12px auto 0;
+    max-width: 1100px;
+    margin: 16px auto 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 12px;
+    font-size: 12.5px;
     color: var(--text-muted);
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 8px;
 }
 
 .hidden {
@@ -797,13 +821,15 @@ footer {
 }
 
 /* ==========================================================================
-   MOBILE TOGGLE
+   RESPONSIVE
    ========================================================================== */
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
     .navbar {
+        height: auto;
+        min-height: 60px;
         flex-wrap: wrap;
-        padding: 8px 4%;
+        padding: 10px 4%;
     }
 
     .nav-toggle {
@@ -815,10 +841,10 @@ footer {
         width: 100%;
         flex-direction: column;
         align-items: flex-start;
-        padding: 8px 0 4px;
-        gap: 2px;
-        border-top: 1px solid var(--border-color);
-        margin-top: 6px;
+        padding: 12px 0 6px;
+        gap: 4px;
+        border-top: 1px solid var(--border-subtle);
+        margin-top: 8px;
     }
 
     .nav-links.nav-open {
@@ -827,7 +853,7 @@ footer {
 
     .nav-links a {
         width: 100%;
-        padding: 6px 8px;
+        padding: 8px 12px;
     }
 
     .nav-actions {
@@ -841,6 +867,6 @@ footer {
 
     .footer-content {
         flex-direction: column;
-        gap: 16px;
+        gap: 20px;
     }
 }
