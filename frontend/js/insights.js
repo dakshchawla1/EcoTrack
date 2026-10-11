@@ -566,7 +566,7 @@ async function loadEcoAiAnalysis() {
         if (!data || data.status === "no_data") {
             if (emptyEl) {
                 emptyEl.innerHTML = `
-                    <p>Add some activities first to receive personalized EcoAI insights.</p>
+                    <p>Log a few activities to receive tailored impact trends and reduction suggestions.</p>
                     <a href="tracker.html" class="btn btn-sm btn-primary">Start Tracking</a>
                 `;
                 emptyEl.style.display = "block";
@@ -583,11 +583,11 @@ async function loadEcoAiAnalysis() {
         bodyEl.style.display = "block";
 
     } catch (error) {
-        console.warn("EcoAI analysis notice:", error.message);
+        console.warn("Impact analysis notice:", error.message);
         loadingEl.style.display = "none";
         if (emptyEl) {
             emptyEl.innerHTML = `
-                <p>EcoAI is temporarily unavailable. Your EcoTrack data is still available.</p>
+                <p>Personalized analysis is currently updating. Your logged activities and chart data are ready below.</p>
                 <a href="tracker.html" class="btn btn-sm btn-secondary">Log Activity</a>
             `;
             emptyEl.style.display = "block";

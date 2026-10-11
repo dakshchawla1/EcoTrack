@@ -43,11 +43,10 @@ onAuthStateChanged(auth, async (user) => {
 
 
     if (!user) {
-
         console.log(
-            "No Firebase user found on Achievements page."
+            "No Firebase user found on Achievements page. Redirecting to login."
         );
-
+        window.location.href = "login.html";
         return;
     }
 
@@ -262,7 +261,7 @@ function createAchievements(
         // =========================
 
         {
-            icon: "I",
+            icon: "🌱",
 
             title: "First Step",
 
@@ -279,7 +278,7 @@ function createAchievements(
         // =========================
 
         {
-            icon: "II",
+            icon: "🌿",
 
             title: "Eco Starter",
 
@@ -296,7 +295,7 @@ function createAchievements(
         // =========================
 
         {
-            icon: "III",
+            icon: "🧭",
 
             title: "Eco Explorer",
 
@@ -315,7 +314,7 @@ function createAchievements(
         // =========================
 
         {
-            icon: "IV",
+            icon: "📅",
 
             title: "Consistent Tracker",
 
@@ -332,7 +331,7 @@ function createAchievements(
         // =========================
 
         {
-            icon: "V",
+            icon: "🚗",
 
             title: "Transport Tracker",
 
@@ -351,7 +350,7 @@ function createAchievements(
         // =========================
 
         {
-            icon: "VI",
+            icon: "⚡",
 
             title: "Energy Tracker",
 

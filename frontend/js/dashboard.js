@@ -244,7 +244,7 @@ async function loadEcoAiRecommendation() {
         if (!data || data.status === "no_data") {
             if (ecoAiEmpty) {
                 ecoAiEmpty.innerHTML = `
-                    <p>Add more activities to receive a personalized EcoAI recommendation.</p>
+                    <p>Log a few activities to receive your personalized reduction recommendation.</p>
                     <a href="tracker.html" class="btn btn-sm btn-primary">Start Tracking</a>
                 `;
                 ecoAiEmpty.style.display = "block";
@@ -263,11 +263,11 @@ async function loadEcoAiRecommendation() {
         ecoAiBody.style.display = "block";
 
     } catch (error) {
-        console.warn("EcoAI recommendation notice:", error.message);
+        console.warn("Impact recommendation notice:", error.message);
         ecoAiLoading.style.display = "none";
         if (ecoAiEmpty) {
             ecoAiEmpty.innerHTML = `
-                <p>EcoAI is temporarily unavailable. Your EcoTrack data is still available.</p>
+                <p>Personalized advice is temporarily updating. Your activity logs and stats are ready below.</p>
                 <a href="tracker.html" class="btn btn-sm btn-secondary">Log Activity</a>
             `;
             ecoAiEmpty.style.display = "block";

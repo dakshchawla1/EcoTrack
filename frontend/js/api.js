@@ -281,7 +281,7 @@ export async function apiFetch(endpoint, options = {}) {
                 return {
                     status: "no_data",
                     title: "Build Your Carbon Baseline",
-                    analysis: "Add more activities to receive a personalized EcoAI recommendation.",
+                    analysis: "Log a few activities to receive your personalized reduction recommendation.",
                     recommendation: "Log your daily transport, home electricity, or meals to get tailored reduction tips.",
                     estimated_saving: 0
                 };
@@ -361,7 +361,7 @@ export async function apiFetch(endpoint, options = {}) {
                 return {
                     status: "no_data",
                     headline: "Awaiting Your First Records",
-                    trend_analysis: "Add some activities first to receive personalized EcoAI insights.",
+                    trend_analysis: "Log a few activities to receive tailored impact trends and reduction suggestions.",
                     primary_driver: "No baseline emissions recorded yet.",
                     suggested_action: "Start tracking daily transit or home electricity to identify your largest reduction opportunities.",
                     weekly_comparison: "Baseline will generate after your first week of entries."
