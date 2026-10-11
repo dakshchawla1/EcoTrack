@@ -1,69 +1,42 @@
 /* ==========================================================================
    EcoTrack Activity Tracker Styles (tracker.css)
-   Clean, practical everyday logging interface
+   Clean, simple, beginner-friendly activity logging form.
    ========================================================================== */
 
 .tracker-container {
-    max-width: 1160px;
-    margin: 32px auto 0;
-    padding: 0 5%;
+    max-width: 1000px;
+    margin: 0 auto 60px;
+    padding: 0 4%;
 }
 
 .tracker-layout {
     display: grid;
     grid-template-columns: 1.4fr 1fr;
-    gap: 32px;
+    gap: 24px;
     align-items: start;
 }
 
 /* Main Form Card */
 .tracker-card {
-    background-color: var(--bg-surface);
+    background-color: #ffffff;
     border: 1px solid var(--border-default);
-    border-radius: var(--radius-lg);
-    padding: 32px;
+    border-radius: var(--radius-md);
+    padding: 28px;
     box-shadow: var(--shadow-xs);
 }
 
-/* Steps Strip */
-.tracker-steps-strip {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border-subtle);
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-}
-
-.step-pill {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--text-secondary);
-    background-color: var(--bg-surface-subtle);
-    padding: 4px 10px;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border-subtle);
-}
-
-.step-arrow {
-    color: var(--text-faint);
-    font-size: 12px;
-}
-
-/* Form Rows */
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 14px;
 }
 
 .form-group-half {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .extra-fields {
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .extra-label {
@@ -76,39 +49,36 @@
 
 .tracker-submit-btn {
     width: 100%;
-    padding: 12px 20px;
-    font-size: 15px;
-    margin-top: 4px;
+    padding: 11px 20px;
+    font-size: 14.5px;
+    margin-top: 6px;
 }
 
 /* Result Box */
-.result {
-    margin-top: 24px;
-}
-
 .result:empty {
     display: none;
 }
 
 .result {
-    padding: 20px;
+    margin-top: 20px;
+    padding: 16px 18px;
     background-color: var(--brand-tint);
     border: 1px solid var(--brand-border);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-sm);
     color: var(--text-primary);
-    font-size: 14.5px;
+    font-size: 14px;
     line-height: 1.5;
 }
 
 .result-success {
-    background-color: var(--status-success-bg, #edf5ef);
-    border: 1px solid var(--brand-border, #c4d7c7);
+    background-color: var(--status-success-bg);
+    border: 1px solid var(--brand-border);
 }
 
 .result-error {
-    background-color: var(--status-danger-bg, #fbf0f0);
-    border: 1px solid #f0c2c2;
-    color: var(--status-danger, #8a2424);
+    background-color: var(--status-danger-bg);
+    border: 1px solid #fca5a5;
+    color: var(--status-danger);
 }
 
 .result strong {
@@ -120,35 +90,35 @@
 .tracker-sidebar {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 18px;
 }
 
 .side-card {
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg);
-    padding: 24px;
+    background-color: #ffffff;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    padding: 22px;
     box-shadow: var(--shadow-xs);
 }
 
 .side-card h3 {
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .side-card p {
-    font-size: 13.5px;
+    font-size: 13px;
     color: var(--text-secondary);
     line-height: 1.5;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
 .factors-table {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
 }
 
 .factor-row {
@@ -156,7 +126,7 @@
     justify-content: space-between;
     padding: 8px 10px;
     background-color: var(--bg-surface-subtle);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-xs);
     font-size: 12.5px;
 }
 
@@ -167,12 +137,11 @@
 
 .factor-val {
     color: var(--text-muted);
-    font-family: var(--font-mono);
     font-weight: 600;
 }
 
 /* Responsive */
-@media (max-width: 860px) {
+@media (max-width: 800px) {
     .tracker-layout {
         grid-template-columns: 1fr;
     }

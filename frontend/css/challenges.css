@@ -1,214 +1,132 @@
 /* ==========================================================================
    EcoTrack Challenges Styles (challenges.css)
-   Requires theme.css for variables, base reset, navbar, and footer
+   Clean, simple, beginner-friendly habit challenges checklist.
    ========================================================================== */
 
-/* Page Header */
-.page-header {
-    background: var(--bg-surface);
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 36px 0;
-    margin-bottom: 32px;
-}
-
-.header-content {
-    max-width: 1160px;
-    margin: 0 auto;
-    padding: 0 4%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
-.header-text h1 {
-    font-size: clamp(24px, 3vw, 32px);
-    font-weight: 700;
-    color: var(--text-primary);
-    letter-spacing: -0.02em;
-    margin-top: 6px;
-    margin-bottom: 6px;
-}
-
-.header-text p {
-    color: var(--text-secondary);
-    font-size: 14.5px;
-    max-width: 580px;
-    line-height: 1.5;
-}
-
-/* Container */
 .challenges-container {
-    max-width: 1160px;
-    margin: 0 auto 80px;
+    max-width: 1000px;
+    margin: 0 auto 60px;
     padding: 0 4%;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
 }
 
 /* Summary Card */
 .summary-section {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
+    background: #ffffff;
+    border: 1px solid var(--border-default);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-xs);
 }
 
 .summary-card {
-    padding: 24px 28px;
+    padding: 20px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
-}
-
-.summary-content {
-    flex: 1;
-}
-
-.section-label {
-    font-size: 11.5px;
-    font-weight: 700;
-    color: var(--brand-accent);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    display: block;
-    margin-bottom: 4px;
+    gap: 20px;
 }
 
 .summary-content h2 {
-    font-size: 19px;
+    font-size: 17px;
     font-weight: 700;
     color: var(--text-primary);
-    letter-spacing: -0.01em;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
 .summary-content p {
-    font-size: 14px;
+    font-size: 13.5px;
     color: var(--text-secondary);
-    line-height: 1.5;
 }
 
 .completed-box {
-    background: var(--bg-surface-subtle);
-    border: 1px solid var(--border-default);
-    border-radius: var(--radius-md);
-    padding: 14px 24px;
+    background: var(--brand-tint);
+    border: 1px solid var(--brand-border);
+    border-radius: var(--radius-xs);
+    padding: 10px 18px;
     text-align: center;
     flex-shrink: 0;
-    min-width: 140px;
 }
 
 .completed-number {
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 800;
     color: var(--brand-primary);
     display: block;
     line-height: 1;
-    font-family: var(--font-mono);
 }
 
 .completed-text {
-    font-size: 11.5px;
+    font-size: 11px;
     font-weight: 700;
-    color: var(--text-muted);
+    color: var(--brand-primary);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-top: 6px;
+    margin-top: 3px;
     display: block;
-}
-
-/* Empty State */
-.empty-state {
-    text-align: center;
-    padding: 56px 24px;
-    background: var(--bg-surface);
-    border: 1px dashed var(--border-default);
-    border-radius: var(--radius-md);
-}
-
-.empty-state h2 {
-    font-size: 19px;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 8px;
-}
-
-.empty-state p {
-    font-size: 14px;
-    color: var(--text-secondary);
-    max-width: 440px;
-    margin: 0 auto 20px;
-    line-height: 1.5;
 }
 
 /* Challenges Section */
 .challenges-section {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
+    background: #ffffff;
+    border: 1px solid var(--border-default);
     border-radius: var(--radius-md);
-    padding: 28px;
+    padding: 22px;
     box-shadow: var(--shadow-xs);
 }
 
 .section-title {
-    margin-bottom: 20px;
-    padding-bottom: 14px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
     border-bottom: 1px solid var(--border-subtle);
 }
 
 .section-title h2 {
-    font-size: 19px;
+    font-size: 17px;
     font-weight: 700;
     color: var(--text-primary);
-    letter-spacing: -0.01em;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
 .section-title p {
-    font-size: 13.5px;
-    color: var(--text-secondary);
+    font-size: 13px;
+    color: var(--text-muted);
 }
 
 .challenge-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
-/* Dynamic Challenge Card */
-.challenge-card,
-.challenge-item {
+/* Challenge Item */
+.challenge-card {
     background: var(--bg-surface-subtle);
     border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-sm);
-    padding: 18px 20px;
+    border-radius: var(--radius-xs);
+    padding: 14px 18px;
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 16px;
     transition: border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
-.challenge-card:hover,
-.challenge-item:hover {
+.challenge-card:hover {
     border-color: var(--border-default);
     background-color: #ffffff;
 }
 
 .challenge-number {
-    width: 38px;
-    height: 38px;
-    background: var(--bg-surface);
+    width: 32px;
+    height: 32px;
+    background: #ffffff;
     border: 1px solid var(--border-default);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-xs);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
-    font-family: var(--font-mono);
     color: var(--brand-primary);
     flex-shrink: 0;
 }
@@ -218,14 +136,14 @@
 }
 
 .challenge-main h3 {
-    font-size: 15.5px;
+    font-size: 14.5px;
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
 .challenge-description {
-    font-size: 13.5px;
+    font-size: 12.5px;
     color: var(--text-secondary);
     line-height: 1.45;
 }
@@ -234,30 +152,29 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 6px;
-    min-width: 140px;
+    gap: 5px;
+    min-width: 120px;
     flex-shrink: 0;
 }
 
 .challenge-status {
-    font-size: 11.5px;
+    font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    padding: 3px 8px;
-    border-radius: var(--radius-sm);
+    padding: 2px 7px;
+    border-radius: var(--radius-xs);
     background: var(--bg-surface-muted);
     color: var(--text-muted);
 }
 
 .challenge-status.completed {
-    background: var(--status-success-bg);
-    color: var(--status-success);
-    border: 1px solid #c7e8d3;
+    background: var(--brand-tint);
+    color: var(--brand-primary);
+    border: 1px solid var(--brand-border);
 }
 
 .mini-bar {
-    width: 130px;
+    width: 110px;
     height: 6px;
     background: var(--bg-surface-muted);
     border-radius: 3px;
@@ -272,13 +189,12 @@
 }
 
 .challenge-card.completed .mini-fill {
-    background: var(--status-success);
+    background: var(--brand-primary);
 }
 
 .progress-count {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
-    font-family: var(--font-mono);
     color: var(--text-muted);
 }
 
@@ -293,11 +209,10 @@
         width: 100%;
     }
     
-    .challenge-card,
-    .challenge-item {
+    .challenge-card {
         flex-direction: column;
         align-items: flex-start;
-        gap: 14px;
+        gap: 12px;
     }
     
     .challenge-progress {

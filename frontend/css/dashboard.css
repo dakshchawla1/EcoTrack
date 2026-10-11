@@ -1,74 +1,74 @@
 /* ==========================================================================
    EcoTrack Dashboard Styles (dashboard.css)
-   Clean, practical personal carbon tracking application workspace
+   Clean, simple, beginner-friendly human design.
    ========================================================================== */
 
 .dashboard-container {
-    max-width: 1160px;
-    margin: 32px auto 0;
-    padding: 0 5%;
+    max-width: 1080px;
+    margin: 0 auto 60px;
+    padding: 0 4%;
 }
 
 /* --------------------------------------------------------------------------
-   Top Metrics Strip
+   Top Metrics Row (3 clean stat cards)
    -------------------------------------------------------------------------- */
 
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-bottom: 28px;
+    gap: 16px;
+    margin-bottom: 24px;
 }
 
 .stat-card {
-    background-color: var(--bg-surface);
+    background-color: #ffffff;
     border: 1px solid var(--border-default);
-    border-radius: var(--radius-lg);
-    padding: 20px 24px;
+    border-radius: var(--radius-md);
+    padding: 18px 20px;
     box-shadow: var(--shadow-xs);
 }
 
 .stat-label {
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-muted);
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .stat-value-row {
     display: flex;
     align-items: baseline;
     gap: 6px;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
 .stat-value-row strong {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 800;
     color: var(--text-primary);
     line-height: 1.1;
 }
 
 .stat-unit {
-    font-size: 14px;
+    font-size: 13.5px;
     font-weight: 600;
     color: var(--text-secondary);
 }
 
 .stat-subtext {
-    font-size: 12.5px;
+    font-size: 12px;
     color: var(--text-muted);
 }
 
 /* --------------------------------------------------------------------------
-   Dashboard 2-Column Workspace
+   2-Column Workspace (Clean layout)
    -------------------------------------------------------------------------- */
 
 .dashboard-workspace {
     display: grid;
-    grid-template-columns: 1.55fr 1fr;
-    gap: 28px;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 22px;
     align-items: start;
 }
 
@@ -76,56 +76,11 @@
 .workspace-sidebar {
     display: flex;
     flex-direction: column;
-    gap: 28px;
-}
-
-/* Generic Dash Card */
-.dash-card {
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-default);
-    border-radius: var(--radius-lg);
-    padding: 26px 28px;
-    box-shadow: var(--shadow-xs);
-}
-
-.dash-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding-bottom: 14px;
-    border-bottom: 1px solid var(--border-subtle);
-    margin-bottom: 18px;
-}
-
-.section-label {
-    font-size: 11.5px;
-    font-weight: 700;
-    color: var(--brand-accent);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    display: block;
-    margin-bottom: 2px;
-}
-
-.dash-card-header h2 {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text-primary);
-    letter-spacing: -0.01em;
-}
-
-.header-link {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--brand-primary);
-}
-
-.header-link:hover {
-    text-decoration: underline;
+    gap: 22px;
 }
 
 /* --------------------------------------------------------------------------
-   Recent Activities List
+   Activity List (Clean simple rows)
    -------------------------------------------------------------------------- */
 
 .activity-list {
@@ -135,44 +90,30 @@
 }
 
 .activity-card {
-    background-color: var(--bg-surface);
+    background-color: #ffffff;
     border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
-    padding: 14px 16px;
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
+    gap: 14px;
     transition: border-color var(--transition-fast);
 }
 
 .activity-card:hover {
     border-color: var(--border-default);
+    background-color: var(--bg-surface-subtle);
 }
 
 .activity-main {
     display: flex;
     align-items: center;
-    gap: 14px;
-}
-
-.activity-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: var(--radius-sm);
-    background-color: var(--bg-surface-subtle);
-    border: 1px solid var(--border-subtle);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--brand-primary);
-    flex-shrink: 0;
+    gap: 12px;
 }
 
 .activity-info h3 {
-    font-size: 14.5px;
+    font-size: 14px;
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 2px;
@@ -180,7 +121,7 @@
 }
 
 .activity-info p {
-    font-size: 12.5px;
+    font-size: 12px;
     color: var(--text-muted);
 }
 
@@ -190,14 +131,14 @@
 }
 
 .activity-emission strong {
-    font-size: 14.5px;
+    font-size: 14px;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--brand-primary);
     display: block;
 }
 
 .activity-emission span {
-    font-size: 11.5px;
+    font-size: 11px;
     color: var(--text-muted);
 }
 
@@ -208,14 +149,14 @@
 .breakdown-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+    gap: 10px;
 }
 
 .breakdown-item {
     background-color: var(--bg-surface-subtle);
     border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
-    padding: 14px 12px;
+    border-radius: var(--radius-sm);
+    padding: 12px 10px;
     text-align: center;
 }
 
@@ -223,14 +164,13 @@
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
     color: var(--text-muted);
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .breakdown-item strong {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 800;
     color: var(--text-primary);
     display: block;
@@ -239,7 +179,7 @@
 }
 
 .breakdown-item small {
-    font-size: 11.5px;
+    font-size: 11px;
     color: var(--text-muted);
 }
 
@@ -248,29 +188,29 @@
    -------------------------------------------------------------------------- */
 
 .chart-container {
-    height: 240px;
+    height: 220px;
     position: relative;
 }
 
 /* --------------------------------------------------------------------------
-   Daily Progress Timeline
+   Daily Progress List
    -------------------------------------------------------------------------- */
 
 .progress-list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
 .progress-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 14px;
+    padding: 9px 12px;
     background-color: var(--bg-surface-subtle);
     border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-sm);
-    font-size: 13.5px;
+    border-radius: var(--radius-xs);
+    font-size: 13px;
 }
 
 .progress-item-date {
@@ -278,27 +218,22 @@
     color: var(--text-primary);
 }
 
-.progress-item-value {
-    color: var(--text-secondary);
-}
-
 .progress-item-value strong {
     color: var(--brand-primary);
 }
 
 /* --------------------------------------------------------------------------
-   Sidebar Cards: Goal, Weekly, Tips
+   Monthly Target / Goal
    -------------------------------------------------------------------------- */
 
-/* Goal */
 .goal-content {
-    margin-top: 4px;
+    margin-top: 2px;
 }
 
 .goal-display {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
 }
 
 .goal-progress-box {
@@ -310,32 +245,31 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 13px;
+    font-size: 12.5px;
     color: var(--text-secondary);
     margin-bottom: 6px;
     font-weight: 500;
 }
 
 .goal-progress-top strong {
-    font-size: 14px;
+    font-size: 13.5px;
     color: var(--text-primary);
 }
 
 .goal-progress-bar {
     width: 100%;
-    height: 10px;
-    background-color: var(--bg-surface-subtle);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-pill);
+    height: 8px;
+    background-color: var(--bg-surface-muted);
+    border-radius: 4px;
     overflow: hidden;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .goal-progress-fill {
     height: 100%;
     background-color: var(--brand-primary);
-    border-radius: var(--radius-pill);
-    transition: width 0.4s ease;
+    border-radius: 4px;
+    transition: width 0.3s ease;
 }
 
 .goal-progress-fill.warning {
@@ -350,10 +284,10 @@
     font-size: 12px;
     line-height: 1.45;
     color: var(--text-secondary);
-    padding: 8px 12px;
+    padding: 8px 10px;
     background-color: var(--bg-surface-subtle);
     border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-xs);
 }
 
 .goal-status.warning {
@@ -372,7 +306,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
-    padding-top: 12px;
+    padding-top: 10px;
     border-top: 1px solid var(--border-subtle);
 }
 
@@ -381,59 +315,60 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 8px 6px;
+    padding: 6px 4px;
     background-color: var(--bg-surface-subtle);
     border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-xs);
 }
 
 .goal-stat span {
-    font-size: 11px;
+    font-size: 10.5px;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
     color: var(--text-muted);
-    margin-bottom: 3px;
+    margin-bottom: 2px;
     font-weight: 600;
 }
 
 .goal-stat strong {
-    font-size: 13.5px;
+    font-size: 13px;
     font-weight: 700;
     color: var(--text-primary);
 }
 
 .goal-empty {
     text-align: center;
-    padding: 24px 12px;
+    padding: 20px 10px;
 }
 
 .goal-empty h3 {
     font-size: 15px;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .goal-empty p {
-    font-size: 13px;
+    font-size: 12.5px;
     color: var(--text-muted);
-    margin-bottom: 16px;
-    line-height: 1.45;
+    margin-bottom: 14px;
 }
 
-/* Weekly */
+/* --------------------------------------------------------------------------
+   Weekly Comparison
+   -------------------------------------------------------------------------- */
+
 .weekly-metrics-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 }
 
 .weekly-stat-box {
     background-color: var(--bg-surface-subtle);
     border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-sm);
-    padding: 10px 8px;
+    border-radius: var(--radius-xs);
+    padding: 9px 6px;
     text-align: center;
 }
 
@@ -442,145 +377,141 @@
     font-weight: 600;
     color: var(--text-muted);
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
 .weekly-stat-box strong {
-    font-size: 15px;
+    font-size: 14px;
     color: var(--text-primary);
     display: block;
     line-height: 1.2;
 }
 
 .weekly-stat-box small {
-    font-size: 10.5px;
+    font-size: 10px;
     color: var(--text-muted);
 }
 
 .weekly-message {
-    font-size: 13px;
+    font-size: 12.5px;
     line-height: 1.5;
     color: var(--text-secondary);
     background-color: var(--bg-surface-subtle);
-    border-left: 3px solid var(--brand-accent);
-    padding: 8px 12px;
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    border-left: 3px solid var(--brand-primary);
+    padding: 8px 10px;
+    border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
 }
 
-/* Tips */
+/* --------------------------------------------------------------------------
+   Tips List
+   -------------------------------------------------------------------------- */
+
 .tips-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
 .tip-card {
     background-color: var(--bg-surface-subtle);
     border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
-    padding: 14px 16px;
+    border-radius: var(--radius-xs);
+    padding: 12px 14px;
 }
 
 .tip-card h3 {
-    font-size: 14px;
+    font-size: 13.5px;
     font-weight: 700;
     color: var(--brand-primary);
-    margin-bottom: 4px;
+    margin-bottom: 3px;
 }
 
 .tip-card p {
-    font-size: 13px;
+    font-size: 12.5px;
     color: var(--text-secondary);
     line-height: 1.45;
 }
 
 /* --------------------------------------------------------------------------
-   Goal Modal
+   What-If Simulator Styling
    -------------------------------------------------------------------------- */
 
-.goal-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(27, 36, 30, 0.6);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    padding: 20px;
-}
-
-.goal-modal.active,
-.goal-modal.show,
-.goal-modal[style*="display: flex"] {
-    display: flex !important;
-}
-
-.goal-modal-content {
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-default);
-    border-radius: var(--radius-lg);
-    width: 100%;
-    max-width: 440px;
-    padding: 28px;
-    box-shadow: var(--shadow-lg);
-}
-
-.goal-modal-header {
+.whatif-form {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border-subtle);
+    flex-direction: column;
+    gap: 12px;
 }
 
-.goal-modal-header h2 {
-    font-size: 18px;
+.whatif-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.whatif-metric-card {
+    background-color: var(--bg-surface-subtle);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xs);
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.whatif-metric-label {
+    font-size: 10.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.whatif-metric-val {
+    font-size: 15px;
     font-weight: 700;
     color: var(--text-primary);
 }
 
-.close-goal-btn {
-    background: transparent;
-    border: none;
-    font-size: 22px;
-    line-height: 1;
-    color: var(--text-muted);
-    cursor: pointer;
+.whatif-saving-card {
+    background-color: var(--brand-tint);
+    border-color: var(--brand-border);
 }
 
-.close-goal-btn:hover {
-    color: var(--text-primary);
+.whatif-saving-val {
+    color: var(--brand-primary);
+    font-size: 16px;
 }
 
-.goal-error {
-    color: var(--status-danger);
-    font-size: 12.5px;
-    margin-bottom: 12px;
-    min-height: 18px;
+.whatif-pct {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--brand-accent);
 }
 
-.modal-actions {
+.whatif-explanation-box {
+    background-color: var(--bg-surface-subtle);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xs);
+    padding: 12px 14px;
     display: flex;
-    justify-content: flex-end;
-    gap: 10px;
+    flex-direction: column;
+    gap: 4px;
 }
 
-/* --------------------------------------------------------------------------
-   Responsive
-   -------------------------------------------------------------------------- */
+.whatif-explanation-text {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
 
-@media (max-width: 900px) {
+/* Responsive */
+@media (max-width: 850px) {
     .dashboard-workspace {
         grid-template-columns: 1fr;
     }
 
     .stats-grid {
         grid-template-columns: 1fr;
-        gap: 12px;
     }
 
     .breakdown-grid {
