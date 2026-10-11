@@ -56,6 +56,74 @@
     <!-- MAIN -->
     <main class="history-container">
 
+        <!-- SUMMARY -->
+        <section class="history-summary">
+            <div class="summary-card">
+                <div>
+                    <span>Total Logs</span>
+                    <strong id="totalActivities">0</strong>
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <div>
+                    <span>Total Cumulative Emissions</span>
+                    <strong><span id="totalEmission">0.00</span> kg CO₂</strong>
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <div>
+                    <span>Active Days This Month</span>
+                    <strong id="activeDaysCount">0</strong>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ACTIVITY CALENDAR -->
+        <section class="history-calendar-section">
+            <div class="calendar-header">
+                <div class="calendar-title-wrap">
+                    <span class="section-label">Interactive Timeline</span>
+                    <h2 id="calendarMonthYear">Activity Calendar</h2>
+                    <p class="calendar-subtitle">Click any day to see activities logged on that date.</p>
+                </div>
+
+                <div class="calendar-nav-actions">
+                    <button type="button" id="prevMonthBtn" class="btn btn-sm btn-secondary" aria-label="Previous month">
+                        ‹ Prev
+                    </button>
+                    <button type="button" id="todayMonthBtn" class="btn btn-sm btn-secondary">
+                        Today
+                    </button>
+                    <button type="button" id="nextMonthBtn" class="btn btn-sm btn-secondary" aria-label="Next month">
+                        Next ›
+                    </button>
+                </div>
+            </div>
+
+            <div class="calendar-grid-wrapper">
+                <div class="calendar-weekdays">
+                    <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                </div>
+                <div id="calendarDays" class="calendar-days-grid">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <div id="calendarSelectedInfo" class="calendar-selected-info" style="display: none;">
+                <div class="selected-date-text">
+                    <strong id="selectedDateLabel">Viewing logs for Oct 11, 2026</strong>
+                    <span id="selectedDateStats">(0 activities • 0.00 kg CO₂)</span>
+                </div>
+                <button type="button" id="clearDateFilterBtn" class="btn btn-sm btn-secondary">
+                    Show All Dates
+                </button>
+            </div>
+        </section>
+
+
         <!-- CONTROLS -->
         <section class="history-controls">
             <div class="search-box">
@@ -72,24 +140,6 @@
                     <option value="food">Food</option>
                     <option value="shopping">Shopping</option>
                 </select>
-            </div>
-        </section>
-
-
-        <!-- SUMMARY -->
-        <section class="history-summary">
-            <div class="summary-card">
-                <div>
-                    <span>Total Logs</span>
-                    <strong id="totalActivities">0</strong>
-                </div>
-            </div>
-
-            <div class="summary-card">
-                <div>
-                    <span>Total Cumulative Emissions</span>
-                    <strong><span id="totalEmission">0.00</span> kg CO₂</strong>
-                </div>
             </div>
         </section>
 

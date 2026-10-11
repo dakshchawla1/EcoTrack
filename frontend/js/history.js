@@ -30,6 +30,37 @@ const totalActivities =
 const totalEmission =
     document.getElementById("totalEmission");
 
+const activeDaysCount =
+    document.getElementById("activeDaysCount");
+
+// Calendar Elements
+const calendarMonthYear =
+    document.getElementById("calendarMonthYear");
+
+const prevMonthBtn =
+    document.getElementById("prevMonthBtn");
+
+const todayMonthBtn =
+    document.getElementById("todayMonthBtn");
+
+const nextMonthBtn =
+    document.getElementById("nextMonthBtn");
+
+const calendarDays =
+    document.getElementById("calendarDays");
+
+const calendarSelectedInfo =
+    document.getElementById("calendarSelectedInfo");
+
+const selectedDateLabel =
+    document.getElementById("selectedDateLabel");
+
+const selectedDateStats =
+    document.getElementById("selectedDateStats");
+
+const clearDateFilterBtn =
+    document.getElementById("clearDateFilterBtn");
+
 const editModal =
     document.getElementById("editModal");
 
@@ -65,10 +96,12 @@ const logoutBtn =
 
 
 // ==========================================
-// DATA
+// DATA & STATE
 // ==========================================
 
 let activities = [];
+let calendarDate = new Date();
+let selectedDateFilter = null; // "YYYY-MM-DD" or null
 
 
 // ==========================================
@@ -115,6 +148,8 @@ async function loadActivities() {
 
         updateSummary();
 
+        renderCalendar();
+
         displayActivities();
 
     } catch (error) {
@@ -128,10 +163,28 @@ async function loadActivities() {
 
         updateSummary();
 
+        renderCalendar();
+
         displayActivities();
 
     }
 
+}
+
+
+// ==========================================
+// DATE HELPERS
+// ==========================================
+
+function getActivityDateKey(activity) {
+    const raw = activity.date || activity.created_at;
+    if (!raw) return null;
+    const d = new Date(raw);
+    if (isNaN(d.getTime())) return null;
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return `${y}-${m}-${day}`;
 }
 
 
@@ -141,27 +194,182 @@ async function loadActivities() {
 
 function updateSummary() {
 
-    totalActivities.textContent =
-        activities.length;
+    if (totalActivities) {
+        totalActivities.textContent = activities.length;
+    }
 
-    const total =
-        activities.reduce(
-            (sum, activity) => {
+    const total = activities.reduce(
+        (sum, activity) => {
+            return (
+                sum +
+                Number(
+                    activity.emission || 0
+                )
+            );
+        },
+        0
+    );
 
-                return (
-                    sum +
-                    Number(
-                        activity.emission || 0
-                    )
-                );
+    if (totalEmission) {
+        totalEmission.textContent = total.toFixed(2);
+    }
 
-            },
-            0
-        );
+    if (activeDaysCount) {
+        const curYear = calendarDate.getFullYear();
+        const curMonth = calendarDate.getMonth();
+        const daysSet = new Set();
+        activities.forEach(activity => {
+            const raw = activity.date || activity.created_at;
+            if (!raw) return;
+            const d = new Date(raw);
+            if (!isNaN(d.getTime()) && d.getFullYear() === curYear && d.getMonth() === curMonth) {
+                daysSet.add(d.getDate());
+            }
+        });
+        activeDaysCount.textContent = daysSet.size;
+    }
 
-    totalEmission.textContent =
-        total.toFixed(2);
+}
 
+
+// ==========================================
+// RENDER CALENDAR
+// ==========================================
+
+function renderCalendar() {
+    if (!calendarDays || !calendarMonthYear) return;
+
+    const year = calendarDate.getFullYear();
+    const month = calendarDate.getMonth();
+
+    const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+    calendarMonthYear.textContent = `${monthNames[month]} ${year}`;
+
+    // Map: "YYYY-MM-DD" -> { count, totalEmission, activities: [] }
+    const activityMap = {};
+    activities.forEach(activity => {
+        const key = getActivityDateKey(activity);
+        if (!key) return;
+        if (!activityMap[key]) {
+            activityMap[key] = { count: 0, totalEmission: 0, activities: [] };
+        }
+        activityMap[key].count += 1;
+        activityMap[key].totalEmission += Number(activity.emission || 0);
+        activityMap[key].activities.push(activity);
+    });
+
+    calendarDays.innerHTML = "";
+
+    const firstDayIndex = new Date(year, month, 1).getDay(); // 0 is Sunday
+    const lastDayOfMonth = new Date(year, month + 1, 0).getDate();
+    const prevMonthLastDay = new Date(year, month, 0).getDate();
+
+    const today = new Date();
+    const todayKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+
+    // Previous month padding
+    for (let i = firstDayIndex; i > 0; i--) {
+        const prevDay = prevMonthLastDay - i + 1;
+        const cell = document.createElement("div");
+        cell.className = "calendar-day other-month";
+        cell.innerHTML = `
+            <div class="day-header">
+                <span class="day-number">${prevDay}</span>
+            </div>
+        `;
+        calendarDays.appendChild(cell);
+    }
+
+    // Current month days
+    for (let day = 1; day <= lastDayOfMonth; day++) {
+        const cell = document.createElement("div");
+        cell.className = "calendar-day";
+
+        const dateKey = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+        const dayData = activityMap[dateKey];
+
+        const isToday = dateKey === todayKey;
+        const isSelected = dateKey === selectedDateFilter;
+
+        if (isToday) cell.classList.add("is-today");
+        if (isSelected) cell.classList.add("is-selected");
+
+        let badgeHtml = "";
+        let emissionsHtml = "";
+
+        if (dayData && dayData.count > 0) {
+            cell.classList.add("has-activities");
+            badgeHtml = `<span class="day-badge">${dayData.count} log${dayData.count > 1 ? "s" : ""}</span>`;
+            emissionsHtml = `<span class="day-emissions-text">${dayData.totalEmission.toFixed(1)} kg</span>`;
+            cell.title = `${dayData.count} logged activities (${dayData.totalEmission.toFixed(2)} kg CO₂)`;
+        }
+
+        cell.innerHTML = `
+            <div class="day-header">
+                <span class="day-number">${day}</span>
+                ${badgeHtml}
+            </div>
+            ${emissionsHtml}
+        `;
+
+        cell.addEventListener("click", () => {
+            if (selectedDateFilter === dateKey) {
+                selectedDateFilter = null;
+            } else {
+                selectedDateFilter = dateKey;
+            }
+            renderCalendar();
+            displayActivities();
+        });
+
+        calendarDays.appendChild(cell);
+    }
+
+    // Next month padding slots
+    const totalRendered = firstDayIndex + lastDayOfMonth;
+    const remainingSlots = (7 - (totalRendered % 7)) % 7;
+    for (let nextDay = 1; nextDay <= remainingSlots; nextDay++) {
+        const cell = document.createElement("div");
+        cell.className = "calendar-day other-month";
+        cell.innerHTML = `
+            <div class="day-header">
+                <span class="day-number">${nextDay}</span>
+            </div>
+        `;
+        calendarDays.appendChild(cell);
+    }
+
+    updateSelectedBanner(activityMap);
+    updateSummary();
+}
+
+function updateSelectedBanner(activityMap) {
+    if (!calendarSelectedInfo) return;
+
+    if (!selectedDateFilter) {
+        calendarSelectedInfo.style.display = "none";
+        return;
+    }
+
+    calendarSelectedInfo.style.display = "flex";
+    const parts = selectedDateFilter.split("-");
+    const d = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+    const formatted = d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+
+    if (selectedDateLabel) {
+        selectedDateLabel.textContent = `Viewing logs for ${formatted}`;
+    }
+
+    const dayData = (activityMap || {})[selectedDateFilter];
+    const count = dayData ? dayData.count : 0;
+    const em = dayData ? dayData.totalEmission.toFixed(2) : "0.00";
+
+    if (selectedDateStats) {
+        selectedDateStats.textContent = `(${count} activit${count === 1 ? "y" : "ies"} • ${em} kg CO₂)`;
+    }
 }
 
 
@@ -172,13 +380,10 @@ function updateSummary() {
 function displayActivities() {
 
     const searchText =
-        searchInput.value
-            .trim()
-            .toLowerCase();
+        searchInput ? searchInput.value.trim().toLowerCase() : "";
 
     const selectedCategory =
-        categoryFilter.value;
-
+        categoryFilter ? categoryFilter.value : "all";
 
     const filteredActivities =
         activities.filter(
@@ -190,46 +395,48 @@ function displayActivities() {
                     )
                         .toLowerCase();
 
-
                 const matchesSearch =
                     activityType.includes(
                         searchText
                     );
-
 
                 const matchesCategory =
                     selectedCategory === "all" ||
                     getCategory(activityType) ===
                         selectedCategory;
 
+                let matchesDate = true;
+                if (selectedDateFilter) {
+                    const actKey = getActivityDateKey(activity);
+                    matchesDate = actKey === selectedDateFilter;
+                }
 
                 return (
                     matchesSearch &&
-                    matchesCategory
+                    matchesCategory &&
+                    matchesDate
                 );
 
             }
         );
 
-
     activityList.innerHTML = "";
 
-
-    if (
-        filteredActivities.length === 0
-    ) {
-
-        emptyState.style.display =
-            "block";
-
+    if (filteredActivities.length === 0) {
+        emptyState.style.display = "block";
+        const emptyH3 = emptyState.querySelector("h3");
+        const emptyP = emptyState.querySelector("p");
+        if (selectedDateFilter) {
+            if (emptyH3) emptyH3.textContent = "No activities on this date";
+            if (emptyP) emptyP.textContent = "You did not log any entries on the selected calendar date.";
+        } else {
+            if (emptyH3) emptyH3.textContent = "No activities found";
+            if (emptyP) emptyP.textContent = "No matching activity logs found for your search or filter selection.";
+        }
         return;
-
     }
 
-
-    emptyState.style.display =
-        "none";
-
+    emptyState.style.display = "none";
 
     filteredActivities.forEach(
         activity => {
@@ -238,6 +445,13 @@ function displayActivities() {
                 createActivityCard(
                     activity
                 );
+
+            activityList.appendChild(card);
+
+        }
+    );
+
+}
 
             activityList.appendChild(card);
 
@@ -471,45 +685,11 @@ function getCategory(activityType) {
 // ==========================================
 
 function getActivityIcon(category) {
-
-    if (
-        category === "transport"
-    ) {
-
-        return "TR";
-
-    }
-
-
-    if (
-        category === "electricity"
-    ) {
-
-        return "EL";
-
-    }
-
-
-    if (
-        category === "food"
-    ) {
-
-        return "FD";
-
-    }
-
-
-    if (
-        category === "shopping"
-    ) {
-
-        return "SH";
-
-    }
-
-
-    return "•";
-
+    if (category === "transport") return "🚗";
+    if (category === "electricity") return "⚡";
+    if (category === "food") return "🥗";
+    if (category === "shopping") return "🛍️";
+    return "🌱";
 }
 
 
@@ -821,31 +1001,67 @@ editModal.addEventListener(
 
 
 // ==========================================
+// CALENDAR EVENT LISTENERS
+// ==========================================
+
+if (prevMonthBtn) {
+    prevMonthBtn.addEventListener("click", () => {
+        calendarDate.setMonth(calendarDate.getMonth() - 1);
+        renderCalendar();
+    });
+}
+
+if (nextMonthBtn) {
+    nextMonthBtn.addEventListener("click", () => {
+        calendarDate.setMonth(calendarDate.getMonth() + 1);
+        renderCalendar();
+    });
+}
+
+if (todayMonthBtn) {
+    todayMonthBtn.addEventListener("click", () => {
+        calendarDate = new Date();
+        renderCalendar();
+    });
+}
+
+if (clearDateFilterBtn) {
+    clearDateFilterBtn.addEventListener("click", () => {
+        selectedDateFilter = null;
+        renderCalendar();
+        displayActivities();
+    });
+}
+
+
+// ==========================================
 // LOGOUT
 // ==========================================
 
-logoutBtn.addEventListener(
-    "click",
-    async () => {
+if (logoutBtn) {
+    logoutBtn.addEventListener(
+        "click",
+        async () => {
 
-        try {
+            try {
 
-            await signOut(auth);
+                await signOut(auth);
 
-            window.location.href =
-                "login.html";
+                window.location.href =
+                    "login.html";
 
-        } catch (error) {
+            } catch (error) {
 
-            console.error(
-                "Logout error:",
-                error
-            );
+                console.error(
+                    "Logout error:",
+                    error
+                );
+
+            }
 
         }
-
-    }
-);
+    );
+}
 
 
 // ==========================================

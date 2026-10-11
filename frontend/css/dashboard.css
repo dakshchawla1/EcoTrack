@@ -67,8 +67,8 @@
 
 .dashboard-workspace {
     display: grid;
-    grid-template-columns: 1.6fr 1fr;
-    gap: 24px;
+    grid-template-columns: 1.55fr 1fr;
+    gap: 28px;
     align-items: start;
 }
 
@@ -76,15 +76,15 @@
 .workspace-sidebar {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 28px;
 }
 
 /* Generic Dash Card */
 .dash-card {
     background-color: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
+    border: 1px solid var(--border-default);
     border-radius: var(--radius-lg);
-    padding: 24px;
+    padding: 26px 28px;
     box-shadow: var(--shadow-xs);
 }
 

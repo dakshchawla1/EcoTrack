@@ -574,52 +574,12 @@ function getCategory(
 // ACTIVITY ICON
 // ==========================================
 
-function getActivityIcon(
-    category
-) {
-
-    if (
-        category ===
-        "transport"
-    ) {
-
-        return "TR";
-
-    }
-
-
-    if (
-        category ===
-        "electricity"
-    ) {
-
-        return "EL";
-
-    }
-
-
-    if (
-        category ===
-        "food"
-    ) {
-
-        return "FD";
-
-    }
-
-
-    if (
-        category ===
-        "shopping"
-    ) {
-
-        return "SH";
-
-    }
-
-
-    return "•";
-
+function getActivityIcon(category) {
+    if (category === "transport") return "🚗";
+    if (category === "electricity") return "⚡";
+    if (category === "food") return "🥗";
+    if (category === "shopping") return "🛍️";
+    return "🌱";
 }
 
 

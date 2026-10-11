@@ -32,11 +32,11 @@
     --border-hover: #9ca3af;
     --border-focus: #1b4332;
 
-    /* Typography Colors (Dark charcoal, easy on eyes) */
-    --text-primary: #1f2421;
-    --text-secondary: #4a544d;
-    --text-muted: #6f7a71;
-    --text-faint: #98a29a;
+    /* Typography Colors (High contrast, crisp, easy to read) */
+    --text-primary: #111827;
+    --text-secondary: #374151;
+    --text-muted: #4b5563;
+    --text-faint: #6b7280;
     --text-inverse: #ffffff;
     --text-brand: #1b4332;
 
