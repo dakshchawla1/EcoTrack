@@ -1,6 +1,6 @@
 /* ==========================================================================
    EcoTrack History Styles (history.css)
-   Seamless Merged Background - Zero Card Boxes, Pure Clean Flow
+   Pure Open Layout - Zero Boxes Anywhere on the Page
    ========================================================================== */
 
 .history-container {
@@ -9,28 +9,30 @@
     padding: 0 4%;
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 40px;
 }
 
 /* --------------------------------------------------------------------------
-   Summary Strip
+   Summary Strip — Zero Boxes
    -------------------------------------------------------------------------- */
 
 .history-summary-strip {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    gap: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-subtle);
 }
 
 .summary-stat-box {
-    background-color: var(--bg-surface-subtle);
+    background: transparent !important;
     border: none !important;
-    border-radius: var(--radius-md);
-    padding: 20px 22px;
+    border-radius: 0 !important;
+    padding: 0 !important;
 }
 
 .summary-stat-title {
-    font-size: 12px;
+    font-size: 12.5px;
     font-weight: 600;
     color: var(--text-muted);
     display: block;
@@ -38,7 +40,7 @@
 }
 
 .summary-stat-value {
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 850;
     color: var(--text-primary);
     display: block;
@@ -47,16 +49,16 @@
 }
 
 .summary-stat-sub {
-    font-size: 12px;
+    font-size: 12.5px;
     color: var(--text-muted);
 }
 
 /* --------------------------------------------------------------------------
-   Monthly Calendar (Seamless, zero outer card box)
+   Monthly Calendar — Zero Boxes
    -------------------------------------------------------------------------- */
 
 .calendar-section {
-    background-color: transparent !important;
+    background: transparent !important;
     border: none !important;
     padding: 0 !important;
     box-shadow: none !important;
@@ -66,7 +68,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
     padding-bottom: 12px;
     border-bottom: 1px solid var(--border-subtle);
     flex-wrap: wrap;
@@ -74,28 +76,28 @@
 }
 
 .calendar-title-group h2 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 750;
     color: var(--text-primary);
     margin-bottom: 2px;
 }
 
 .calendar-subtitle {
-    font-size: 13px;
+    font-size: 13.5px;
     color: var(--text-muted);
 }
 
 .calendar-nav {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
 }
 
 .calendar-nav-btn {
     background-color: var(--bg-surface-subtle);
     border: none !important;
     border-radius: var(--radius-pill);
-    padding: 6px 12px;
+    padding: 6px 14px;
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
@@ -112,8 +114,8 @@
     border: none !important;
     color: var(--btn-text);
     border-radius: var(--radius-pill);
-    padding: 6px 14px;
-    font-size: 12.5px;
+    padding: 6px 16px;
+    font-size: 13px;
     font-weight: 600;
     cursor: pointer;
 }
@@ -125,23 +127,23 @@
     font-size: 12px;
     font-weight: 700;
     color: var(--text-muted);
-    padding-bottom: 10px;
+    padding-bottom: 12px;
     border-bottom: 1px solid var(--border-subtle);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 6px;
+    gap: 8px;
 }
 
 .calendar-day {
-    min-height: 60px;
+    min-height: 56px;
     border: none !important;
-    border-radius: var(--radius-xs);
-    padding: 6px 8px;
-    background-color: var(--bg-surface-subtle);
+    border-radius: 0 !important;
+    padding: 6px 4px;
+    background: transparent !important;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -150,34 +152,29 @@
 }
 
 .calendar-day:hover {
-    background-color: var(--bg-surface-muted);
+    opacity: 0.7;
 }
 
 .calendar-day.other-month {
     opacity: 0.25;
 }
 
-.calendar-day.today {
-    background-color: var(--bg-surface-muted);
-    font-weight: bold;
+.calendar-day.today .day-number {
+    font-weight: 900;
+    text-decoration: underline !important;
 }
 
-.calendar-day.has-activity {
-    background-color: var(--bg-surface-muted);
+.calendar-day.has-activity .day-number {
+    font-weight: 800;
 }
 
-.calendar-day.selected-day {
-    background-color: var(--btn-bg);
-    color: var(--btn-text);
-}
-
-.calendar-day.selected-day .day-number,
-.calendar-day.selected-day .day-emissions-text {
-    color: var(--btn-text);
+.calendar-day.selected-day .day-number {
+    font-weight: 900;
+    color: var(--text-primary);
 }
 
 .day-number {
-    font-size: 13px;
+    font-size: 13.5px;
     font-weight: 600;
     color: var(--text-primary);
 }
@@ -186,16 +183,14 @@
     font-size: 10px;
     font-weight: 700;
     color: var(--text-primary);
-    background: var(--bg-canvas);
-    padding: 2px 6px;
-    border-radius: var(--radius-pill);
-    margin-top: 4px;
+    background: transparent !important;
+    padding: 0;
+    margin-top: 2px;
     display: inline-block;
-    width: fit-content;
 }
 
 .day-emissions-text {
-    font-size: 10px;
+    font-size: 10.5px;
     font-weight: 600;
     color: var(--text-muted);
     margin-top: auto;
@@ -207,16 +202,17 @@
     justify-content: space-between;
     align-items: center;
     gap: 12px;
-    margin-top: 14px;
-    padding: 12px 18px;
-    background-color: var(--bg-surface-subtle);
+    margin-top: 16px;
+    padding: 12px 0 !important;
+    background: transparent !important;
     border: none !important;
-    border-radius: var(--radius-sm);
+    border-top: 1px solid var(--border-subtle) !important;
+    border-radius: 0 !important;
     flex-wrap: wrap;
 }
 
 .selected-date-text {
-    font-size: 13.5px;
+    font-size: 14px;
     color: var(--text-primary);
 }
 
@@ -225,29 +221,28 @@
 }
 
 /* --------------------------------------------------------------------------
-   Controls
+   Controls — Clean Inline Bar, Zero Box
    -------------------------------------------------------------------------- */
 
 .history-controls {
     display: grid;
     grid-template-columns: 1fr auto;
-    gap: 12px;
+    gap: 16px;
     align-items: center;
-    background: var(--bg-surface-subtle);
+    background: transparent !important;
     border: none !important;
-    border-radius: var(--radius-md);
-    padding: 12px 16px;
+    padding: 0 !important;
 }
 
 .search-box {
     display: flex;
     align-items: center;
-    gap: 8px;
-    background: var(--bg-canvas);
+    gap: 10px;
+    background: var(--bg-surface-subtle);
     border: none !important;
     border-radius: var(--radius-pill);
-    padding: 0 14px;
-    height: 40px;
+    padding: 0 16px;
+    height: 42px;
 }
 
 .search-box input {
@@ -255,7 +250,7 @@
     outline: none;
     background: transparent;
     width: 100%;
-    font-size: 13.5px;
+    font-size: 14px;
     color: var(--text-primary);
 }
 
@@ -266,16 +261,16 @@
 }
 
 .filter-box select {
-    height: 40px;
-    min-width: 150px;
-    font-size: 13.5px;
-    background: var(--bg-canvas);
+    height: 42px;
+    min-width: 160px;
+    font-size: 14px;
+    background: var(--bg-surface-subtle);
     border-radius: var(--radius-pill);
-    padding: 0 14px;
+    padding: 0 16px;
 }
 
 /* --------------------------------------------------------------------------
-   Activity Log List
+   Activity Log List — Clean Dividers, Zero Boxes
    -------------------------------------------------------------------------- */
 
 .history-section {
@@ -295,7 +290,7 @@
 }
 
 .section-heading h2 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 750;
     color: var(--text-primary);
 }
@@ -303,22 +298,22 @@
 .activity-list {
     display: flex;
     flex-direction: column;
-    gap: 8px;
 }
 
 .activity-card {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 18px;
-    background: var(--bg-surface-subtle);
+    padding: 16px 0 !important;
+    background: transparent !important;
     border: none !important;
-    border-radius: var(--radius-sm);
+    border-bottom: 1px solid var(--border-subtle) !important;
+    border-radius: 0 !important;
     transition: var(--transition);
 }
 
 .activity-card:hover {
-    background-color: var(--bg-surface-muted);
+    opacity: 0.8;
 }
 
 .activity-main {
@@ -328,7 +323,7 @@
 }
 
 .activity-info h3 {
-    font-size: 14.5px;
+    font-size: 15px;
     font-weight: 650;
     color: var(--text-primary);
     margin-bottom: 2px;
@@ -336,24 +331,24 @@
 }
 
 .activity-info p {
-    font-size: 12.5px;
+    font-size: 13px;
     color: var(--text-muted);
 }
 
 .activity-emission {
     text-align: right;
-    margin-right: 12px;
+    margin-right: 14px;
 }
 
 .activity-emission strong {
-    font-size: 15px;
+    font-size: 15.5px;
     font-weight: 750;
     color: var(--text-primary);
     display: block;
 }
 
 .activity-emission span {
-    font-size: 11.5px;
+    font-size: 12px;
     color: var(--text-muted);
 }
 
@@ -365,13 +360,13 @@
 
 .edit-btn,
 .delete-btn {
-    background: var(--bg-canvas);
+    background: var(--bg-surface-subtle);
     border: none !important;
     border-radius: var(--radius-pill);
-    padding: 6px 12px;
+    padding: 6px 14px;
     cursor: pointer;
     color: var(--text-primary);
-    font-size: 12.5px;
+    font-size: 13px;
     font-weight: 600;
     transition: var(--transition);
 }
@@ -443,15 +438,6 @@
 
     .history-controls {
         grid-template-columns: 1fr;
-    }
-
-    .calendar-grid {
-        gap: 3px;
-    }
-
-    .calendar-day {
-        min-height: 52px;
-        padding: 4px;
     }
 
     .activity-card {

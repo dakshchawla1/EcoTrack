@@ -1,6 +1,6 @@
 /* ==========================================================================
    EcoTrack Landing Page Styles (style.css)
-   Seamless Merged Background - Zero Card Boxes, Pure Clean Flow
+   Pure Open Layout - Zero Boxes Anywhere on the Page
    ========================================================================== */
 
 /* Hero Section */
@@ -15,10 +15,11 @@
 }
 
 .hero-card {
-    background-color: transparent !important;
+    background: transparent !important;
     border: none !important;
     box-shadow: none !important;
-    padding: 20px 0 0 !important;
+    border-radius: 0 !important;
+    padding: 10px 0 0 !important;
     text-align: center;
 }
 
@@ -53,25 +54,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 16px;
     margin-bottom: 32px;
     flex-wrap: wrap;
 }
 
 .hero-pill {
     display: inline-block;
-    padding: 7px 18px;
-    background-color: var(--bg-surface-subtle);
-    border: none;
-    border-radius: var(--radius-pill);
-    font-size: 13.5px;
+    padding: 0;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    font-size: 14px;
     font-weight: 600;
-    color: var(--text-primary);
-    transition: var(--transition);
-}
-
-.hero-pill:hover {
-    background-color: var(--bg-surface-muted);
+    color: var(--text-muted);
 }
 
 .hero-trust {
@@ -125,32 +121,26 @@
     line-height: 1.55;
 }
 
-/* 3 Pillars */
+/* 3 Pillars / What We Do — ZERO BOXES */
 .pillars-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 32px;
 }
 
 .pillar-card {
-    background-color: var(--bg-surface-subtle);
+    background: transparent !important;
     border: none !important;
-    border-radius: var(--radius-lg);
-    padding: 30px 26px;
+    border-radius: 0 !important;
+    padding: 0 !important;
     box-shadow: none !important;
-    transition: var(--transition);
-}
-
-.pillar-card:hover {
-    background-color: var(--bg-surface-muted);
-    transform: translateY(-2px);
 }
 
 .pillar-number {
     font-size: 13px;
     font-weight: 800;
     color: var(--text-muted);
-    margin-bottom: 14px;
+    margin-bottom: 10px;
     display: block;
     letter-spacing: 0.05em;
 }
@@ -168,38 +158,31 @@
     line-height: 1.55;
 }
 
-/* 3 Steps */
+/* 3 Steps / How It Works — ZERO BOXES */
 .steps-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 32px;
 }
 
 .step-card {
-    background-color: var(--bg-surface-subtle);
+    background: transparent !important;
     border: none !important;
-    border-radius: var(--radius-lg);
-    padding: 30px 26px;
+    border-radius: 0 !important;
+    padding: 0 !important;
     box-shadow: none !important;
-    transition: var(--transition);
-}
-
-.step-card:hover {
-    background-color: var(--bg-surface-muted);
-    transform: translateY(-2px);
 }
 
 .step-num {
     display: inline-block;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
-    padding: 4px 12px;
-    border-radius: var(--radius-pill);
-    background-color: var(--bg-canvas);
-    color: var(--text-primary);
-    margin-bottom: 16px;
+    padding: 0;
+    background: transparent !important;
+    color: var(--text-muted);
+    margin-bottom: 10px;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
 }
 
 .step-card h3 {
@@ -215,27 +198,21 @@
     line-height: 1.55;
 }
 
-/* 4 Categories */
+/* 4 Categories — ZERO BOXES (No background, no rounded rectangle) */
 .categories-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+    gap: 28px;
 }
 
 .cat-card {
-    background-color: var(--bg-surface-subtle);
+    background: transparent !important;
     border: none !important;
-    border-radius: var(--radius-md);
-    padding: 26px 22px;
+    border-radius: 0 !important;
+    padding: 0 !important;
     display: flex;
     flex-direction: column;
     box-shadow: none !important;
-    transition: var(--transition);
-}
-
-.cat-card:hover {
-    background-color: var(--bg-surface-muted);
-    transform: translateY(-2px);
 }
 
 .cat-tag {
@@ -244,7 +221,7 @@
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     display: block;
 }
 
@@ -252,7 +229,7 @@
     font-size: 17px;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .cat-card p {
@@ -260,7 +237,7 @@
     color: var(--text-secondary);
     line-height: 1.5;
     flex: 1;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
 .cat-stat {
@@ -270,27 +247,22 @@
     color: var(--text-muted);
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 3px;
 }
 
-/* Features */
+/* Features Grid — ZERO BOXES */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 32px;
 }
 
 .feature-item {
-    background-color: var(--bg-surface-subtle);
+    background: transparent !important;
     border: none !important;
-    border-radius: var(--radius-lg);
-    padding: 28px 24px;
+    border-radius: 0 !important;
+    padding: 0 !important;
     box-shadow: none !important;
-    transition: var(--transition);
-}
-
-.feature-item:hover {
-    background-color: var(--bg-surface-muted);
 }
 
 .feature-item h3 {
@@ -306,7 +278,7 @@
     line-height: 1.55;
 }
 
-/* Final CTA */
+/* Final CTA — ZERO BOXES */
 .cta-section {
     padding: 70px 5%;
     background-color: var(--bg-canvas);
@@ -319,10 +291,10 @@
 }
 
 .cta-box {
-    background-color: var(--bg-surface-subtle);
+    background: transparent !important;
     border: none !important;
-    border-radius: var(--radius-xl);
-    padding: 56px 40px;
+    border-radius: 0 !important;
+    padding: 20px 0 !important;
     text-align: center;
     box-shadow: none !important;
 }

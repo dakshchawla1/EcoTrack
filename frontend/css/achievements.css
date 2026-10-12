@@ -1,6 +1,6 @@
 /* ==========================================================================
    EcoTrack Achievements Styles (achievements.css)
-   Seamless Merged Background - Zero Card Boxes, Pure Clean Flow
+   Pure Open Layout - Zero Boxes Anywhere on the Page
    ========================================================================== */
 
 .achievements-container {
@@ -9,15 +9,16 @@
     padding: 0 4%;
     display: flex;
     flex-direction: column;
-    gap: 36px;
+    gap: 40px;
 }
 
-/* Summary Card */
+/* Summary Card — Zero Box */
 .summary-card {
-    background-color: var(--bg-surface-subtle);
+    background: transparent !important;
     border: none !important;
-    border-radius: var(--radius-lg);
-    padding: 24px 28px;
+    border-bottom: 1px solid var(--border-subtle) !important;
+    border-radius: 0 !important;
+    padding: 0 0 24px !important;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -25,28 +26,27 @@
 }
 
 .summary-card h2 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 750;
     color: var(--text-primary);
     margin-bottom: 4px;
 }
 
 .summary-card p {
-    font-size: 14px;
+    font-size: 14.5px;
     color: var(--text-secondary);
 }
 
 .unlocked-counter-box {
-    text-align: center;
+    text-align: right;
     flex-shrink: 0;
-    background-color: var(--bg-canvas);
+    background: transparent !important;
     border: none !important;
-    padding: 12px 22px;
-    border-radius: var(--radius-md);
+    padding: 0 !important;
 }
 
 .unlocked-count {
-    font-size: 26px;
+    font-size: 32px;
     font-weight: 850;
     color: var(--text-primary);
     display: block;
@@ -54,11 +54,11 @@
 }
 
 .unlocked-label {
-    font-size: 11px;
+    font-size: 11.5px;
     font-weight: 700;
     color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
     margin-top: 4px;
     display: block;
 }
@@ -72,20 +72,20 @@
 }
 
 .section-heading {
-    margin-bottom: 18px;
+    margin-bottom: 20px;
     padding-bottom: 12px;
     border-bottom: 1px solid var(--border-subtle);
 }
 
 .section-heading h2 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 750;
     color: var(--text-primary);
     margin-bottom: 2px;
 }
 
 .section-heading p {
-    font-size: 13.5px;
+    font-size: 14px;
     color: var(--text-muted);
 }
 
@@ -94,37 +94,38 @@
 .achievement-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 32px;
 }
 
-/* Individual Card */
+/* Individual Card — Clean Open Items, Zero Box */
 .achievement-card {
-    background-color: var(--bg-surface-subtle);
+    background: transparent !important;
     border: none !important;
-    border-radius: var(--radius-md);
-    padding: 20px 22px;
+    border-bottom: 1px solid var(--border-subtle) !important;
+    border-radius: 0 !important;
+    padding: 0 0 20px !important;
     display: flex;
     align-items: flex-start;
-    gap: 16px;
+    gap: 18px;
     transition: var(--transition);
 }
 
 .achievement-card:hover {
-    background-color: var(--bg-surface-muted);
+    opacity: 0.8;
 }
 
 .achievement-card.locked {
-    opacity: 0.55;
+    opacity: 0.5;
 }
 
 .badge-icon {
-    width: 38px;
-    height: 38px;
-    border-radius: var(--radius-pill);
-    background-color: var(--bg-canvas);
+    width: 36px;
+    height: 36px;
+    border-radius: 0;
+    background: transparent !important;
     border: none !important;
-    color: var(--text-primary);
-    font-size: 13px;
+    color: var(--text-muted);
+    font-size: 14px;
     font-weight: 850;
     line-height: 1;
     display: flex;
@@ -138,16 +139,16 @@
 }
 
 .achievement-info h3 {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 4px;
 }
 
 .achievement-description {
-    font-size: 13px;
+    font-size: 13.5px;
     color: var(--text-secondary);
-    line-height: 1.45;
+    line-height: 1.5;
     margin-bottom: 10px;
 }
 
@@ -158,7 +159,7 @@
     text-transform: uppercase;
     padding: 3px 10px;
     border-radius: var(--radius-pill);
-    background-color: var(--bg-canvas);
+    background-color: var(--bg-surface-subtle);
     color: var(--text-muted);
 }
 
@@ -180,6 +181,6 @@
     }
 
     .unlocked-counter-box {
-        width: 100%;
+        text-align: left;
     }
 }

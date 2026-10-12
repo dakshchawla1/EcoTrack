@@ -1,6 +1,6 @@
 /* ==========================================================================
    EcoTrack Insights Styles (insights.css)
-   Seamless Merged Background - Zero Card Boxes, Pure Clean Flow
+   Pure Open Layout - Zero Boxes Anywhere on the Page
    ========================================================================== */
 
 .insights-container {
@@ -9,13 +9,13 @@
     padding: 0 4%;
     display: flex;
     flex-direction: column;
-    gap: 36px;
+    gap: 40px;
 }
 
 .insights-content {
     display: flex;
     flex-direction: column;
-    gap: 36px;
+    gap: 40px;
 }
 
 /* Summary Card */
@@ -27,7 +27,7 @@
 }
 
 .summary-card h2 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 750;
     color: var(--text-primary);
     margin-bottom: 8px;
@@ -39,12 +39,14 @@
     line-height: 1.6;
 }
 
-/* Biggest Source Card */
+/* Biggest Source Card — Zero Box */
 .biggest-source {
-    background-color: var(--bg-surface-subtle);
+    background: transparent !important;
     border: none !important;
-    border-radius: var(--radius-lg);
-    padding: 24px 28px;
+    border-top: 1px solid var(--border-subtle) !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
+    border-radius: 0 !important;
+    padding: 20px 0 !important;
     display: flex;
     align-items: center;
     gap: 18px;
@@ -53,21 +55,20 @@
 .source-icon {
     width: 44px;
     height: 44px;
-    background: var(--bg-canvas);
+    background: transparent !important;
     border: none !important;
-    border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
-    font-weight: 800;
+    font-size: 15px;
+    font-weight: 850;
     color: var(--text-primary);
     flex-shrink: 0;
     text-transform: capitalize;
 }
 
 .source-content h2 {
-    font-size: 19px;
+    font-size: 20px;
     font-weight: 800;
     color: var(--text-primary);
     margin-bottom: 2px;
@@ -82,7 +83,7 @@
     color: var(--text-primary);
 }
 
-/* Category Grid */
+/* Category Grid — Zero Boxes */
 .category-section {
     background: transparent !important;
     border: none !important;
@@ -91,13 +92,13 @@
 }
 
 .section-title {
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     padding-bottom: 10px;
     border-bottom: 1px solid var(--border-subtle);
 }
 
 .section-title h2 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 750;
     color: var(--text-primary);
     margin-bottom: 2px;
@@ -111,42 +112,38 @@
 .category-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 32px;
 }
 
 .category-card {
-    background: var(--bg-surface-subtle);
+    background: transparent !important;
     border: none !important;
-    border-radius: var(--radius-md);
-    padding: 20px 22px;
-    transition: var(--transition);
-}
-
-.category-card:hover {
-    background-color: var(--bg-surface-muted);
+    border-bottom: 1px solid var(--border-subtle) !important;
+    border-radius: 0 !important;
+    padding: 0 0 18px !important;
 }
 
 .category-content h3 {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 4px;
 }
 
 .category-emission {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 800;
     color: var(--text-primary);
     margin-bottom: 6px;
 }
 
 .category-tip {
-    font-size: 13px;
+    font-size: 13.5px;
     color: var(--text-secondary);
-    line-height: 1.45;
+    line-height: 1.5;
 }
 
-/* Recommendations Section */
+/* Recommendations Section — Zero Boxes */
 .recommendations-section {
     background: transparent !important;
     border: none !important;
@@ -157,32 +154,28 @@
 .tips-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 32px;
 }
 
 .tip-card {
-    background: var(--bg-surface-subtle);
+    background: transparent !important;
     border: none !important;
-    border-radius: var(--radius-md);
-    padding: 18px 20px;
-    transition: var(--transition);
-}
-
-.tip-card:hover {
-    background-color: var(--bg-surface-muted);
+    border-bottom: 1px solid var(--border-subtle) !important;
+    border-radius: 0 !important;
+    padding: 0 0 18px !important;
 }
 
 .tip-card h3 {
-    font-size: 14.5px;
+    font-size: 16px;
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 4px;
 }
 
 .tip-card p {
-    font-size: 13px;
+    font-size: 13.5px;
     color: var(--text-secondary);
-    line-height: 1.45;
+    line-height: 1.5;
 }
 
 /* Responsive */

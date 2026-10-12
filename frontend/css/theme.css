@@ -405,10 +405,11 @@ input[type="date"],
 select,
 textarea {
     width: 100%;
-    padding: 12px 16px;
-    background-color: var(--bg-surface-subtle);
-    border: none;
-    border-radius: var(--radius-sm);
+    padding: 11px 0;
+    background-color: transparent !important;
+    border: none !important;
+    border-bottom: 2px solid var(--border-subtle) !important;
+    border-radius: 0 !important;
     color: var(--text-primary);
     font-size: 14.5px;
     outline: none;
@@ -418,7 +419,7 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-    background-color: var(--bg-surface-muted);
+    border-bottom-color: var(--text-primary) !important;
 }
 
 small {
@@ -493,14 +494,14 @@ small {
 
 .ecoai-tag {
     display: inline-block;
-    font-size: 11px;
+    font-size: 11.5px;
     font-weight: 700;
-    color: var(--text-primary);
-    background-color: var(--bg-surface-subtle);
-    border-radius: var(--radius-pill);
-    padding: 3px 10px;
+    color: var(--text-muted);
+    background-color: transparent !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
     margin-bottom: 6px;
 }
 
@@ -624,10 +625,10 @@ small {
    ========================================================================== */
 
 .activity-icon {
-    width: 38px;
-    height: 38px;
-    border-radius: var(--radius-sm);
-    background-color: var(--bg-surface-subtle);
+    width: 28px;
+    height: 28px;
+    border-radius: 0 !important;
+    background-color: transparent !important;
     border: none;
     display: flex;
     align-items: center;

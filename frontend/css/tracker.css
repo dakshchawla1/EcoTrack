@@ -1,6 +1,6 @@
 /* ==========================================================================
    EcoTrack Activity Tracker Styles (tracker.css)
-   Seamless Merged Background - Zero Card Boxes, Pure Clean Flow
+   Pure Open Layout - Zero Boxes Anywhere on the Page
    ========================================================================== */
 
 .tracker-container {
@@ -12,15 +12,15 @@
 .tracker-layout {
     display: grid;
     grid-template-columns: 1.4fr 1fr;
-    gap: 40px;
+    gap: 48px;
     align-items: start;
 }
 
-/* Main Form Column — Seamless, No Box */
+/* Main Form Column — Zero Box */
 .tracker-card {
-    background-color: transparent !important;
+    background: transparent !important;
     border: none !important;
-    border-radius: 0;
+    border-radius: 0 !important;
     padding: 0 !important;
     box-shadow: none !important;
 }
@@ -55,20 +55,21 @@
     border-radius: var(--radius-pill);
 }
 
-/* Result Box */
+/* Result Box — Clean Text Block, Zero Box */
 .result:empty {
     display: none;
 }
 
 .result {
     margin-top: 24px;
-    padding: 18px 20px;
-    background-color: var(--bg-surface-subtle);
+    padding: 16px 0 !important;
+    background: transparent !important;
     border: none !important;
-    border-radius: var(--radius-md);
+    border-top: 1px solid var(--border-subtle) !important;
+    border-radius: 0 !important;
     color: var(--text-primary);
-    font-size: 14.5px;
-    line-height: 1.5;
+    font-size: 15px;
+    line-height: 1.55;
 }
 
 .result strong {
@@ -76,30 +77,30 @@
     font-weight: 800;
 }
 
-/* Sidebar Column */
+/* Sidebar Column — Zero Box */
 .tracker-sidebar {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 28px;
 }
 
 .side-card {
-    background-color: var(--bg-surface-subtle);
+    background: transparent !important;
     border: none !important;
-    border-radius: var(--radius-lg);
-    padding: 28px 24px;
+    border-radius: 0 !important;
+    padding: 0 !important;
     box-shadow: none !important;
 }
 
 .side-card h3 {
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .side-card p {
-    font-size: 13.5px;
+    font-size: 14px;
     color: var(--text-secondary);
     line-height: 1.5;
     margin-bottom: 18px;
@@ -108,17 +109,17 @@
 .factors-table {
     display: flex;
     flex-direction: column;
-    gap: 8px;
 }
 
 .factor-row {
     display: flex;
     justify-content: space-between;
-    padding: 10px 14px;
-    background-color: var(--bg-canvas);
+    padding: 11px 0 !important;
+    background: transparent !important;
     border: none !important;
-    border-radius: var(--radius-xs);
-    font-size: 13px;
+    border-bottom: 1px solid var(--border-subtle) !important;
+    border-radius: 0 !important;
+    font-size: 13.5px;
 }
 
 .factor-name {
