@@ -453,13 +453,6 @@ function displayActivities() {
 
 }
 
-            activityList.appendChild(card);
-
-        }
-    );
-
-}
-
 
 // ==========================================
 // CREATE ACTIVITY CARD
