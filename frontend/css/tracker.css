@@ -1,18 +1,19 @@
 /* ==========================================================================
    EcoTrack Activity Tracker Styles (tracker.css)
    Pure Open Layout - Zero Boxes Anywhere on the Page
+   Spacious, Elegant, Readable Typography
    ========================================================================== */
 
 .tracker-container {
-    max-width: 1040px;
-    margin: 0 auto 60px;
-    padding: 0 4%;
+    max-width: 1100px;
+    margin: 0 auto 80px;
+    padding: 0 5%;
 }
 
 .tracker-layout {
     display: grid;
     grid-template-columns: 1.4fr 1fr;
-    gap: 48px;
+    gap: 60px;
     align-items: start;
 }
 
@@ -28,30 +29,31 @@
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 20px;
 }
 
 .form-group-half {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 .extra-fields {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .extra-label {
     display: block;
     font-size: 13.5px;
-    font-weight: 600;
+    font-weight: 650;
     color: var(--text-primary);
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .tracker-submit-btn {
     width: 100%;
-    padding: 13px 22px;
-    font-size: 15px;
-    margin-top: 10px;
+    padding: 14px 26px;
+    font-size: 15.5px;
+    font-weight: 600;
+    margin-top: 14px;
     border-radius: var(--radius-pill);
 }
 
@@ -61,15 +63,15 @@
 }
 
 .result {
-    margin-top: 24px;
-    padding: 16px 0 !important;
+    margin-top: 28px;
+    padding: 20px 0 !important;
     background: transparent !important;
     border: none !important;
     border-top: 1px solid var(--border-subtle) !important;
     border-radius: 0 !important;
     color: var(--text-primary);
-    font-size: 15px;
-    line-height: 1.55;
+    font-size: 16px;
+    line-height: 1.65;
 }
 
 .result strong {
@@ -81,7 +83,7 @@
 .tracker-sidebar {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 36px;
 }
 
 .side-card {
@@ -93,17 +95,18 @@
 }
 
 .side-card h3 {
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 750;
     color: var(--text-primary);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    line-height: 1.3;
 }
 
 .side-card p {
-    font-size: 14px;
+    font-size: 14.5px;
     color: var(--text-secondary);
-    line-height: 1.5;
-    margin-bottom: 18px;
+    line-height: 1.65;
+    margin-bottom: 20px;
 }
 
 .factors-table {
@@ -114,12 +117,12 @@
 .factor-row {
     display: flex;
     justify-content: space-between;
-    padding: 11px 0 !important;
+    padding: 13px 0 !important;
     background: transparent !important;
     border: none !important;
     border-bottom: 1px solid var(--border-subtle) !important;
     border-radius: 0 !important;
-    font-size: 13.5px;
+    font-size: 14px;
 }
 
 .factor-name {
@@ -137,9 +140,11 @@
 @media (max-width: 850px) {
     .tracker-layout {
         grid-template-columns: 1fr;
+        gap: 40px;
     }
 
     .form-row {
         grid-template-columns: 1fr;
+        gap: 12px;
     }
 }

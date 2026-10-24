@@ -111,7 +111,7 @@ body {
     background-color: var(--bg-canvas);
     color: var(--text-primary);
     font-size: 15px;
-    line-height: 1.6;
+    line-height: 1.72;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -142,14 +142,14 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   NAVIGATION BAR (Seamless with background, no boxes)
+   NAVIGATION BAR (Seamless with background, generous breathing room)
    ========================================================================== */
 
 .navbar {
     background-color: var(--bg-canvas);
     border: none;
-    padding: 0 5%;
-    height: 64px;
+    padding: 0 6%;
+    height: 72px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -161,8 +161,8 @@ button, input, select, textarea {
 }
 
 .logo {
-    font-size: 21px;
-    font-weight: 800;
+    font-size: 22px;
+    font-weight: 850;
     color: var(--text-primary);
     letter-spacing: -0.03em;
     text-decoration: none !important;
@@ -171,14 +171,14 @@ button, input, select, textarea {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
 }
 
 .nav-links a {
     color: var(--text-secondary);
-    font-size: 14px;
+    font-size: 14.5px;
     font-weight: 500;
-    padding: 8px 14px;
+    padding: 9px 16px;
     border-radius: var(--radius-pill);
     text-decoration: none !important;
     transition: var(--transition);
@@ -200,7 +200,7 @@ button, input, select, textarea {
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
 
 /* Theme Toggle Button */
@@ -208,7 +208,7 @@ button, input, select, textarea {
     background-color: var(--bg-surface-subtle);
     color: var(--text-primary);
     border: none;
-    padding: 8px 16px;
+    padding: 9px 18px;
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
@@ -224,7 +224,7 @@ button, input, select, textarea {
     background-color: var(--bg-surface-subtle);
     color: var(--text-primary);
     border: none;
-    padding: 8px 16px;
+    padding: 9px 18px;
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
@@ -241,9 +241,9 @@ button, input, select, textarea {
 
 .nav-login-link {
     color: var(--text-primary);
-    font-size: 14px;
+    font-size: 14.5px;
     font-weight: 600;
-    padding: 8px 14px;
+    padding: 9px 16px;
     text-decoration: none !important;
 }
 
@@ -251,13 +251,13 @@ button, input, select, textarea {
     display: none;
     background: transparent;
     border: none;
-    padding: 6px;
+    padding: 8px;
     cursor: pointer;
     color: var(--text-primary);
 }
 
 /* ==========================================================================
-   BUTTONS (Clear, friendly, rounded)
+   BUTTONS (Clear, friendly, spacious, rounded)
    ========================================================================== */
 
 .btn,
@@ -271,9 +271,10 @@ button, input, select, textarea {
     gap: 8px;
     background-color: var(--btn-bg);
     color: var(--btn-text) !important;
-    font-size: 14px;
+    font-size: 14.5px;
     font-weight: 600;
-    padding: 11px 22px;
+    line-height: 1.4;
+    padding: 12px 24px;
     border: none;
     border-radius: var(--radius-pill);
     cursor: pointer;
@@ -298,9 +299,10 @@ button, input, select, textarea {
     gap: 8px;
     background-color: var(--btn-sec-bg);
     color: var(--btn-sec-text) !important;
-    font-size: 14px;
+    font-size: 14.5px;
     font-weight: 600;
-    padding: 11px 22px;
+    line-height: 1.4;
+    padding: 12px 24px;
     border: none;
     border-radius: var(--radius-pill);
     cursor: pointer;
@@ -314,8 +316,8 @@ button, input, select, textarea {
 }
 
 .btn-sm {
-    padding: 7px 16px;
-    font-size: 13px;
+    padding: 8px 18px;
+    font-size: 13.5px;
 }
 
 .goal-btn {
@@ -324,9 +326,9 @@ button, input, select, textarea {
     justify-content: center;
     background-color: var(--btn-bg);
     color: var(--btn-text) !important;
-    font-size: 13px;
+    font-size: 13.5px;
     font-weight: 600;
-    padding: 8px 18px;
+    padding: 9px 20px;
     border: none;
     border-radius: var(--radius-pill);
     cursor: pointer;
@@ -357,20 +359,20 @@ button, input, select, textarea {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 12px;
+    padding-bottom: 14px;
     border-bottom: 1px solid var(--border-subtle);
-    margin-bottom: 18px;
+    margin-bottom: 22px;
 }
 
 .dash-card-header h2 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 750;
     color: var(--text-primary);
     letter-spacing: -0.01em;
 }
 
 .header-link {
-    font-size: 13px;
+    font-size: 13.5px;
     font-weight: 600;
     color: var(--text-muted);
     text-decoration: none !important;
@@ -381,20 +383,37 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   FORMS (Clean, soft input fields, no surrounding box)
+   MICRO-EYEBROWS / LABELS
+   ========================================================================== */
+
+.section-eyebrow,
+.section-label,
+.sub-heading-eyebrow {
+    font-size: 11.5px;
+    font-weight: 750;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   FORMS (Clean, soft input fields, generous breathing room)
    ========================================================================== */
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    margin-bottom: 18px;
+    gap: 8px;
+    margin-bottom: 24px;
 }
 
 label {
     font-size: 13.5px;
-    font-weight: 600;
+    font-weight: 650;
     color: var(--text-primary);
+    margin-bottom: 2px;
 }
 
 input[type="text"],
@@ -405,13 +424,13 @@ input[type="date"],
 select,
 textarea {
     width: 100%;
-    padding: 11px 0;
+    padding: 12px 0;
     background-color: transparent !important;
     border: none !important;
     border-bottom: 2px solid var(--border-subtle) !important;
     border-radius: 0 !important;
     color: var(--text-primary);
-    font-size: 14.5px;
+    font-size: 15px;
     outline: none;
     transition: var(--transition);
 }
@@ -423,41 +442,46 @@ textarea:focus {
 }
 
 small {
-    font-size: 12px;
+    font-size: 12.5px;
     color: var(--text-muted);
+    margin-top: 4px;
 }
 
 /* ==========================================================================
-   PAGE HEADER (Seamless with background)
+   PAGE HEADER (Seamless with background, spacious header)
    ========================================================================== */
 
 .page-header {
     background-color: var(--bg-canvas);
     border: none;
-    padding: 32px 5% 20px;
-    margin-bottom: 24px;
+    padding: 48px 6% 28px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid var(--border-subtle);
 }
 
 .header-content {
-    max-width: 1100px;
+    max-width: 1140px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 24px;
 }
 
 .header-text h1 {
-    font-size: 26px;
-    font-weight: 800;
+    font-size: 32px;
+    font-weight: 850;
     color: var(--text-primary);
-    letter-spacing: -0.02em;
-    margin-bottom: 4px;
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+    line-height: 1.2;
 }
 
 .header-text p {
-    font-size: 14.5px;
+    font-size: 16px;
+    line-height: 1.7;
     color: var(--text-secondary);
+    max-width: 680px;
 }
 
 /* ==========================================================================
@@ -466,26 +490,26 @@ small {
 
 .empty-state {
     text-align: center;
-    padding: 48px 20px;
+    padding: 64px 20px;
     background-color: transparent;
     border: none;
-    margin: 16px 0;
+    margin: 20px 0;
 }
 
 .empty-state h3,
 .empty-state h2 {
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 750;
     color: var(--text-primary);
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .empty-state p {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--text-muted);
-    max-width: 440px;
-    margin: 0 auto 18px;
-    line-height: 1.5;
+    max-width: 480px;
+    margin: 0 auto 22px;
+    line-height: 1.65;
 }
 
 /* ==========================================================================
@@ -758,46 +782,46 @@ small {
 footer {
     background-color: var(--bg-canvas);
     border-top: 1px solid var(--border-subtle);
-    padding: 44px 5% 24px;
-    margin-top: 48px;
+    padding: 68px 6% 36px;
+    margin-top: 64px;
 }
 
 .footer-content {
-    max-width: 1100px;
+    max-width: 1140px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 30px;
-    padding-bottom: 24px;
+    gap: 48px;
+    padding-bottom: 32px;
     border-bottom: 1px solid var(--border-subtle);
 }
 
 .footer-logo {
-    font-size: 18px;
-    font-weight: 800;
+    font-size: 20px;
+    font-weight: 850;
     color: var(--text-primary);
     text-decoration: none !important;
     display: inline-block;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .footer-content p {
-    font-size: 13.5px;
+    font-size: 14px;
     color: var(--text-muted);
-    max-width: 360px;
-    line-height: 1.5;
+    max-width: 400px;
+    line-height: 1.65;
 }
 
 .footer-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 14px 22px;
+    gap: 16px 28px;
 }
 
 .footer-links a {
     color: var(--text-secondary);
-    font-size: 13.5px;
+    font-size: 14px;
     text-decoration: none !important;
 }
 
@@ -806,15 +830,15 @@ footer {
 }
 
 .footer-bottom {
-    max-width: 1100px;
-    margin: 16px auto 0;
+    max-width: 1140px;
+    margin: 24px auto 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 12.5px;
+    font-size: 13px;
     color: var(--text-muted);
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 12px;
 }
 
 .hidden {

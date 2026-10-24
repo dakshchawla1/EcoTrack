@@ -1,15 +1,16 @@
 /* ==========================================================================
    EcoTrack Challenges Styles (challenges.css)
    Pure Open Layout - Zero Boxes Anywhere on the Page
+   Spacious, Elegant, Readable Typography
    ========================================================================== */
 
 .challenges-container {
-    max-width: 1040px;
-    margin: 0 auto 60px;
-    padding: 0 4%;
+    max-width: 1100px;
+    margin: 0 auto 80px;
+    padding: 0 5%;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 56px;
 }
 
 /* Summary Card — Zero Box */
@@ -19,7 +20,7 @@
     border-bottom: 1px solid var(--border-subtle) !important;
     border-radius: 0 !important;
     box-shadow: none !important;
-    padding-bottom: 24px;
+    padding-bottom: 32px;
 }
 
 .summary-card {
@@ -27,19 +28,21 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 28px;
 }
 
 .summary-content h2 {
-    font-size: 20px;
-    font-weight: 750;
+    font-size: 24px;
+    font-weight: 800;
     color: var(--text-primary);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
 }
 
 .summary-content p {
-    font-size: 14.5px;
+    font-size: 15.5px;
     color: var(--text-secondary);
+    line-height: 1.65;
 }
 
 .completed-box {
@@ -51,20 +54,21 @@
 }
 
 .completed-number {
-    font-size: 32px;
+    font-size: 38px;
     font-weight: 850;
     color: var(--text-primary);
     display: block;
-    line-height: 1;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
 }
 
 .completed-text {
-    font-size: 11.5px;
-    font-weight: 700;
+    font-size: 12px;
+    font-weight: 750;
     color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-top: 4px;
+    letter-spacing: 0.08em;
+    margin-top: 6px;
     display: block;
 }
 
@@ -77,20 +81,21 @@
 }
 
 .section-title {
-    margin-bottom: 20px;
-    padding-bottom: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
     border-bottom: 1px solid var(--border-subtle);
 }
 
 .section-title h2 {
-    font-size: 20px;
-    font-weight: 750;
+    font-size: 22px;
+    font-weight: 800;
     color: var(--text-primary);
-    margin-bottom: 2px;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
 }
 
 .section-title p {
-    font-size: 14px;
+    font-size: 14.5px;
     color: var(--text-muted);
 }
 
@@ -105,26 +110,26 @@
     border: none !important;
     border-bottom: 1px solid var(--border-subtle) !important;
     border-radius: 0 !important;
-    padding: 18px 0 !important;
+    padding: 22px 0 !important;
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 22px;
     transition: var(--transition);
 }
 
 .challenge-card:hover {
-    opacity: 0.8;
+    opacity: 0.85;
 }
 
 .challenge-number {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     background: transparent !important;
     border: none !important;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 800;
     color: var(--text-muted);
     flex-shrink: 0;
@@ -135,32 +140,33 @@
 }
 
 .challenge-main h3 {
-    font-size: 15.5px;
-    font-weight: 700;
+    font-size: 16.5px;
+    font-weight: 750;
     color: var(--text-primary);
-    margin-bottom: 3px;
+    margin-bottom: 4px;
 }
 
 .challenge-description {
-    font-size: 13.5px;
+    font-size: 14px;
     color: var(--text-secondary);
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .challenge-progress {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 6px;
-    min-width: 120px;
+    gap: 8px;
+    min-width: 140px;
     flex-shrink: 0;
 }
 
 .challenge-status {
-    font-size: 11px;
-    font-weight: 700;
+    font-size: 11.5px;
+    font-weight: 750;
     text-transform: uppercase;
-    padding: 3px 10px;
+    letter-spacing: 0.05em;
+    padding: 4px 12px;
     border-radius: var(--radius-pill);
     background: var(--bg-surface-subtle);
     color: var(--text-muted);
@@ -172,7 +178,7 @@
 }
 
 .mini-bar {
-    width: 110px;
+    width: 130px;
     height: 6px;
     background: var(--bg-surface-subtle);
     border: none !important;
@@ -187,7 +193,7 @@
 }
 
 .progress-count {
-    font-size: 11.5px;
+    font-size: 12px;
     font-weight: 700;
     color: var(--text-muted);
 }
@@ -197,6 +203,7 @@
     .summary-card {
         flex-direction: column;
         align-items: flex-start;
+        gap: 16px;
     }
 
     .completed-box {
@@ -206,7 +213,7 @@
     .challenge-card {
         flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
+        gap: 14px;
     }
 
     .challenge-progress {

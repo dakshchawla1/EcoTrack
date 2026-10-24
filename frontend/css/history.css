@@ -1,16 +1,16 @@
 /* ==========================================================================
    EcoTrack History Styles (history.css)
    Pure Open Layout - Zero Boxes Anywhere on the Page
-   Seamless Monochrome Black & White
+   Spacious, Elegant, Readable Typography
    ========================================================================== */
 
 .history-container {
-    max-width: 1040px;
-    margin: 0 auto 60px;
-    padding: 0 4%;
+    max-width: 1100px;
+    margin: 0 auto 80px;
+    padding: 0 5%;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 56px;
 }
 
 /* --------------------------------------------------------------------------
@@ -21,8 +21,8 @@
 .history-summary-strip {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    padding-bottom: 28px;
+    gap: 44px;
+    padding-bottom: 32px;
     border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -37,21 +37,24 @@
 
 .summary-card span,
 .summary-stat-title {
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 750;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
     color: var(--text-muted);
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .summary-card strong,
 .summary-stat-value {
-    font-size: 32px;
+    font-size: 38px;
     font-weight: 850;
     color: var(--text-primary);
     display: block;
-    line-height: 1.1;
-    margin-bottom: 2px;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 4px;
 }
 
 .summary-card strong span {
@@ -63,8 +66,9 @@
 }
 
 .summary-stat-sub {
-    font-size: 12.5px;
+    font-size: 13px;
     color: var(--text-muted);
+    line-height: 1.5;
 }
 
 /* --------------------------------------------------------------------------
@@ -83,40 +87,43 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: 20px;
-    padding-bottom: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
     border-bottom: 1px solid var(--border-subtle);
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 20px;
 }
 
 .section-label {
-    font-size: 11px;
-    font-weight: 700;
+    font-size: 11.5px;
+    font-weight: 750;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.12em;
     color: var(--text-muted);
     display: block;
+    margin-bottom: 4px;
 }
 
 .calendar-title-wrap h2,
 .calendar-title-group h2 {
-    font-size: 22px;
-    font-weight: 750;
+    font-size: 24px;
+    font-weight: 800;
     color: var(--text-primary);
     margin: 4px 0 2px;
+    letter-spacing: -0.02em;
 }
 
 .calendar-subtitle {
-    font-size: 13.5px;
-    color: var(--text-muted);
+    font-size: 14.5px;
+    color: var(--text-secondary);
+    line-height: 1.5;
 }
 
 .calendar-nav-actions,
 .calendar-nav {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .calendar-grid-wrapper {
@@ -127,26 +134,27 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     text-align: center;
-    font-size: 12px;
-    font-weight: 700;
+    font-size: 12.5px;
+    font-weight: 750;
     color: var(--text-muted);
-    padding-bottom: 12px;
+    padding-bottom: 14px;
     border-bottom: 1px solid var(--border-subtle);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    letter-spacing: 0.04em;
 }
 
 .calendar-days-grid,
 .calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 6px;
+    gap: 8px;
 }
 
 .calendar-day {
-    min-height: 68px;
+    min-height: 76px;
     border: none !important;
     border-radius: var(--radius-sm);
-    padding: 8px 6px;
+    padding: 10px 8px;
     background: transparent !important;
     display: flex;
     flex-direction: column;
@@ -176,7 +184,7 @@
 }
 
 .day-number {
-    font-size: 13.5px;
+    font-size: 14px;
     font-weight: 600;
     color: var(--text-primary);
 }
@@ -204,18 +212,18 @@
 }
 
 .day-badge {
-    font-size: 10px;
+    font-size: 10.5px;
     font-weight: 700;
     color: var(--text-secondary);
     background: var(--bg-surface-subtle);
     border-radius: var(--radius-pill);
-    padding: 1px 6px;
+    padding: 2px 7px;
     display: inline-block;
     line-height: 1.3;
 }
 
 .day-emissions-text {
-    font-size: 11px;
+    font-size: 11.5px;
     font-weight: 600;
     color: var(--text-muted);
     margin-top: auto;
@@ -226,9 +234,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 12px;
-    margin-top: 16px;
-    padding: 14px 0 !important;
+    gap: 16px;
+    margin-top: 20px;
+    padding: 16px 0 !important;
     background: transparent !important;
     border: none !important;
     border-top: 1px solid var(--border-subtle) !important;
@@ -237,19 +245,19 @@
 }
 
 .selected-date-text {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--text-primary);
 }
 
 .selected-date-text strong {
     color: var(--text-primary);
-    font-weight: 700;
-    margin-right: 6px;
+    font-weight: 750;
+    margin-right: 8px;
 }
 
 .selected-date-text span {
     color: var(--text-muted);
-    font-size: 13px;
+    font-size: 13.5px;
 }
 
 /* --------------------------------------------------------------------------
@@ -260,7 +268,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 16px;
+    gap: 20px;
     background: transparent !important;
     border: none !important;
     padding: 0 !important;
@@ -270,15 +278,15 @@
 .search-box {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     background: var(--bg-surface-subtle);
     border: none !important;
     border-radius: var(--radius-pill);
-    padding: 0 16px;
-    height: 42px;
+    padding: 0 18px;
+    height: 46px;
     flex: 1;
-    min-width: 260px;
-    max-width: 520px;
+    min-width: 280px;
+    max-width: 540px;
 }
 
 .search-box input {
@@ -286,7 +294,7 @@
     outline: none;
     background: transparent;
     width: 100%;
-    font-size: 13.5px;
+    font-size: 14px;
     color: var(--text-primary);
 }
 
@@ -297,23 +305,23 @@
 .filter-box {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .filter-box label {
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 13.5px;
+    font-weight: 650;
     color: var(--text-muted);
 }
 
 .filter-box select {
-    height: 42px;
-    min-width: 160px;
-    font-size: 13.5px;
+    height: 46px;
+    min-width: 170px;
+    font-size: 14px;
     background: var(--bg-surface-subtle);
     border: none !important;
     border-radius: var(--radius-pill);
-    padding: 0 16px;
+    padding: 0 18px;
     color: var(--text-primary);
     cursor: pointer;
     outline: none;
@@ -334,15 +342,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
-    padding-bottom: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
     border-bottom: 1px solid var(--border-subtle);
 }
 
 .section-heading h2 {
-    font-size: 20px;
-    font-weight: 750;
+    font-size: 22px;
+    font-weight: 800;
     color: var(--text-primary);
+    letter-spacing: -0.01em;
 }
 
 .activity-list {
@@ -354,7 +363,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 0 !important;
+    padding: 18px 0 !important;
     background: transparent !important;
     border: none !important;
     border-bottom: 1px solid var(--border-subtle) !important;
@@ -369,12 +378,12 @@
 .activity-main {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
 }
 
 .activity-icon {
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: var(--radius-sm);
     background-color: var(--bg-surface-subtle);
     display: flex;
@@ -389,28 +398,29 @@
 }
 
 .activity-info h3 {
-    font-size: 15px;
-    font-weight: 650;
+    font-size: 16px;
+    font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 2px;
+    margin-bottom: 3px;
     text-transform: capitalize;
 }
 
 .activity-info p {
-    font-size: 13px;
+    font-size: 13.5px;
     color: var(--text-muted);
 }
 
 .activity-emission {
     text-align: right;
-    margin-right: 14px;
+    margin-right: 18px;
 }
 
 .activity-emission strong {
-    font-size: 15.5px;
-    font-weight: 750;
+    font-size: 16px;
+    font-weight: 800;
     color: var(--text-primary);
     display: block;
+    margin-bottom: 2px;
 }
 
 .activity-emission span {
@@ -429,10 +439,10 @@
     background: var(--bg-surface-subtle);
     border: none !important;
     border-radius: var(--radius-pill);
-    padding: 6px 14px;
+    padding: 7px 16px;
     cursor: pointer;
     color: var(--text-primary);
-    font-size: 13px;
+    font-size: 13.5px;
     font-weight: 600;
     transition: var(--transition);
 }
@@ -445,22 +455,23 @@
 /* Empty State */
 .empty-state {
     text-align: center;
-    padding: 48px 20px;
+    padding: 64px 20px;
     background: transparent !important;
     border: none !important;
 }
 
 .empty-state h3 {
-    font-size: 17px;
-    font-weight: 700;
+    font-size: 19px;
+    font-weight: 750;
     color: var(--text-primary);
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .empty-state p {
-    font-size: 13.5px;
+    font-size: 14.5px;
     color: var(--text-muted);
-    margin-bottom: 18px;
+    margin-bottom: 22px;
+    line-height: 1.6;
 }
 
 /* --------------------------------------------------------------------------
@@ -480,7 +491,7 @@
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    padding: 20px;
+    padding: 24px;
 }
 
 .modal.show,
@@ -498,8 +509,8 @@
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
     width: 100%;
-    max-width: 460px;
-    padding: 28px;
+    max-width: 480px;
+    padding: 32px;
     box-shadow: none;
 }
 
@@ -508,15 +519,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-    padding-bottom: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
     border-bottom: 1px solid var(--border-subtle);
 }
 
 .modal-header h2,
 .edit-modal-header h2 {
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 750;
     color: var(--text-primary);
 }
 
@@ -538,24 +549,24 @@
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    margin-bottom: 16px;
+    gap: 8px;
+    margin-bottom: 20px;
 }
 
 .form-group label {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text-muted);
+    font-size: 13.5px;
+    font-weight: 650;
+    color: var(--text-primary);
 }
 
 .form-group input {
-    height: 40px;
-    padding: 0 14px;
+    height: 44px;
+    padding: 0 16px;
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-sm);
     background: var(--bg-surface-subtle);
     color: var(--text-primary);
-    font-size: 14px;
+    font-size: 14.5px;
     outline: none;
 }
 
@@ -566,20 +577,20 @@
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 14px;
+    gap: 16px;
 }
 
 .form-error {
     font-size: 13px;
     color: #ff4d4f;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
 .modal-actions {
     display: flex;
     justify-content: flex-end;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 12px;
+    margin-top: 24px;
 }
 
 /* --------------------------------------------------------------------------
@@ -590,7 +601,7 @@
     .history-summary,
     .history-summary-strip {
         grid-template-columns: 1fr;
-        gap: 18px;
+        gap: 24px;
     }
 
     .history-controls {
@@ -627,20 +638,20 @@
     }
 
     .calendar-day {
-        min-height: 52px;
-        padding: 4px 2px;
+        min-height: 56px;
+        padding: 6px 3px;
     }
 
     .day-number {
-        font-size: 12px;
+        font-size: 12.5px;
     }
 
     .day-badge {
-        font-size: 9px;
+        font-size: 9.5px;
         padding: 1px 4px;
     }
 
     .day-emissions-text {
-        font-size: 9.5px;
+        font-size: 10px;
     }
 }
