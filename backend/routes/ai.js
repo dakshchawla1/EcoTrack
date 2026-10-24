@@ -46,11 +46,7 @@ async function callGeminiStructured(systemInstruction, userPrompt) {
         return null;
     }
 
-    const modelsToTry = [
-        process.env.GEMINI_MODEL || "gemini-3.5-flash",
-        "gemini-3.8-flash",
-        "gemini-1.5-flash"
-    ];
+    const model = process.env.GEMINI_MODEL || "gemini-3.5-flash";
 
     const requestBody = {
         contents: [
@@ -65,46 +61,41 @@ async function callGeminiStructured(systemInstruction, userPrompt) {
         ],
         generationConfig: {
             responseMimeType: "application/json",
-            temperature: 0.3
+            temperature: 0.2,
+            maxOutputTokens: 300,
+            thinkingConfig: {
+                thinkingBudget: 0
+            }
         }
     };
 
-    let lastError = null;
-    for (const model of modelsToTry) {
-        try {
-            const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
-            const response = await fetch(endpoint, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(requestBody),
-                signal: AbortSignal.timeout(8000)
-            });
+    try {
+        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+        const response = await fetch(endpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(requestBody),
+            signal: AbortSignal.timeout(4000)
+        });
 
-            if (!response.ok) {
-                const errorText = await response.text().catch(() => "");
-                lastError = new Error(`Gemini API (${model}) returned status ${response.status}: ${errorText}`);
-                continue;
-            }
-
-            const data = await response.json();
-            const candidateText = data.candidates?.[0]?.content?.parts?.[0]?.text;
-            if (!candidateText) {
-                lastError = new Error(`Empty candidate response from Gemini API (${model})`);
-                continue;
-            }
-
-            // Parse JSON safely
-            const cleanJson = candidateText.replace(/^\`\`\`json\s*/i, "").replace(/\s*\`\`\`$/, "").trim();
-            return JSON.parse(cleanJson);
-        } catch (err) {
-            lastError = err;
+        if (!response.ok) {
+            const errorText = await response.text().catch(() => "");
+            throw new Error(`Gemini API (${model}) returned status ${response.status}: ${errorText}`);
         }
-    }
 
-    if (lastError) {
-        throw lastError;
+        const data = await response.json();
+        const candidateText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (!candidateText) {
+            throw new Error(`Empty candidate response from Gemini API (${model})`);
+        }
+
+        // Parse JSON safely
+        const cleanJson = candidateText.replace(/^\`\`\`json\s*/i, "").replace(/\s*\`\`\`$/, "").trim();
+        return JSON.parse(cleanJson);
+    } catch (err) {
+        console.warn(`Gemini API fast-bypass (${model}):`, err.message);
+        return null; // Gracefully fall back to deterministic statistical engine immediately
     }
-    return null;
 }
 
 // ============================================================================

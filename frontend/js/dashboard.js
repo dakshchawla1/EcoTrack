@@ -232,8 +232,29 @@ async function loadEcoAiRecommendation() {
 
     if (!ecoAiLoading || !ecoAiBody) return;
 
-    ecoAiLoading.style.display = "flex";
-    ecoAiBody.style.display = "none";
+    // 1. Instant Cache-First Render: Show previously generated recommendation immediately
+    try {
+        const cached = sessionStorage.getItem("ecoai_recommendation_cache");
+        if (cached) {
+            const cachedData = JSON.parse(cached);
+            if (ecoAiTitle) ecoAiTitle.textContent = cachedData.title || "Personalized Reduction Target";
+            if (ecoAiAnalysis) ecoAiAnalysis.textContent = cachedData.analysis || "";
+            if (ecoAiRecommendation) ecoAiRecommendation.textContent = cachedData.recommendation || "";
+            if (ecoAiSaving) {
+                const saving = Number(cachedData.estimated_saving || 0);
+                ecoAiSaving.textContent = `~${saving.toFixed(1)} kg CO₂`;
+            }
+            ecoAiBody.style.display = "block";
+            ecoAiLoading.style.display = "none";
+        } else {
+            ecoAiLoading.style.display = "flex";
+            ecoAiBody.style.display = "none";
+        }
+    } catch {
+        ecoAiLoading.style.display = "flex";
+        ecoAiBody.style.display = "none";
+    }
+
     if (ecoAiEmpty) ecoAiEmpty.style.display = "none";
 
     try {
@@ -261,6 +282,10 @@ async function loadEcoAiRecommendation() {
         }
 
         ecoAiBody.style.display = "block";
+
+        try {
+            sessionStorage.setItem("ecoai_recommendation_cache", JSON.stringify(data));
+        } catch {}
 
     } catch (error) {
         console.warn("Impact recommendation notice:", error.message);
