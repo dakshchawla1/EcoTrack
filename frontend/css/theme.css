@@ -43,15 +43,15 @@
     --card-shadow: none;
     --card-shadow-hover: none;
 
-    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --font-family: "Times New Roman", Times, Georgia, serif;
+    --font-mono: "Times New Roman", Times, Georgia, serif;
 
-    --radius-xs: 6px;
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 16px;
-    --radius-xl: 20px;
-    --radius-pill: 9999px;
+    --radius-xs: 0px;
+    --radius-sm: 0px;
+    --radius-md: 0px;
+    --radius-lg: 0px;
+    --radius-xl: 0px;
+    --radius-pill: 0px;
 
     --transition: all 0.2s ease;
 }
@@ -103,19 +103,30 @@ html.dark-mode {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: var(--font-family);
+    font-family: "Times New Roman", Times, Georgia, serif !important;
     -webkit-font-smoothing: antialiased;
 }
 
 body {
     background-color: var(--bg-canvas);
     color: var(--text-primary);
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.72;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    font-family: "Times New Roman", Times, Georgia, serif !important;
     transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+h1, h2 {
+    font-family: "Times New Roman", Times, Georgia, serif !important;
+    font-weight: bold !important;
+}
+
+h3, h4, h5, h6 {
+    font-family: "Times New Roman", Times, Georgia, serif !important;
+    font-weight: normal !important;
 }
 
 main {
@@ -126,6 +137,7 @@ a {
     color: var(--text-primary);
     text-decoration: none !important;
     transition: var(--transition);
+    font-family: "Times New Roman", Times, Georgia, serif !important;
 }
 
 a:hover {
@@ -134,11 +146,12 @@ a:hover {
 }
 
 button, input, select, textarea {
-    font-family: inherit;
+    font-family: "Times New Roman", Times, Georgia, serif !important;
     font-size: inherit;
     color: inherit;
     border: none;
     outline: none;
+    border-radius: 0 !important;
 }
 
 /* ==========================================================================
@@ -176,12 +189,13 @@ button, input, select, textarea {
 
 .nav-links a {
     color: var(--text-secondary);
-    font-size: 14.5px;
-    font-weight: 500;
-    padding: 9px 16px;
-    border-radius: var(--radius-pill);
+    font-size: 15px;
+    font-weight: normal;
+    padding: 8px 16px;
+    border-radius: 0 !important;
     text-decoration: none !important;
     transition: var(--transition);
+    white-space: nowrap !important;
 }
 
 .nav-links a:hover {
@@ -193,7 +207,7 @@ button, input, select, textarea {
 .nav-links a.active {
     color: var(--text-primary);
     background-color: var(--bg-surface-subtle);
-    font-weight: 700;
+    font-weight: bold;
     text-decoration: none !important;
 }
 
@@ -201,18 +215,24 @@ button, input, select, textarea {
     display: flex;
     align-items: center;
     gap: 12px;
+    flex-wrap: nowrap !important;
 }
 
-/* Theme Toggle Button */
+/* Theme Toggle Button — Rectangular & Single-Line */
 .theme-toggle-btn {
     background-color: var(--bg-surface-subtle);
     color: var(--text-primary);
     border: none;
     padding: 9px 18px;
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: normal;
     cursor: pointer;
-    border-radius: var(--radius-pill);
+    border-radius: 0 !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
     transition: var(--transition);
 }
 
@@ -220,18 +240,22 @@ button, input, select, textarea {
     background-color: var(--bg-surface-muted);
 }
 
+/* Logout Button — Rectangular & Single-Line */
 .logout-btn {
     background-color: var(--bg-surface-subtle);
     color: var(--text-primary);
     border: none;
     padding: 9px 18px;
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: normal;
     cursor: pointer;
-    border-radius: var(--radius-pill);
-    display: inline-flex;
-    align-items: center;
+    border-radius: 0 !important;
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
     gap: 6px;
+    white-space: nowrap !important;
     transition: var(--transition);
 }
 
@@ -241,10 +265,14 @@ button, input, select, textarea {
 
 .nav-login-link {
     color: var(--text-primary);
-    font-size: 14.5px;
-    font-weight: 600;
-    padding: 9px 16px;
+    font-size: 15px;
+    font-weight: normal;
+    padding: 8px 16px;
+    border-radius: 0 !important;
     text-decoration: none !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
 }
 
 .nav-toggle {
@@ -257,7 +285,7 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   BUTTONS (Clear, friendly, spacious, rounded)
+   BUTTONS (Rectangular, single-line content, no rounded borders)
    ========================================================================== */
 
 .btn,
@@ -265,20 +293,22 @@ button, input, select, textarea {
 .main-button,
 .dark-button,
 .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
     gap: 8px;
     background-color: var(--btn-bg);
     color: var(--btn-text) !important;
-    font-size: 14.5px;
-    font-weight: 600;
-    line-height: 1.4;
-    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1;
+    padding: 13px 26px;
     border: none;
-    border-radius: var(--radius-pill);
+    border-radius: 0 !important;
     cursor: pointer;
     text-decoration: none !important;
+    white-space: nowrap !important;
     transition: var(--transition);
 }
 
@@ -293,20 +323,22 @@ button, input, select, textarea {
 
 .btn-secondary,
 .outline-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
     gap: 8px;
     background-color: var(--btn-sec-bg);
     color: var(--btn-sec-text) !important;
-    font-size: 14.5px;
-    font-weight: 600;
-    line-height: 1.4;
-    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 1;
+    padding: 13px 26px;
     border: none;
-    border-radius: var(--radius-pill);
+    border-radius: 0 !important;
     cursor: pointer;
     text-decoration: none !important;
+    white-space: nowrap !important;
     transition: var(--transition);
 }
 
@@ -317,22 +349,26 @@ button, input, select, textarea {
 
 .btn-sm {
     padding: 8px 18px;
-    font-size: 13.5px;
+    font-size: 14px;
+    border-radius: 0 !important;
+    white-space: nowrap !important;
 }
 
 .goal-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
     background-color: var(--btn-bg);
     color: var(--btn-text) !important;
-    font-size: 13.5px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: normal;
     padding: 9px 20px;
     border: none;
-    border-radius: var(--radius-pill);
+    border-radius: 0 !important;
     cursor: pointer;
     text-decoration: none !important;
+    white-space: nowrap !important;
 }
 
 .goal-btn:hover {
@@ -552,9 +588,10 @@ small {
 .ecoai-refresh-btn {
     background: var(--bg-surface-subtle);
     border: none;
-    border-radius: var(--radius-pill);
+    border-radius: 0 !important;
     color: var(--text-primary);
-    padding: 7px 12px;
+    padding: 8px 14px;
+    white-space: nowrap !important;
     cursor: pointer;
     transition: var(--transition);
 }
@@ -677,7 +714,7 @@ small {
     height: 8px;
     background-color: var(--bg-surface-subtle);
     border: none;
-    border-radius: var(--radius-pill);
+    border-radius: 0 !important;
     overflow: hidden;
 }
 
@@ -686,7 +723,7 @@ small {
 .mini-fill {
     height: 100%;
     background-color: var(--text-primary);
-    border-radius: var(--radius-pill);
+    border-radius: 0 !important;
     transition: width 0.3s ease;
 }
 
@@ -895,3 +932,192 @@ footer {
         gap: 20px;
     }
 }
+
+/* ==========================================================================
+   CLASSY EDITORIAL DESIGN SYSTEM:
+   1. "Times New Roman" ONLY everywhere
+   2. Important headings are BOLD, other headings & text are NORMAL
+   3. Rectangular buttons (NO circular/pill borders anywhere)
+   4. Button content in ONE LINE ONLY (no wrapping/stacking up-then-down)
+   ========================================================================== */
+
+*,
+*::before,
+*::after,
+html,
+body,
+button,
+input,
+select,
+textarea,
+h1, h2, h3, h4, h5, h6,
+p, span, a, label, small, strong, em, div, section, header, nav, footer {
+    font-family: "Times New Roman", Times, Georgia, serif !important;
+}
+
+/* Important Headings: BOLD */
+h1,
+h2,
+.hero-card h1,
+.section-header h2,
+.page-header h1,
+.header-text h1,
+.logo,
+.auth-brand,
+.auth-card h2,
+.cta-box h2,
+.summary-card strong,
+.stat-value-row strong,
+.unlocked-count,
+.completed-number,
+.stat-card strong,
+.breakdown-item strong,
+.summary-stat-value {
+    font-family: "Times New Roman", Times, Georgia, serif !important;
+    font-weight: bold !important;
+}
+
+/* Other Headings & Text: NORMAL */
+h3,
+h4,
+h5,
+h6,
+.pillar-card h3,
+.step-card h3,
+.cat-card h3,
+.feature-item h3,
+.tip-card h3,
+.category-content h3,
+.dash-card-header h2,
+.section-title h2,
+.section-heading h2,
+.challenge-main h3,
+.achievement-info h3,
+.quick-card h3,
+.activity-info h3,
+.summary-content h2,
+.profile-heading h2,
+.side-card h3,
+.empty-state h3,
+.empty-state h2,
+.modal-header h2,
+.edit-modal-header h2,
+.goal-modal-header h2,
+.hero-text,
+.section-header p,
+.header-text p,
+.activity-info p,
+.cat-card p,
+.pillar-card p,
+.step-card p,
+.feature-item p,
+.tip-card p,
+p,
+span,
+a,
+label,
+small,
+input,
+select,
+textarea {
+    font-weight: normal;
+}
+
+/* Important Action Buttons are BOLD, secondary/subtle are NORMAL */
+.btn-primary,
+.primary-button,
+.main-button,
+.auth-submit-btn,
+.tracker-submit-btn {
+    font-weight: bold !important;
+}
+
+.btn-secondary,
+.outline-button,
+.theme-toggle-btn,
+.logout-btn,
+.nav-login-link,
+.goal-btn,
+.edit-btn,
+.delete-btn {
+    font-weight: normal !important;
+}
+
+/* Rectangular Buttons & Interactive Elements (NO circular or pill borders) */
+button,
+.btn,
+.primary-button,
+.main-button,
+.dark-button,
+.btn-primary,
+.btn-secondary,
+.outline-button,
+.btn-sm,
+.goal-btn,
+.theme-toggle-btn,
+.logout-btn,
+.nav-login-link,
+.nav-links a,
+.edit-btn,
+.delete-btn,
+.tracker-submit-btn,
+.auth-submit-btn,
+.google-btn,
+.cat-tag,
+.day-badge,
+.challenge-status,
+.achievement-status,
+.search-box,
+.filter-box select,
+.modal-content,
+.edit-modal-content,
+.goal-modal-content,
+.progress-track,
+.progress-fill,
+.goal-progress-bar,
+.goal-progress-fill,
+.mini-bar,
+.mini-fill {
+    border-radius: 0 !important;
+}
+
+/* Button Content Strictly on ONE Single Line (never up-then-down) */
+button,
+.btn,
+.primary-button,
+.main-button,
+.dark-button,
+.btn-primary,
+.btn-secondary,
+.outline-button,
+.btn-sm,
+.goal-btn,
+.theme-toggle-btn,
+.logout-btn,
+.nav-login-link,
+.nav-actions button,
+.nav-actions a,
+.edit-btn,
+.delete-btn,
+.tracker-submit-btn,
+.auth-submit-btn,
+.google-btn {
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+    flex-shrink: 0 !important;
+    line-height: 1 !important;
+}
+
+.logout-btn svg,
+.btn svg,
+.google-icon-svg {
+    flex-shrink: 0 !important;
+    margin-right: 6px !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+}
+

@@ -54,7 +54,7 @@
     font-size: 15.5px;
     font-weight: 600;
     margin-top: 14px;
-    border-radius: var(--radius-pill);
+    border-radius: 0 !important;
 }
 
 /* Result Box — Clean Text Block, Zero Box */

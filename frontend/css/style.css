@@ -1,7 +1,7 @@
 /* ==========================================================================
    EcoTrack Landing Page Styles (style.css)
    Pure Open Layout - Zero Boxes Anywhere on the Page
-   Spacious, Elegant, Readable Typography
+   Classy Editorial Design — Times New Roman & Rectangular Buttons
    ========================================================================== */
 
 /* Hero Section */
@@ -26,20 +26,21 @@
 
 .hero-card h1 {
     font-size: 52px;
-    font-weight: 850;
+    font-weight: bold !important;
     color: var(--text-primary);
     line-height: 1.15;
-    letter-spacing: -0.035em;
+    letter-spacing: -0.02em;
     margin: 0 auto 24px;
     max-width: 840px;
 }
 
 .hero-text {
-    font-size: 18.5px;
+    font-size: 19px;
     line-height: 1.75;
     color: var(--text-secondary);
     margin: 0 auto 40px;
     max-width: 700px;
+    font-weight: normal;
 }
 
 .hero-actions {
@@ -66,8 +67,8 @@
     background: transparent !important;
     border: none !important;
     border-radius: 0 !important;
-    font-size: 14.5px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: normal;
     color: var(--text-muted);
 }
 
@@ -76,7 +77,8 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
-    font-size: 13.5px;
+    font-size: 14px;
+    font-weight: normal;
     color: var(--text-muted);
     flex-wrap: wrap;
     padding-top: 32px;
@@ -110,17 +112,18 @@
 
 .section-header h2 {
     font-size: 34px;
-    font-weight: 850;
+    font-weight: bold !important;
     color: var(--text-primary);
-    letter-spacing: -0.025em;
+    letter-spacing: -0.01em;
     line-height: 1.25;
     margin-bottom: 14px;
 }
 
 .section-header p {
-    font-size: 16.5px;
+    font-size: 17px;
     color: var(--text-secondary);
     line-height: 1.7;
+    font-weight: normal;
 }
 
 /* 3 Pillars / What We Do — ZERO BOXES */
@@ -140,7 +143,7 @@
 
 .pillar-number {
     font-size: 14px;
-    font-weight: 800;
+    font-weight: bold;
     color: var(--text-muted);
     margin-bottom: 14px;
     display: block;
@@ -149,7 +152,7 @@
 
 .pillar-card h3 {
     font-size: 20px;
-    font-weight: 750;
+    font-weight: normal !important;
     color: var(--text-primary);
     margin-bottom: 12px;
     line-height: 1.3;
@@ -159,6 +162,7 @@
     font-size: 15px;
     color: var(--text-secondary);
     line-height: 1.7;
+    font-weight: normal;
 }
 
 /* 3 Steps / How It Works — ZERO BOXES */
@@ -179,7 +183,7 @@
 .step-num {
     display: inline-block;
     font-size: 12px;
-    font-weight: 800;
+    font-weight: bold;
     padding: 0;
     background: transparent !important;
     color: var(--text-muted);
@@ -190,7 +194,7 @@
 
 .step-card h3 {
     font-size: 20px;
-    font-weight: 750;
+    font-weight: normal !important;
     color: var(--text-primary);
     margin-bottom: 12px;
     line-height: 1.3;
@@ -200,6 +204,7 @@
     font-size: 15px;
     color: var(--text-secondary);
     line-height: 1.7;
+    font-weight: normal;
 }
 
 /* 4 Categories — ZERO BOXES */
@@ -220,40 +225,42 @@
 }
 
 .cat-tag {
-    font-size: 11.5px;
-    font-weight: 800;
+    font-size: 12px;
+    font-weight: bold;
     color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     margin-bottom: 8px;
     display: block;
 }
 
 .cat-card h3 {
     font-size: 19px;
-    font-weight: 750;
+    font-weight: normal !important;
     color: var(--text-primary);
     margin-bottom: 10px;
     line-height: 1.3;
 }
 
 .cat-card p {
-    font-size: 14.5px;
+    font-size: 15px;
     color: var(--text-secondary);
     line-height: 1.65;
     flex: 1;
     margin-bottom: 20px;
+    font-weight: normal;
 }
 
 .cat-stat {
     border-top: 1px solid var(--border-subtle);
     padding-top: 14px;
-    font-size: 13px;
+    font-size: 13.5px;
     color: var(--text-muted);
     display: flex;
     flex-direction: column;
     gap: 4px;
     line-height: 1.6;
+    font-weight: normal;
 }
 
 /* Features Grid — ZERO BOXES */
@@ -273,7 +280,7 @@
 
 .feature-item h3 {
     font-size: 19px;
-    font-weight: 750;
+    font-weight: normal !important;
     color: var(--text-primary);
     margin-bottom: 10px;
     line-height: 1.3;
@@ -283,6 +290,7 @@
     font-size: 15px;
     color: var(--text-secondary);
     line-height: 1.7;
+    font-weight: normal;
 }
 
 /* Final CTA — ZERO BOXES */
@@ -308,19 +316,20 @@
 
 .cta-box h2 {
     font-size: 34px;
-    font-weight: 850;
+    font-weight: bold !important;
     color: var(--text-primary);
     margin-bottom: 16px;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.01em;
     line-height: 1.25;
 }
 
 .cta-box p {
-    font-size: 17px;
+    font-size: 17.5px;
     color: var(--text-secondary);
     max-width: 580px;
     margin: 0 auto 36px;
     line-height: 1.7;
+    font-weight: normal;
 }
 
 .cta-actions {

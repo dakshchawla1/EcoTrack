@@ -167,7 +167,7 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     padding: 4px 12px;
-    border-radius: var(--radius-pill);
+    border-radius: 0 !important;
     background: var(--bg-surface-subtle);
     color: var(--text-muted);
 }
@@ -182,7 +182,7 @@
     height: 6px;
     background: var(--bg-surface-subtle);
     border: none !important;
-    border-radius: var(--radius-pill);
+    border-radius: 0 !important;
     overflow: hidden;
 }
 
