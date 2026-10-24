@@ -119,14 +119,9 @@ body {
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-h1, h2 {
+h1, h2, h3, h4, h5, h6 {
     font-family: "Times New Roman", Times, Georgia, serif !important;
     font-weight: bold !important;
-}
-
-h3, h4, h5, h6 {
-    font-family: "Times New Roman", Times, Georgia, serif !important;
-    font-weight: normal !important;
 }
 
 main {
@@ -955,9 +950,13 @@ p, span, a, label, small, strong, em, div, section, header, nav, footer {
     font-family: "Times New Roman", Times, Georgia, serif !important;
 }
 
-/* Important Headings: BOLD */
+/* Headings, Primary Driver, and Sub-headings: BOLD */
 h1,
 h2,
+h3,
+h4,
+h5,
+h6,
 .hero-card h1,
 .section-header h2,
 .page-header h1,
@@ -966,22 +965,6 @@ h2,
 .auth-brand,
 .auth-card h2,
 .cta-box h2,
-.summary-card strong,
-.stat-value-row strong,
-.unlocked-count,
-.completed-number,
-.stat-card strong,
-.breakdown-item strong,
-.summary-stat-value {
-    font-family: "Times New Roman", Times, Georgia, serif !important;
-    font-weight: bold !important;
-}
-
-/* Other Headings & Text: NORMAL */
-h3,
-h4,
-h5,
-h6,
 .pillar-card h3,
 .step-card h3,
 .cat-card h3,
@@ -1003,6 +986,49 @@ h6,
 .modal-header h2,
 .edit-modal-header h2,
 .goal-modal-header h2,
+.summary-card strong,
+.stat-value-row strong,
+.unlocked-count,
+.completed-number,
+.stat-card strong,
+.breakdown-item strong,
+.summary-stat-value,
+.ecoai-block-label,
+.ecoai-action-badge,
+.ecoai-tag {
+    font-family: "Times New Roman", Times, Georgia, serif !important;
+    font-weight: bold !important;
+}
+
+/* Specific styling for Primary Driver, Trend & Trajectory, and Suggested Action */
+.ecoai-block-label,
+.ecoai-action-badge {
+    font-family: "Times New Roman", Times, Georgia, serif !important;
+    font-weight: bold !important;
+    font-size: 16.5px !important;
+    color: var(--text-primary) !important;
+    display: block !important;
+    margin-bottom: 6px !important;
+}
+
+.ecoai-analysis-block {
+    margin-bottom: 18px !important;
+}
+
+.ecoai-action-box {
+    margin-bottom: 18px !important;
+}
+
+.ecoai-block-text,
+.ecoai-action-text {
+    font-weight: normal !important;
+    line-height: 1.65 !important;
+    font-size: 15px !important;
+    color: var(--text-secondary) !important;
+    margin-bottom: 0 !important;
+}
+
+/* Body Text, Subtitles, Descriptions: NORMAL */
 .hero-text,
 .section-header p,
 .header-text p,
