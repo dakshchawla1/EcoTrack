@@ -271,12 +271,19 @@ button, input, select, textarea {
 }
 
 .nav-toggle {
-    display: none;
+    display: none !important;
     background: transparent;
     border: none;
-    padding: 8px;
+    padding: 6px;
     cursor: pointer;
     color: var(--text-primary);
+    line-height: 1;
+}
+
+.nav-toggle svg {
+    display: block;
+    width: 24px;
+    height: 24px;
 }
 
 /* ==========================================================================
@@ -881,16 +888,65 @@ footer {
    RESPONSIVE
    ========================================================================== */
 
-@media (max-width: 850px) {
+/* ==========================================================================
+   RESPONSIVE NAVBAR & LAYOUT
+   - REMOVE FOR LAPTOP: nav-toggle is strictly hidden on laptop/desktop
+   - USE FOR PHONE: hamburger toggle enabled for phones (max-width: 768px)
+   ========================================================================== */
+
+/* Laptop & Desktop screens: Full horizontal navbar, NO hamburger icon */
+@media (min-width: 769px) {
+    .nav-toggle {
+        display: none !important;
+    }
+
+    .nav-links {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        width: auto !important;
+        border-top: none !important;
+        margin-top: 0 !important;
+        gap: clamp(6px, 1.2vw, 16px) !important;
+    }
+
+    .nav-links a {
+        padding: 8px clamp(8px, 1vw, 14px) !important;
+        font-size: 15px !important;
+        width: auto !important;
+    }
+}
+
+/* Phones & Mobile devices: Crisp 3-bar hamburger menu */
+@media (max-width: 768px) {
     .navbar {
         height: auto;
-        min-height: 60px;
+        min-height: 58px;
         flex-wrap: wrap;
         padding: 10px 4%;
     }
 
+    .logo {
+        order: 1;
+    }
+
     .nav-toggle {
-        display: block;
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: none;
+        padding: 6px;
+        cursor: pointer;
+        color: var(--text-primary);
+        order: 2;
+        margin-left: auto;
+    }
+
+    .nav-actions {
+        order: 3;
+        margin-left: 10px;
+        gap: 8px;
     }
 
     .nav-links {
@@ -901,20 +957,18 @@ footer {
         padding: 12px 0 6px;
         gap: 4px;
         border-top: 1px solid var(--border-subtle);
-        margin-top: 8px;
+        margin-top: 10px;
+        order: 4;
     }
 
     .nav-links.nav-open {
-        display: flex;
+        display: flex !important;
     }
 
     .nav-links a {
         width: 100%;
-        padding: 8px 12px;
-    }
-
-    .nav-actions {
-        margin-left: auto;
+        padding: 10px 12px;
+        font-size: 16px;
     }
 
     .header-content {
